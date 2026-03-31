@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kapadokya'da Rüya</title>
+  <title>Kapadokya'da Rüya | VIP Tur & Balon Deneyimi</title>
+  <meta name="description" content="Kapadokya'nın efsanevi Kırmızı, Yeşil ve Mavi turları ile sıcak hava balonu deneyimi. SHGM onaylı pilotlar, transfer hizmeti ve gün doğumu uçuşları. Detaylı rehber." />
+  <meta name="keywords" content="Kapadokya tur, sıcak hava balonu, Kırmızı Tur, Yeşil Tur, Mavi Tur, Göreme, peribacaları, Kapadokya balon turu" />
+  <meta property="og:title" content="Kapadokya'da Rüya | VIP Tur & Balon Deneyimi" />
+  <meta property="og:description" content="Kırmızı, Yeşil ve Mavi turların tam karşılaştırması. SHGM lisanslı balon turu rehberi, fiyatlar ve sezon tavsiyesi." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -994,6 +998,199 @@
       body { cursor: auto; }
       .cursor, .cursor-ring { display: none; }
     }
+
+    /* ══════════════════════════════════════
+       SEO REHBERLERİ
+    ══════════════════════════════════════ */
+    .rehber-section {
+      padding: 8rem 0;
+      background: var(--white);
+    }
+    .rehber-section:nth-of-type(even) {
+      background: var(--cream);
+    }
+    .rehber-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 4rem;
+    }
+    .rehber-snippet {
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem 2rem;
+      background: var(--cream-dark);
+      margin-bottom: 3.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--brown);
+    }
+    .rehber-snippet strong {
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      letter-spacing: .3em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: .75rem;
+    }
+    .rehber-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--brown-dark);
+      margin-bottom: 2.5rem;
+    }
+    .rehber-h1 em { font-style: italic; color: var(--brown-mid); }
+    .rehber-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--brown-dark);
+      margin: 3.5rem 0 1.2rem;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid rgba(201,147,58,.2);
+    }
+    .rehber-h3 {
+      font-family: 'Cinzel', serif;
+      font-size: .8rem;
+      letter-spacing: .2em;
+      color: var(--gold);
+      margin: 2.5rem 0 1rem;
+    }
+    .rehber-p {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: .95rem;
+      line-height: 1.9;
+      color: var(--brown);
+      margin-bottom: 1.2rem;
+    }
+    .rehber-table-wrap {
+      overflow-x: auto;
+      margin: 2rem 0 3rem;
+    }
+    .rehber-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Jost', sans-serif;
+      font-size: .85rem;
+    }
+    .rehber-table th {
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      letter-spacing: .2em;
+      color: var(--cream);
+      background: var(--brown-dark);
+      padding: .9rem 1rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .rehber-table td {
+      padding: .8rem 1rem;
+      border-bottom: 1px solid var(--cream-dark);
+      color: var(--brown);
+      vertical-align: top;
+    }
+    .rehber-table tr:nth-child(even) td { background: var(--cream); }
+    .rehber-table tr:hover td { background: rgba(201,147,58,.06); }
+    .rehber-faq { margin-top: 4rem; }
+    .rehber-faq-title {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .4em;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+    .faq-item {
+      border-top: 1px solid rgba(201,147,58,.2);
+    }
+    .faq-item:last-child { border-bottom: 1px solid rgba(201,147,58,.2); }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 1.2rem 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--brown-dark);
+      cursor: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-q::after {
+      content: '+';
+      font-family: 'Jost', sans-serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform .3s;
+    }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, padding .3s;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: .9rem;
+      line-height: 1.85;
+      color: var(--brown);
+    }
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding-bottom: 1.2rem;
+    }
+    .rehber-cta-box {
+      margin-top: 4rem;
+      padding: 3rem;
+      border: 1px solid rgba(201,147,58,.3);
+      background: var(--cream-dark);
+      text-align: center;
+    }
+    .rehber-cta-box p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .btn-rehber {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      letter-spacing: .25em;
+      color: var(--cream);
+      background: var(--brown-dark);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      transition: background .3s;
+      cursor: none;
+    }
+    .btn-rehber:hover { background: var(--gold); color: var(--brown-dark); }
+    .rehber-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 3rem 0;
+    }
+    .rehber-divider::before, .rehber-divider::after {
+      content: ''; flex: 1; height: 1px;
+      background: rgba(201,147,58,.25);
+    }
+    .rehber-divider span {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      opacity: .6;
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .rehber-inner { padding: 0 1.5rem; }
+      .rehber-section { padding: 5rem 0; }
+      .rehber-table th, .rehber-table td { padding: .6rem .7rem; font-size: .78rem; }
+      .rehber-cta-box { padding: 2rem 1.5rem; }
+    }
   </style>
 </head>
 
@@ -1019,6 +1216,7 @@
     <li><a href="#odalar">VIP TURLAR</a></li>
     <li><a href="#tur-programlari">TUR PROGRAMLARI</a></li>
     <li><a href="#galeri">GALERİ</a></li>
+    <li><a href="#rehber-turlar">REHBERLERİ</a></li>
   </ul>
 </nav>
 
@@ -1712,6 +1910,223 @@
 </section>
 
 
+<!-- ═══ REHBERLERİ ═══ -->
+
+<!-- Tur Rehberi -->
+<section class="rehber-section" id="rehber-turlar">
+  <div class="rehber-inner">
+
+    <p class="section-label reveal">KAPPADOKYA TUR REHBERİ</p>
+    <h1 class="rehber-h1 reveal reveal-delay-1">Kapadokya'da Hangi Tura Katılmalısınız?<br/><em>Kırmızı, Yeşil ve Mavi Tur Karşılaştırması</em></h1>
+
+    <div class="rehber-snippet reveal reveal-delay-2">
+      <strong>ÖNE ÇIKAN ÖZET</strong>
+      Kapadokya'nın Kırmızı Tur, Yeşil Tur ve Mavi Tur güzergahları; bölgenin en ikonik vadilerini, yeraltı şehirlerini ve peri bacalarını kapsayan profesyonel rehberli günlük turlarıdır. Her tur farklı bir coğrafi bölgeyi ve deneyim yoğunluğunu hedefler — doğru seçim, zamanınızı ve beklentinizi doğrudan belirler.
+    </div>
+
+    <div class="rehber-divider reveal"><span></span></div>
+
+    <h2 class="rehber-h2 reveal">Kırmızı Tur: Kapadokya'nın Klasik Kuzey Rotası</h2>
+    <p class="rehber-p reveal">Kırmızı Tur, Kapadokya'ya ilk kez gelenlerin büyük çoğunluğunun tercih ettiği rota olarak öne çıkar. Sabah 09:30'da Göreme'den hareket eden tur; Göreme Açık Hava Müzesi, Uçhisar Kalesi, Paşabağ Peribacaları ve Devrent Vadisi'ni kapsar. Uçhisar'ın zirvesinden uzanan panoramik Erciyes manzarası, Kırmızı Tur'un en çok fotoğraflanan karesi olarak öne çıkar.</p>
+    <p class="rehber-p reveal">Mesafe yaklaşık 65 kilometredir, tur ortalama 7-8 saat sürer. Orta kondisyon düzeyi yeterlidir.</p>
+
+    <h3 class="rehber-h3 reveal">Fotoğraf Çekimi İçin En İyi Saatler</h3>
+    <p class="rehber-p reveal">Kızılçukur Vadisi'nde sabah 07:00-08:30 arası "altın saat" yakalanabilir. Bu zaman dilimi standart tur programının dışında olduğundan sabah erken bağımsız bir vadi yürüyüşü planlamak deneyimi ikiye katlar.</p>
+
+    <div class="rehber-divider reveal"><span></span></div>
+
+    <h2 class="rehber-h2 reveal">Yeşil Tur: Yeraltı Dünyasına ve Ihlara Vadisi'ne Yolculuk</h2>
+    <p class="rehber-p reveal">Yeşil Tur, güneybatı Kapadokya'ya uzanan ve fiziksel açıdan en zorlu güzergahtır. Ihlara Vadisi boyunca 3-4 saatlik yürüyüş, Selime Manastırı ve Derinkuyu Yeraltı Şehri bu turun omurgasını oluşturur. Toplam güzergah süresi 9-10 saati bulabilir.</p>
+    <p class="rehber-p reveal">Ihlara Vadisi'nde Melendiz Nehri boyunca yürürken vadi duvarlarına oyulmuş Bizans dönemi kiliseleri görülür. 9. yüzyıl fresklerinin korunma kalitesi birçok kapalı müzedekini geride bırakır.</p>
+
+    <h3 class="rehber-h3 reveal">Yeraltı Şehirlerinde Güvenlik</h3>
+    <p class="rehber-p reveal">Derinkuyu 8 kat derinliğe iner ve dar geçitler içerir. Klaustrofobi yaşayan ziyaretçilerin önceden bilgi vermesi önerilir. Sağlam tabanlı, kapalı burunlu ayakkabı zorunludur.</p>
+
+    <div class="rehber-divider reveal"><span></span></div>
+
+    <h2 class="rehber-h2 reveal">Mavi Tur: Sakin, Özgün ve Az Keşfedilmiş Güney Rotası</h2>
+    <p class="rehber-p reveal">Mavi Tur, Kapadokya'nın güney aksını takip eden ve kalabalıktan en uzak güzergahı temsil eder. Mustafapaşa kasabası, Soğanlı Vadisi ve Nar Gölü bu turun ana duraklarıdır. Kırmızı ve Yeşil turlara kıyasla çok daha az turist barındırır — bu durum hem fotoğraf hem atmosfer açısından ciddi bir avantaj yaratır.</p>
+    <p class="rehber-p reveal">Soğanlı Vadisi'ndeki kaya kiliseleri, UNESCO listesindeki Göreme kadar tanınmasa da mimari açıdan daha az değildir. Tüm vadiyi yalnızca küçük bir grupla keşfetmek mümkün olabilir.</p>
+
+    <h2 class="rehber-h2 reveal">Üç Turun Hızlı Karşılaştırması</h2>
+
+    <div class="rehber-table-wrap reveal">
+      <table class="rehber-table">
+        <thead>
+          <tr>
+            <th>Özellik</th>
+            <th>Kırmızı Tur</th>
+            <th>Yeşil Tur</th>
+            <th>Mavi Tur</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Süre</td><td>7-8 saat</td><td>9-10 saat</td><td>8-9 saat</td></tr>
+          <tr><td>Zorluk</td><td>Orta</td><td>Orta-Zor</td><td>Kolay-Orta</td></tr>
+          <tr><td>Kalabalık</td><td>Yüksek</td><td>Orta</td><td>Düşük</td></tr>
+          <tr><td>Öne çıkan deneyim</td><td>Peri bacaları &amp; panorama</td><td>Yeraltı şehri &amp; vadi</td><td>Otantik köy &amp; sessizlik</td></tr>
+          <tr><td>İlk kez gelenler için</td><td>✓ İdeal</td><td>△ Koşullu</td><td>✓ İdeal</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="rehber-h2 reveal">Transfer Hizmeti ve Sezon Tavsiyesi</h2>
+    <p class="rehber-p reveal">Üç tur da sabah otelden alımla başlar. Göreme, Avanos, Ürgüp ve Mustafapaşa çıkışlı transferler standarttır. Kayseri veya Nevşehir havalimanından gelenler için havalimanı-otel-tur entegre transferi ayrıca organize edilebilir.</p>
+    <p class="rehber-p reveal">En ideal dönem Mayıs-Haziran ile Eylül-Ekim'dir. Balon sezonu Nisan'dan Kasım'a uzanır. Turu balonla birleştirmek isteyenler için Mayıs ve Ekim ideal denge noktasıdır: ne yaz kalabalığı ne kış belirsizliği.</p>
+
+    <div class="rehber-faq reveal">
+      <p class="rehber-faq-title">SIKÇA SORULAN SORULAR</p>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Hangi tura önce katılmalıyım?</button>
+        <div class="faq-a">İlk kez geliyorsanız Kırmızı Tur ile başlamanız önerilir. Temel coğrafyayı anlamanızı sağlar ve diğer turlar için bağlam oluşturur.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Turlar yağmurlu havada iptal edilir mi?</button>
+        <div class="faq-a">Hafif yağış iptal gerekçesi değildir; turlar devam eder. Şiddetli fırtına durumunda tur sabahı bilgilendirme yapılır ve alternatif tarih sunulur.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Yeşil Tur fiziksel olarak zor mu?</button>
+        <div class="faq-a">Ihlara Vadisi yürüyüşü 3-4 km düz zemin içerir. Kronik diz veya kalça problemi olanların önceden danışması önerilir. 65 yaş üstü katılımcılar için kısaltılmış versiyon mevcuttur.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Çocuklar turları yapabilir mi?</button>
+        <div class="faq-a">8 yaş üstü çocuklar Kırmızı ve Mavi turlara rahatlıkla katılabilir. Yeşil Tur için 10 yaş ve üstü önerilir; Derinkuyu'nun dar galerileri küçük çocuklar için bunaltıcı olabilir.</div>
+      </div>
+    </div>
+
+    <div class="rehber-cta-box reveal">
+      <p>Kapadokya'nın eşsiz vadilerini rehberli bir tur eşliğinde keşfetmeye hazır mısınız?</p>
+      <a href="#tur-programlari" class="btn-rehber">TUR PROGRAMLARINI İNCELE</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Balon Turu Rehberi -->
+<section class="rehber-section" id="rehber-balon">
+  <div class="rehber-inner">
+
+    <p class="section-label reveal">SICAK HAVA BALONU REHBERİ</p>
+    <h1 class="rehber-h1 reveal reveal-delay-1">Kapadokya'da Sıcak Hava Balonu:<br/><em>Gün Doğumunda Gökyüzünden Peri Bacaları</em></h1>
+
+    <div class="rehber-snippet reveal reveal-delay-2">
+      <strong>ÖNE ÇIKAN ÖZET</strong>
+      Kapadokya sıcak hava balonu turu, Türkiye Sivil Havacılık Genel Müdürlüğü (SHGM) tarafından lisanslı operatörler aracılığıyla gün doğumundan önce başlayan, ortalama 60-90 dakika süren bir uçuş deneyimidir. Göreme Milli Parkı üzerinde irtifaya çıkan balonlar; Kızılçukur Vadisi, Güvercinlik Vadisi ve Peribacaları silüetini tek bir karede sunar. Uçuşun gerçekleşip gerçekleşmeyeceğini belirleyen en kritik faktör rüzgar hızıdır.
+    </div>
+
+    <div class="rehber-divider reveal"><span></span></div>
+
+    <h2 class="rehber-h2 reveal">Kapadokya Balonu Neden Dünyanın En İyi Destinasyonu?</h2>
+    <p class="rehber-p reveal">Dünyanın dört bir yanında balon uçuşu yapılan yer yüzlerle ifade edilir — ama Kapadokya ayrı bir kategoride durur. Bunun nedeni yalnızca Peribacaları'nın estetik gücü değil; bölgenin kendine özgü termal hava akımları ve görece sakin sabah rüzgarlarıdır.</p>
+    <p class="rehber-p reveal">Göreme havzasında sabah saatlerinde ölçülen ortalama rüzgar hızı 3-12 km/saat aralığında kalır. Yasal uçuş sınırı SHGM mevzuatı kapsamında 25 km/saattir. Bu eşiğin üzerine çıkıldığında operatörler uçuşu iptal etmek zorundadır — bu kararı pilot verir, turist değil.</p>
+
+    <h2 class="rehber-h2 reveal">Kapadokya Balon Turu Fiyatları 2025</h2>
+
+    <div class="rehber-table-wrap reveal">
+      <table class="rehber-table">
+        <thead>
+          <tr>
+            <th>Paket</th>
+            <th>Süre</th>
+            <th>Sepet Kapasitesi</th>
+            <th>Fiyat Aralığı</th>
+            <th>Dahil Olanlar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Standart</td><td>60 dk</td><td>16-20 kişi</td><td>150-180 €</td><td>Transfer, kahvaltı, sertifika</td></tr>
+          <tr><td>Konfor</td><td>75 dk</td><td>8-12 kişi</td><td>200-240 €</td><td>Transfer, kahvaltı, şampanya</td></tr>
+          <tr><td>VIP / Özel</td><td>90 dk</td><td>2-4 kişi</td><td>350-500 €</td><td>Tam özel, özelleştirilebilir</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="rehber-h2 reveal">Güvenlik: SHGM Lisansı Neden Önemli?</h2>
+    <p class="rehber-p reveal">Türkiye'de ticari balon uçuşları Sivil Havacılık Genel Müdürlüğü'nün denetimi altındadır. Her ticari operatörün geçerli bir SHGM işletme lisansı, pilotların ise minimum 35 ticari uçuşu tamamlamış sertifikası olması zorunludur. Rezervasyon yapmadan önce operatörün lisans durumunu sorgulamak hem hakkınız hem güvenliğiniz açısından kritiktir.</p>
+    <p class="rehber-p reveal">Balonlar her uçuştan önce teknik kontrolden geçirilir; brülör sistemi, propan kapasitesi ve sepet bağlantıları kontrol listesiyle doğrulanır. Beklenmedik bir hava değişikliğinde pilot iniş alanını anlık olarak değiştirebilir.</p>
+
+    <h2 class="rehber-h2 reveal">En İyi Sezon ve Rüzgar Hızı Takvimi</h2>
+
+    <div class="rehber-table-wrap reveal">
+      <table class="rehber-table">
+        <thead>
+          <tr>
+            <th>Dönem</th>
+            <th>Ort. Rüzgar Hızı</th>
+            <th>Uçuş Gerçekleşme</th>
+            <th>Notlar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ocak-Şubat</td><td>18-22 km/saat</td><td>%45-55</td><td>Kar manzarası; iptal riski yüksek</td></tr>
+          <tr><td>Mart-Nisan</td><td>10-16 km/saat</td><td>%65-75</td><td>İlkbahar geçiş dönemi</td></tr>
+          <tr><td>Mayıs-Haziran</td><td>5-10 km/saat</td><td>%85-90</td><td>En stabil dönem</td></tr>
+          <tr><td>Temmuz-Ağustos</td><td>6-12 km/saat</td><td>%80-88</td><td>Sıcak; erken kalkış saatleri</td></tr>
+          <tr><td>Eylül-Ekim</td><td>4-9 km/saat</td><td>%88-92</td><td>Yılın en ideal ayları</td></tr>
+          <tr><td>Kasım-Aralık</td><td>15-20 km/saat</td><td>%50-60</td><td>Sonbahar renkleri; değişken</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="rehber-h2 reveal">Yanınıza Almanız Gerekenler</h2>
+
+    <div class="rehber-table-wrap reveal">
+      <table class="rehber-table">
+        <thead>
+          <tr>
+            <th>Eşya</th>
+            <th>Zorunlu mu?</th>
+            <th>Notlar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Kapalı burunlu ayakkabı</td><td>Zorunlu</td><td>Sandaletle uçuşa izin verilmez</td></tr>
+          <tr><td>Katmanlı kıyafet</td><td>Şiddetle önerilen</td><td>500m irtifada 4-6°C daha soğuk</td></tr>
+          <tr><td>Şarjlı telefon / kamera</td><td>Önerilen</td><td>Uçuş süresince çekim yapılabilir</td></tr>
+          <tr><td>Su</td><td>Önerilen</td><td>90 dk uçuşta susuzluk hissedilebilir</td></tr>
+          <tr><td>Güneş gözlüğü</td><td>Önerilen</td><td>Gün doğumu karşı bakışı için kritik</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="rehber-h2 reveal">Balon Turunu Kapadokya Programınıza Entegre Edin</h2>
+    <p class="rehber-p reveal">Balon turu sabahı yaklaşık 08:30-09:00'da tamamlanır. Bu saat günün geri kalanını verimli kullanmak için idealdir. Sabah uçuşu tamamlandıktan sonra <a href="#tur-programlari" style="color:var(--gold); text-decoration:none;">Kırmızı Tur, Yeşil Tur veya Mavi Tur</a> güzergahlarından biriyle devam edebilirsiniz. Kapadokya'nın hem havadan hem karadan tüm boyutları tek günde görülmüş olur.</p>
+    <p class="rehber-p reveal">Transfer hizmeti otelden doğrudan sağlanır. Kayseri veya Nevşehir havalimanından gelenler için havalimanı-otel-tur entegre transferi ayrıca organize edilebilir.</p>
+
+    <div class="rehber-faq reveal">
+      <p class="rehber-faq-title">SIKÇA SORULAN SORULAR</p>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Balon uçuşu iptal edilirse param iade edilir mi?</button>
+        <div class="faq-a">Hava koşulları nedeniyle operatör tarafından iptal edilen uçuşlarda tam iade veya alternatif tarih sunulması yasal zorunluluktur. Ziyaretçi tarafından yapılan iptallerde operatörün iptal politikası geçerlidir.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Minimum yaş sınırı var mı?</button>
+        <div class="faq-a">Çoğu operatör 6 yaş ve altı çocukları sepete almaz. 6-12 yaş arası için ebeveyn onayı zorunludur. Hamile bireyler için uçuş önerilmez.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Kaç kişiyle uçacağım?</button>
+        <div class="faq-a">Standart paketlerde sepet kapasitesi 16-20 kişidir. Küçük grup deneyimi için konfor veya VIP paketleri tercih edilmelidir.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Yükseklik korkusu olanlar için uygun mu?</button>
+        <div class="faq-a">Sepet yarım duvar yüksekliğine sahip olduğundan yüzeyi görmenizi kısıtlar. Birçok acrofobik katılımcı uçuşu sorunsuz tamamlar; ilk 2-3 dakika kritiktir — bu eşiği geçenler genellikle uçuşun geri kalanını rahat tamamlar.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Drone ile fotoğraf çekebilir miyim?</button>
+        <div class="faq-a">Ticari balon uçuş bölgeleri SHGM tarafından belirlenmiş hava sahasıdır. Drone uçuşu ayrı bir izin sürecine tabidir ve standart tur kapsamı dışındadır.</div>
+      </div>
+    </div>
+
+    <div class="rehber-cta-box reveal">
+      <p>Göreme üzerinde gün doğumunu gökyüzünden yaşamaya hazır mısınız?</p>
+      <a href="#deneyimler" class="btn-rehber">DENEYİMLERİ KEŞFEDİN</a>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-brand">
@@ -1731,6 +2146,8 @@
       <li><a href="#odalar">Odalar & Suitler</a></li>
       <li><a href="#galeri">Galeri</a></li>
       <li><a href="#tur-programlari">Tur Programları</a></li>
+      <li><a href="#rehber-turlar">Tur Rehberi</a></li>
+      <li><a href="#rehber-balon">Balon Rehberi</a></li>
     </ul>
   </div>
   <div>
@@ -1846,6 +2263,14 @@
     document.querySelectorAll('.tur-panel').forEach(p => p.classList.remove('active'));
     e.currentTarget.classList.add('active');
     document.getElementById('tur-' + id).classList.add('active');
+  }
+
+  // ── FAQ Toggle ──
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
   }
 
   // ── Smooth anchor ──
