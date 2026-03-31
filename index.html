@@ -129,7 +129,7 @@
       display: flex; align-items: center; gap: .9rem;
       text-decoration: none;
     }
-    .nav-logo img { height: 48px; width: auto; }
+    .nav-logo img { height: 96px; width: 96px; object-fit: cover; border-radius: 50%; background: #fff; }
     .nav-logo-text {
       display: flex; flex-direction: column; line-height: 1.1;
     }
@@ -418,7 +418,7 @@
       position: relative;
       aspect-ratio: 3/4;
       overflow: visible;
-      background: linear-gradient(160deg, #D4A664 0%, #8B4A10 50%, #3D1C02 100%);
+      background: url('res/1.svg') center/cover no-repeat;
     }
     /* Decorative border offset */
     .about-img-frame::after {
@@ -529,11 +529,11 @@
       line-height: 1;
     }
     /* Card colors */
-    .exp-card:nth-child(1) .exp-card-bg { background: linear-gradient(160deg, #8B4A15 0%, #3D1C02 100%); }
-    .exp-card:nth-child(2) .exp-card-bg { background: linear-gradient(160deg, #B87030 0%, #5C2E00 100%); }
-    .exp-card:nth-child(3) .exp-card-bg { background: linear-gradient(160deg, #E0A840 0%, #8A4E00 100%); }
-    .exp-card:nth-child(4) .exp-card-bg { background: linear-gradient(160deg, #1A0A00 0%, #3D1C02 100%); }
-    .exp-card:nth-child(5) .exp-card-bg { background: linear-gradient(160deg, #C9933A 0%, #6B3800 100%); }
+    .exp-card:nth-child(1) .exp-card-bg { background: url('res/2.svg') center/cover no-repeat; }
+    .exp-card:nth-child(2) .exp-card-bg { background: url('res/3.svg') center/cover no-repeat; }
+    .exp-card:nth-child(3) .exp-card-bg { background: url('res/4.svg') center/cover no-repeat; }
+    .exp-card:nth-child(4) .exp-card-bg { background: url('res/5.png') center/cover no-repeat; }
+    .exp-card:nth-child(5) .exp-card-bg { background: url('res/6.png') center/cover no-repeat; }
     .exp-card-art {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
@@ -587,9 +587,9 @@
       transition: transform .6s ease;
     }
     .room-card:hover .room-card-img-bg { transform: scale(1.05); }
-    .room-1 .room-card-img-bg { background: linear-gradient(135deg, #8B5520 0%, #4A2A00 50%, #2A1000 100%); }
-    .room-2 .room-card-img-bg { background: linear-gradient(135deg, #C9933A 0%, #7A4520 50%, #3D1C02 100%); }
-    .room-3 .room-card-img-bg { background: linear-gradient(135deg, #A06828 0%, #5C3200 50%, #2E1500 100%); }
+    .room-1 .room-card-img-bg { background: url('res/7.svg') center/cover no-repeat; }
+    .room-2 .room-card-img-bg { background: url('res/8.svg') center/cover no-repeat; }
+    .room-3 .room-card-img-bg { background: url('res/9.svg') center/cover no-repeat; }
     .room-card-img-decor {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
@@ -758,11 +758,11 @@
     }
     .gallery-item:hover .gallery-overlay-text { opacity: 1; transform: translateY(0); }
     /* Gallery colors */
-    .g1 .gallery-bg { background: linear-gradient(160deg, #D4A664 0%, #7A3D00 40%, #3D1C02 100%); }
-    .g2 .gallery-bg { background: linear-gradient(160deg, #E8B86D 0%, #A06030 100%); }
-    .g3 .gallery-bg { background: linear-gradient(160deg, #C9933A 0%, #5C2E00 100%); }
-    .g4 .gallery-bg { background: linear-gradient(160deg, #B07A35 0%, #4A2000 50%, #3D1C02 100%); }
-    .g5 .gallery-bg { background: linear-gradient(160deg, #8B5520 0%, #2E1500 100%); }
+    .g1 .gallery-bg { background: url('res/10.svg') center/cover no-repeat; }
+    .g2 .gallery-bg { background: url('res/11.svg') center/cover no-repeat; }
+    .g3 .gallery-bg { background: url('res/12.svg') center/cover no-repeat; }
+    .g4 .gallery-bg { background: url('res/13.svg') center/cover no-repeat; }
+    .g5 .gallery-bg { background: url('res/1.svg') center/cover no-repeat; }
 
     /* SVG motifs in gallery */
     .gallery-bg svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .12; }
@@ -918,6 +918,139 @@
     .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
 
     /* ══════════════════════════════════════
+       TUR PROGRAMLARI
+    ══════════════════════════════════════ */
+    #tur-programlari {
+      padding: 9rem 4rem;
+      background: var(--white);
+    }
+    .tur-header {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 5rem;
+    }
+    .tur-header .gold-line { margin: 1.5rem auto; }
+    .tur-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 4rem;
+      border-bottom: 1px solid rgba(201,147,58,.2);
+    }
+    .tur-tab {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .25em;
+      color: var(--brown-mid);
+      padding: .9rem 2.2rem;
+      cursor: none;
+      border-bottom: 2px solid transparent;
+      transition: color .3s, border-color .3s;
+      background: none;
+      border-top: none; border-left: none; border-right: none;
+      margin-bottom: -1px;
+    }
+    .tur-tab:hover { color: var(--gold); }
+    .tur-tab.active { color: var(--brown-dark); border-bottom-color: var(--gold); }
+    .tur-panel { display: none; }
+    .tur-panel.active { display: block; }
+    .tur-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .tur-stop {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1.8rem;
+      background: var(--cream);
+      border: 1px solid rgba(201,147,58,.12);
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .tur-stop:hover {
+      border-color: rgba(201,147,58,.4);
+      box-shadow: 0 6px 24px rgba(61,28,2,.07);
+    }
+    .tur-stop-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 2rem;
+    }
+    .tur-stop-title {
+      font-family: 'Cinzel', serif;
+      font-size: .72rem;
+      letter-spacing: .15em;
+      color: var(--brown-dark);
+      margin-bottom: .5rem;
+    }
+    .tur-stop-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .95rem;
+      color: var(--brown-mid);
+      line-height: 1.7;
+    }
+    /* 2-Day program */
+    .tur-days {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .tur-day-card {
+      background: var(--cream);
+      border: 1px solid rgba(201,147,58,.15);
+      padding: 2.5rem;
+    }
+    .tur-day-label {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .35em;
+      color: var(--gold);
+      margin-bottom: .6rem;
+    }
+    .tur-day-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--brown-dark);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(201,147,58,.2);
+    }
+    .tur-day-items { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+    .tur-day-item {
+      display: flex;
+      gap: .8rem;
+      align-items: flex-start;
+    }
+    .tur-day-dot {
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: .5rem;
+    }
+    .tur-day-item-text {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: .88rem;
+      color: var(--brown-mid);
+      line-height: 1.6;
+    }
+    .tur-day-item-time {
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      letter-spacing: .15em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: .15rem;
+    }
+
+    /* ══════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════ */
     @media (max-width: 1024px) {
@@ -934,6 +1067,9 @@
       .rooms-controls { padding: 2rem 2rem 0; }
       #galeri { padding: 6rem 2rem; }
       .gallery-grid { grid-template-rows: repeat(2, 220px); }
+      #tur-programlari { padding: 6rem 2rem; }
+      .tur-grid { grid-template-columns: 1fr 1fr; }
+      .tur-days { grid-template-columns: 1fr; gap: 2rem; }
       footer { grid-template-columns: 1fr 1fr; padding: 3rem 2rem; }
       .footer-bottom { padding: 1.5rem 2rem; flex-direction: column; gap: 1rem; }
       #iletisim { padding: 6rem 2rem; }
@@ -947,6 +1083,9 @@
       .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 180px); }
       .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
       .gallery-item:nth-child(4) { grid-column: span 1; }
+      .tur-grid { grid-template-columns: 1fr; }
+      .tur-tabs { flex-wrap: wrap; }
+      .tur-tab { padding: .7rem 1.2rem; font-size: .6rem; }
       footer { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .quote-section { padding: 5rem 2rem; }
@@ -978,6 +1117,7 @@
     <li><a href="#hakkimizda">HAKKIMIZDA</a></li>
     <li><a href="#deneyimler">DENEYİMLER</a></li>
     <li><a href="#odalar">ODALAR</a></li>
+    <li><a href="#tur-programlari">TUR PROGRAMLARI</a></li>
     <li><a href="#galeri">GALERİ</a></li>
     <li><a href="#iletisim">İLETİŞİM</a></li>
   </ul>
@@ -1093,12 +1233,12 @@
       Kapadokya'nın eşsiz doğasında, yüzyıllık kaya oluşumlarının arasında, size özel bir dünya kuruyoruz. Her köşesi özenle tasarlanan mekanlarımızda geçmişin derinliğini ve lüksün konforunu bir arada yaşayabilirsiniz.
     </p>
     <p class="section-body-small reveal reveal-delay-3">
-      Ürgüp'ün sessiz vadilerinde, güneşin batımıyla altına dönen kayalıklar arasında konumlanan yerimiz; sizi hem tarihle hem de doğayla buluşturuyor. Sıcak hava balonundan seyrettiğiniz şafak, mağara suitinizdeki yıldız gecesi, yerel lezzetlerle bezeli kahvaltılarımız… Kapadokya'da Rüya, yalnızca bir konaklama değil; bir yaşam deneyimidir.
+      Kapadokya'nın sessiz vadilerinde, güneşin batımıyla altına dönen kayalıklar arasında konumlanan yerimiz; sizi hem tarihle hem de doğayla buluşturuyor. Sıcak hava balonundan seyrettiğiniz şafak,  yerel lezzetlerle bezeli yemekler… Kapadokya'da Rüya, yalnızca bir gezi değil; bir yaşam deneyimidir.
     </p>
     <div class="about-stats reveal reveal-delay-4">
       <div class="stat">
-        <span class="stat-num">12</span>
-        <span class="stat-label">MAĞARA SÜİT</span>
+        <span class="stat-num">EŞSİZ</span>
+        <span class="stat-label">FARKLI ROTALAR</span>
       </div>
       <div class="stat">
         <span class="stat-num">8</span>
@@ -1228,8 +1368,8 @@
       <span class="exp-card-num">04</span>
       <div class="exp-card-content">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><circle cx="14" cy="10" r="7" stroke="#E8B86D" stroke-width="1.5"/><circle cx="14" cy="10" r="3" stroke="#E8B86D" stroke-width=".8"/><g fill="#E8B86D" opacity=".7"><circle cx="4" cy="4" r="1.2"/><circle cx="24" cy="3" r="1"/><circle cx="8" cy="22" r="1"/><circle cx="22" cy="20" r="1.2"/></g></svg>
-        <h3 class="exp-card-title">Yıldız Gözlemi</h3>
-        <p class="exp-card-text">Işık kirliliğinden uzak, berrak Kapadokya gökyüzünde teleskopla yıldız gözlemi. Uzmanlar eşliğinde samanyolunu keşfedin.</p>
+        <h3 class="exp-card-title">Kapadokya Onyx (Taş Atölyesi)</h3>
+        <p class="exp-card-text">Bu tür atölyelerde genellikle bölgeye özgü onyx, zultanit ve diğer değerli taşların nasıl işlendiğine dair canlı sunumlar yapılmakta ve el işçiliği ürünleri keşfedin.</p>
       </div>
     </div>
     <div class="exp-card">
@@ -1241,8 +1381,8 @@
       <span class="exp-card-num">05</span>
       <div class="exp-card-content">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><path d="M10 8 Q14 2 18 8 L16 22 Q14 24 12 22Z" stroke="#E8B86D" stroke-width="1.5"/><line x1="14" y1="22" x2="14" y2="28" stroke="#E8B86D" stroke-width="1.5"/><path d="M6 10 Q14 4 22 10" stroke="#E8B86D" stroke-width=".8" opacity=".5"/></svg>
-        <h3 class="exp-card-title">Bağ Turu & Şarap</h3>
-        <p class="exp-card-text">Kapadokya'nın köklü bağlarında hasat turları. Yerelde üretilen şarapları tadarak toprak ile lezzetin dansını yaşayın.</p>
+        <h3 class="exp-card-title">Sütlü Kabak Çekirdeği Tadımı</h3>
+        <p class="exp-card-text">Kapadokya yöresel ürünlerini tadarak toprak ile lezzetin dansını yaşayın.</p>
       </div>
     </div>
   </div>
@@ -1251,7 +1391,7 @@
 <!-- ═══ ODALAR ═══ -->
 <section id="odalar">
   <div class="rooms-header">
-    <p class="section-label reveal">ODALAR & SÜİTLER</p>
+    <p class="section-label reveal">VİP Turlarımız</p>
     <h2 class="section-title reveal reveal-delay-1">Taşın içinde<br/><em>huzur bulun</em></h2>
     <div class="gold-line reveal reveal-delay-2"></div>
   </div>
@@ -1271,13 +1411,13 @@
           </div>
         </div>
         <div class="room-card-body">
-          <p class="room-card-tag">MAĞARA SÜİT</p>
-          <h3 class="room-card-name">Peri Bacası<br/>Suit</h3>
-          <p class="room-card-desc">Doğal kaya tünelleriyle şekillendirilmiş, özel teraslı ve panoramik vadi manzaralı lüks suit. Şöminesi ve özel jakuzisi ile romantizmin zirvesi.</p>
+          <p class="room-card-tag">Kırmızı Tur</p>
+          <h3 class="room-card-name">Kuzey Kapadokya <br/>Rotası</h3>
+          <p class="room-card-desc">Bu rota, Kapadokya'nın kalbi olarak bilinen ve birbirine nispeten daha yakın mesafede olan en ikonik peribacası oluşumlarını ve vadileri kapsar.</p>
           <div class="room-card-footer">
             <div class="room-price">
-              <span class="room-price-num">₺8.500</span>
-              <span class="room-price-label">/ GECE</span>
+              <span class="room-price-num">...</span>
+              <span class="room-price-label">/ 1 GÜN</span>
             </div>
             <a href="#iletisim" class="btn-ghost">İNCELE</a>
           </div>
@@ -1296,13 +1436,13 @@
           </div>
         </div>
         <div class="room-card-body">
-          <p class="room-card-tag">PREMIUM SÜİT</p>
-          <h3 class="room-card-name">Altın Vadi<br/>Suit</h3>
-          <p class="room-card-desc">Altın rengi kayalıklara bakan iki katlı suit. Üst katta yıldız gözlem terası, alt katta özel hamam ve sonsuzluk havuzu manzarası.</p>
+          <p class="room-card-tag">Yeşil Tur</p>
+          <h3 class="room-card-name">Güneybatı Kapadokya<br/>Rotası</h3>
+          <p class="room-card-desc">Yeşil tur, doğa yürüyüşü ve Kapadokya'nın derinliklerindeki yeraltı dünyasını keşfetmek üzerine kurulu daha uzun mesafeli bir rotadır.</p>
           <div class="room-card-footer">
             <div class="room-price">
-              <span class="room-price-num">₺12.000</span>
-              <span class="room-price-label">/ GECE</span>
+              <span class="room-price-num">...</span>
+              <span class="room-price-label">/ 1 GÜN</span>
             </div>
             <a href="#iletisim" class="btn-ghost">İNCELE</a>
           </div>
@@ -1320,13 +1460,13 @@
           </div>
         </div>
         <div class="room-card-body">
-          <p class="room-card-tag">BALAYI ODA</p>
-          <h3 class="room-card-name">Rüya<br/>Odası</h3>
-          <p class="room-card-desc">Çiftler için özel tasarlanmış romantik mağara odası. Gül yaprakları, kişisel şef hizmeti ve gün batımı şampanya ritüeli dahildir.</p>
+          <p class="room-card-tag">Mavi Tur</p>
+          <h3 class="room-card-name">Güney Kapadokya<br/>Rotası</h3>
+          <p class="room-card-desc">Kırmızı ve Yeşil turlara kıyasla daha sakin, kalabalıktan uzak ve otantik bir rota arayanlar için idealdir. Daha çok eski Rum köylerini ve daha az bilinen vadileri içerir</p>
           <div class="room-card-footer">
             <div class="room-price">
-              <span class="room-price-num">₺6.200</span>
-              <span class="room-price-label">/ GECE</span>
+              <span class="room-price-num">...</span>
+              <span class="room-price-label">/ 1 GÜN</span>
             </div>
             <a href="#iletisim" class="btn-ghost">İNCELE</a>
           </div>
@@ -1345,7 +1485,7 @@
 <!-- ═══ QUOTE ═══ -->
 <div class="quote-section">
   <blockquote class="quote-text reveal">
-    "Kapadokya, Tanrı'nın bir rüyasından doğmuştur. Biz ise o rüyanın içinde size özel bir köşe yaratıyoruz."
+    "Kapadokya, Allah'ın insanlara vermiş olduğu eşsiz bir hediye. Biz ise onun içinde size özel bir macera yaşatıyoruz."
   </blockquote>
   <p class="quote-author reveal reveal-delay-1">Kapadokya'da Rüya</p>
 </div>
@@ -1360,123 +1500,315 @@
 
   <div class="gallery-grid reveal">
     <div class="gallery-item g1">
-      <div class="gallery-bg">
-        <svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs><linearGradient id="g1g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#D4A664"/><stop offset="100%" stop-color="#3D1C02"/></linearGradient></defs>
-          <rect width="600" height="800" fill="url(#g1g)"/>
-          <!-- Sunrise glow -->
-          <ellipse cx="300" cy="300" rx="200" ry="180" fill="#E8B86D" opacity=".25"/>
-          <!-- Many balloons at sunrise -->
-          <g stroke="#FDF6EC" stroke-width="1.5" fill="none" opacity=".6">
-            <ellipse cx="180" cy="180" rx="35" ry="42"/>
-            <rect x="162" y="220" width="36" height="14" rx="2"/>
-            <ellipse cx="320" cy="140" rx="28" ry="34"/>
-            <rect x="305" y="172" width="30" height="12" rx="2"/>
-            <ellipse cx="440" cy="200" rx="22" ry="28"/>
-            <rect x="427" y="226" width="26" height="10" rx="2"/>
-          </g>
-          <!-- Chimneys silhouette -->
-          <g fill="#2A1000" opacity=".8">
-            <path d="M0 800 Q30 680 55 640 Q80 600 72 560 Q92 520 100 560 Q108 600 120 640 Q145 680 175 800Z"/>
-            <path d="M450 800 Q480 700 505 660 Q530 620 520 580 Q542 540 550 580 Q558 620 568 660 Q592 700 620 800Z"/>
-          </g>
-        </svg>
-      </div>
+      <div class="gallery-bg"></div>
       <div class="gallery-overlay">
         <span class="gallery-overlay-text">Şafak Balonu</span>
       </div>
     </div>
 
     <div class="gallery-item g2">
-      <div class="gallery-bg">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs><linearGradient id="g2g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8C080"/><stop offset="100%" stop-color="#7A3D00"/></linearGradient></defs>
-          <rect width="400" height="300" fill="url(#g2g)"/>
-          <!-- Interior cave room -->
-          <path d="M50 300 Q50 200 100 180 Q150 160 200 165 Q250 170 300 180 Q350 190 350 300Z" fill="#5C2E00" opacity=".4"/>
-          <ellipse cx="200" cy="120" rx="120" ry="60" fill="#3D1C02" opacity=".3"/>
-          <!-- Arch window with light -->
-          <path d="M150 100 Q200 50 250 100 L250 180 L150 180Z" fill="#F5DDA8" opacity=".3"/>
-          <path d="M155 100 Q200 55 245 100 L245 175 L155 175Z" fill="none" stroke="#C9933A" stroke-width="1.5"/>
-        </svg>
-      </div>
+      <div class="gallery-bg"></div>
       <div class="gallery-overlay">
         <span class="gallery-overlay-text">Mağara Suit</span>
       </div>
     </div>
 
     <div class="gallery-item g3">
-      <div class="gallery-bg">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs><linearGradient id="g3g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C9933A"/><stop offset="100%" stop-color="#5C2E00"/></linearGradient></defs>
-          <rect width="400" height="300" fill="url(#g3g)"/>
-          <!-- Sunset valley -->
-          <ellipse cx="200" cy="100" rx="180" ry="80" fill="#E8B86D" opacity=".2"/>
-          <g fill="#3D1C02" opacity=".7">
-            <path d="M0 300 Q40 220 70 195 Q100 170 92 145 Q110 120 118 145 Q126 170 145 195 Q175 220 215 300Z"/>
-            <path d="M200 300 Q235 235 258 212 Q281 189 273 165 Q291 141 298 165 Q305 189 315 212 Q338 235 375 300Z"/>
-          </g>
-          <!-- Sun glow -->
-          <circle cx="310" cy="80" r="40" fill="#F5DDA8" opacity=".3"/>
-        </svg>
-      </div>
+      <div class="gallery-bg"></div>
       <div class="gallery-overlay">
         <span class="gallery-overlay-text">Gün Batımı Vadisi</span>
       </div>
     </div>
 
     <div class="gallery-item g4">
-      <div class="gallery-bg">
-        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs><linearGradient id="g4g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#B07A35"/><stop offset="100%" stop-color="#3D1C02"/></linearGradient></defs>
-          <rect width="800" height="300" fill="url(#g4g)"/>
-          <!-- Breakfast table setting suggestion -->
-          <ellipse cx="400" cy="200" rx="250" ry="60" fill="#5C2E00" opacity=".3"/>
-          <rect x="250" y="140" width="300" height="8" rx="4" fill="#C9933A" opacity=".3"/>
-          <!-- Panoramic view suggestion -->
-          <path d="M0 300 Q200 220 400 240 Q600 260 800 220 L800 300Z" fill="#2A1000" opacity=".5"/>
-        </svg>
-      </div>
+      <div class="gallery-bg"></div>
       <div class="gallery-overlay">
         <span class="gallery-overlay-text">Kahvaltı Terası</span>
       </div>
     </div>
 
     <div class="gallery-item g5">
-      <div class="gallery-bg">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <radialGradient id="g5g" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#2A0A00"/><stop offset="100%" stop-color="#0A0400"/></radialGradient>
-          </defs>
-          <rect width="400" height="300" fill="url(#g5g)"/>
-          <!-- Stars -->
-          <g fill="white">
-            <circle cx="50" cy="40" r="1.5" opacity=".9"/>
-            <circle cx="120" cy="20" r="1" opacity=".7"/>
-            <circle cx="200" cy="35" r="2" opacity=".8"/>
-            <circle cx="280" cy="15" r="1.5" opacity=".6"/>
-            <circle cx="350" cy="45" r="1" opacity=".9"/>
-            <circle cx="80" cy="70" r="1" opacity=".5"/>
-            <circle cx="320" cy="60" r="1.5" opacity=".7"/>
-            <circle cx="160" cy="55" r="1" opacity=".8"/>
-            <circle cx="240" cy="75" r="2" opacity=".6"/>
-            <circle cx="30" cy="90" r="1" opacity=".7"/>
-            <circle cx="380" cy="80" r="1.5" opacity=".5"/>
-          </g>
-          <!-- Milky way suggestion -->
-          <ellipse cx="200" cy="80" rx="180" ry="30" fill="white" opacity=".04"/>
-          <!-- Moon -->
-          <circle cx="320" cy="50" r="20" fill="#F5DDA8" opacity=".7"/>
-          <circle cx="328" cy="44" r="16" fill="#2A0A00"/>
-          <!-- Dark chimneys -->
-          <g fill="#1A0800">
-            <path d="M30 300 Q42 240 52 218 Q62 196 56 175 Q68 154 74 175 Q80 196 88 218 Q98 240 112 300Z"/>
-            <path d="M280 300 Q294 248 304 225 Q314 202 308 180 Q322 158 328 180 Q334 202 342 225 Q352 248 368 300Z"/>
-          </g>
-        </svg>
-      </div>
+      <div class="gallery-bg"></div>
       <div class="gallery-overlay">
         <span class="gallery-overlay-text">Yıldızlı Gece</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TUR PROGRAMLARI ═══ -->
+<section id="tur-programlari">
+  <div class="tur-header">
+    <p class="section-label reveal">TUR ROTALARI & PROGRAMLAR</p>
+    <h2 class="section-title reveal reveal-delay-1">Kapadokya'yı<br/><em>keşfedin</em></h2>
+    <div class="gold-line reveal reveal-delay-2"></div>
+    <p class="reveal reveal-delay-3" style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--brown-mid); line-height:1.8; font-style:italic;">
+      Tarihi dokusu ve jeolojik zenginliğiyle Kapadokya, her rotada yeni bir hikâye sunar.
+    </p>
+  </div>
+
+  <!-- Sekme düğmeleri -->
+  <div class="tur-tabs reveal">
+    <button class="tur-tab active" onclick="turTab(event,'kirmizi')">● KIRMIZI TUR</button>
+    <button class="tur-tab" onclick="turTab(event,'yesil')">● YEŞİL TUR</button>
+    <button class="tur-tab" onclick="turTab(event,'mavi')">● MAVİ TUR</button>
+    <button class="tur-tab" onclick="turTab(event,'program')">🗓 2 GÜNLÜK PROGRAM</button>
+  </div>
+
+  <!-- Kırmızı Tur -->
+  <div class="tur-panel active" id="tur-kirmizi">
+    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;">
+      Kapadokya'nın kalbi — ikonik peribacaları ve vadilerle kuzey rotası.
+    </p>
+    <div class="tur-grid reveal">
+      <div class="tur-stop">
+        <span class="tur-stop-num">01</span>
+        <div>
+          <p class="tur-stop-title">UÇHİSAR KALESİ</p>
+          <p class="tur-stop-text">Bölgenin en yüksek noktası; panoramik manzara sunan doğal kaya kalesi.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">02</span>
+        <div>
+          <p class="tur-stop-title">GÖREME AÇIK HAVA MÜZESİ</p>
+          <p class="tur-stop-text">UNESCO Dünya Mirası; kayalara oyulmuş kiliseler ve tarihi freskler.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">03</span>
+        <div>
+          <p class="tur-stop-title">AŞK VADİSİ</p>
+          <p class="tur-stop-text">Silindir şeklindeki devasa peribacalarıyla ünlü Bağlıdere Vadisi.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">04</span>
+        <div>
+          <p class="tur-stop-title">AVANOS ÇÖMLEK ATÖLYELERİ</p>
+          <p class="tur-stop-text">Kızılırmak çamuruyla yapılan geleneksel Hitit sanatı deneyimi.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">05</span>
+        <div>
+          <p class="tur-stop-title">PAŞABAĞ VADİSİ</p>
+          <p class="tur-stop-text">Mantar başlı peribacaları ve Aziz Simeon'un hücresiyle Rahipler Vadisi.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">06</span>
+        <div>
+          <p class="tur-stop-title">DEVRENT VADİSİ</p>
+          <p class="tur-stop-text">Hayvan figürlerine benzeyen doğal kaya oluşumlarıyla Hayal Vadisi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Yeşil Tur -->
+  <div class="tur-panel" id="tur-yesil">
+    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;">
+      Doğa yürüyüşleri ve derin yeraltı şehirlerine odaklanan güneybatı rotası.
+    </p>
+    <div class="tur-grid reveal">
+      <div class="tur-stop">
+        <span class="tur-stop-num">01</span>
+        <div>
+          <p class="tur-stop-title">GÖREME PANORAMİK SEYİR TEPESİ</p>
+          <p class="tur-stop-text">Esentepe'den vadi manzarasını kuşbakışı izleme noktası.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">02</span>
+        <div>
+          <p class="tur-stop-title">DERİNKUYU YERALTI ŞEHRİ</p>
+          <p class="tur-stop-text">Bölgenin en derin ve geniş yeraltı yerleşimi; tarihin derinliklerine yolculuk.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">03</span>
+        <div>
+          <p class="tur-stop-title">IHLARA VADİSİ</p>
+          <p class="tur-stop-text">Melendiz Çayı kenarında kaya kiliseleri eşliğinde 3–4 km doğa yürüyüşü.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">04</span>
+        <div>
+          <p class="tur-stop-title">BELİSIRMA KÖYÜ</p>
+          <p class="tur-stop-text">Nehir kenarında öğle yemeği ve dinlenme durağı; otantik Kapadokya lezzetleri.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">05</span>
+        <div>
+          <p class="tur-stop-title">SELİME KATEDRALİ</p>
+          <p class="tur-stop-text">Kayalara oyulmuş en büyük manastır kompleksi; ihtişamlı bir mimari şölen.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">06</span>
+        <div>
+          <p class="tur-stop-title">GÜVERCİNLİK VADİSİ</p>
+          <p class="tur-stop-text">Binlerce tarihi güvercinliğin görülebildiği panoramik durak.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mavi Tur -->
+  <div class="tur-panel" id="tur-mavi">
+    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;">
+      Sakinlik arayanlar için; eski Rum köyleri ve az bilinen vadilerin otantik rotası.
+    </p>
+    <div class="tur-grid reveal">
+      <div class="tur-stop">
+        <span class="tur-stop-num">01</span>
+        <div>
+          <p class="tur-stop-title">MUSTAFAPAŞA (SİNASOS)</p>
+          <p class="tur-stop-text">Tarihi konaklar ve taş işçiliğiyle ünlü eski Rum kasabası.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">02</span>
+        <div>
+          <p class="tur-stop-title">KEŞLİK MANASTIRI</p>
+          <p class="tur-stop-text">Freskli kiliseleri ve geniş yemekhanesiyle bilinen manastır kompleksi.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">03</span>
+        <div>
+          <p class="tur-stop-title">ŞAHİNEFENDİ (SOBESOS)</p>
+          <p class="tur-stop-text">Roma dönemine ait mozaikli hamam ve bazilika kalıntıları.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">04</span>
+        <div>
+          <p class="tur-stop-title">SOĞANLI VADİSİ</p>
+          <p class="tur-stop-text">Kubbeli kaya kiliseleri ve meşhur bez bebekleriyle otantik bir vadi deneyimi.</p>
+        </div>
+      </div>
+      <div class="tur-stop">
+        <span class="tur-stop-num">05</span>
+        <div>
+          <p class="tur-stop-title">KAYMAKLI YERALTI ŞEHRİ</p>
+          <p class="tur-stop-text">Dar tüneller ve havalandırma sistemleriyle büyüleyen yeraltı yapısı.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 Günlük Program -->
+  <div class="tur-panel" id="tur-program">
+    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;">
+      Kırmızı ve Yeşil tur bileşimi; kısıtlı zamanı en verimli şekilde değerlendiren optimize program.
+    </p>
+    <div class="tur-days reveal">
+      <div class="tur-day-card">
+        <p class="tur-day-label">1. GÜN</p>
+        <p class="tur-day-title">Kapadokya'nın Kalbi</p>
+        <ul class="tur-day-items">
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">GÜNBATIMI (OPSİYONEL)</span>
+              <span class="tur-day-item-text">Sıcak Hava Balon Turu ile vadilerin üzerinden süzülüş</span>
+            </div>
+          </li>
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">SABAH</span>
+              <span class="tur-day-item-text">Uçhisar Kalesi altında panoramik fotoğraf molası</span>
+            </div>
+          </li>
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">MÜZE</span>
+              <span class="tur-day-item-text">Göreme Açık Hava Müzesi'ndeki tarihi kilise ve freskler</span>
+            </div>
+          </li>
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">VADİ</span>
+              <span class="tur-day-item-text">Aşk Vadisi Seyir Tepesi'nde silindirik yapıların izlenmesi</span>
+            </div>
+          </li>
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">ÖĞLE</span>
+              <span class="tur-day-item-text">Avanos'ta testi kebabı tadımı ve çark başında çömlek yapımı</span>
+            </div>
+          </li>
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">ÖĞLEDEN SONRA</span>
+              <span class="tur-day-item-text">Paşabağları'nda şapkalı peribacaları arasında yürüyüş</span>
+            </div>
+          </li>
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">GÜN SONU</span>
+              <span class="tur-day-item-text">Devrent Vadisi'ndeki doğal figürlerin keşfi ve otele dönüş</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="tur-day-card">
+        <p class="tur-day-label">2. GÜN</p>
+        <p class="tur-day-title">Yeraltı Gizemleri & Doğa</p>
+        <ul class="tur-day-items">
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">BAŞLANGIÇ</span>
+              <span class="tur-day-item-text">Göreme Panoramik Seyir Tepesi'nde vadi manzarası</span>
+            </div>
+          </li>
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">YER ALTI</span>
+              <span class="tur-day-item-text">Derinkuyu veya Kaymaklı Yeraltı Şehri'nde tarihi tüneller</span>
+            </div>
+          </li>
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">DOĞA YÜRÜYÜŞÜ</span>
+              <span class="tur-day-item-text">Ihlara Vadisi'nde nehir kenarında ağaçlar arasında yürüyüş</span>
+            </div>
+          </li>
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">ÖĞLE</span>
+              <span class="tur-day-item-text">Belisırma Köyü'nde su üzerine kurulu localarda yemek molası</span>
+            </div>
+          </li>
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">TARİHİ YAPI</span>
+              <span class="tur-day-item-text">Selime Katedrali'ndeki devasa manastır kompleksinin incelenmesi</span>
+            </div>
+          </li>
+          <li class="tur-day-item">
+            <span class="tur-day-dot"></span>
+            <div>
+              <span class="tur-day-item-time">AKŞAM (ALTERNATİF)</span>
+              <span class="tur-day-item-text">Kızılçukur gün batımı yürüyüşü · ATV Safari · Türk Gecesi</span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1496,14 +1828,14 @@
         <div class="contact-item-icon">&#9742;</div>
         <div class="contact-item-text">
           <span class="contact-item-label">TELEFON</span>
-          <span class="contact-item-value">+90 384 341 00 00</span>
+          <span class="contact-item-value">+90 5058751873</span>
         </div>
       </div>
       <div class="contact-item">
         <div class="contact-item-icon">&#9993;</div>
         <div class="contact-item-text">
           <span class="contact-item-label">E-POSTA</span>
-          <span class="contact-item-value">info@kapadokyadaruya.com</span>
+          <span class="contact-item-value">adembati@gmail.com</span>
         </div>
       </div>
       <div class="contact-item">
@@ -1678,6 +2010,14 @@
       track.style.transform = `translateX(-${current * cardW()}px)`;
     }
   });
+
+  // ── Tur Programları Sekme ──
+  function turTab(e, id) {
+    document.querySelectorAll('.tur-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tur-panel').forEach(p => p.classList.remove('active'));
+    e.currentTarget.classList.add('active');
+    document.getElementById('tur-' + id).classList.add('active');
+  }
 
   // ── Smooth anchor ──
   document.querySelectorAll('a[href^="#"]').forEach(a => {

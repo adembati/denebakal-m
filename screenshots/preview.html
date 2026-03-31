@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kapadokya'da Rüya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --gold:        #C9933A;
+      --gold-light:  #E8B86D;
+      --gold-pale:   #F5DDA8;
+      --brown-dark:  #3D1C02;
+      --brown:       #5C2E00;
+      --brown-mid:   #7A3D00;
+      --cream:       #FDF6EC;
+      --cream-dark:  #F0E3CC;
+      --white:       #FFFDF8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--brown-dark);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── Custom Cursor ── */
+    .cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform .15s ease, width .3s ease, height .3s ease, background .3s ease;
+    }
+    .cursor-ring {
+      position: fixed;
+      width: 36px; height: 36px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform .4s cubic-bezier(.25,.46,.45,.94), width .3s, height .3s, opacity .3s;
+      opacity: .6;
+    }
+    body:hover .cursor { opacity: 1; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--cream-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+    /* ── Floating CTA ── */
+    .floating-cta {
+      position: fixed;
+      bottom: 2.5rem; right: 2.5rem;
+      z-index: 90;
+      background: var(--gold);
+      color: var(--brown-dark);
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      letter-spacing: .2em;
+      padding: .85rem 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(61,28,2,.35);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform .5s, opacity .5s, background .3s;
+    }
+    .floating-cta.show { transform: translateY(0); opacity: 1; }
+    .floating-cta:hover { background: var(--gold-light); }
+
+    /* ── Section Ornament ── */
+    .ornament {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; padding: 1.5rem 0;
+    }
+    .ornament-line { flex: 1; max-width: 80px; height: 1px; background: var(--gold); opacity: .4; }
+    .ornament-diamond {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      opacity: .6;
+    }
+
+    /* ── Noise Overlay ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9000;
+      opacity: .4;
+    }
+
+    /* ══════════════════════════════════════
+       NAV
+    ══════════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 4rem;
+      background: transparent;
+      transition: background .5s, backdrop-filter .5s, padding .4s;
+    }
+    nav.scrolled {
+      background: rgba(253, 246, 236, .9);
+      backdrop-filter: blur(12px);
+      padding: 1rem 4rem;
+      border-bottom: 1px solid rgba(201,147,58,.2);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: .9rem;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 48px; width: auto; }
+    .nav-logo-text {
+      display: flex; flex-direction: column; line-height: 1.1;
+    }
+    .nav-logo-title {
+      font-family: 'Cinzel', serif;
+      font-size: .95rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      color: var(--brown-dark);
+    }
+    .nav-logo-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .75rem;
+      font-style: italic;
+      color: var(--gold);
+      letter-spacing: .1em;
+    }
+    .nav-links {
+      display: flex; gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Cinzel', serif;
+      font-size: .7rem;
+      letter-spacing: .2em;
+      color: var(--brown-dark);
+      text-decoration: none;
+      position: relative;
+      transition: color .3s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width .4s ease;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .2em;
+      color: var(--cream);
+      background: var(--brown-dark);
+      border: none;
+      padding: .75rem 1.8rem;
+      cursor: none;
+      text-decoration: none;
+      transition: background .3s, color .3s;
+    }
+    .nav-cta:hover { background: var(--gold); }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    /* Illustrated Cappadocia landscape SVG background */
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg,
+          #F5E8C8 0%,
+          #EDCF96 30%,
+          #D4A664 55%,
+          #A06830 75%,
+          #5C2E00 100%
+        );
+    }
+    /* Stars */
+    .stars {
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 20% 15%, rgba(255,255,255,.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 8%,  rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 12%, rgba(255,255,255,.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 5%,  rgba(255,255,255,.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 10% 5%, rgba(255,255,255,.9) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 3%,  rgba(255,255,255,.7) 0%, transparent 100%);
+      animation: starTwinkle 4s ease-in-out infinite alternate;
+    }
+    @keyframes starTwinkle {
+      from { opacity: .3; }
+      to   { opacity: .9; }
+    }
+    /* SVG Landscape */
+    .hero-landscape {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      width: 100%; height: 70%;
+    }
+    /* Balloon */
+    .balloon-wrap {
+      position: absolute;
+      top: 8%; right: 18%;
+      animation: balloonFloat 8s ease-in-out infinite;
+      filter: drop-shadow(0 8px 24px rgba(61,28,2,.35));
+    }
+    @keyframes balloonFloat {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50%       { transform: translateY(-28px) rotate(2deg); }
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 2rem;
+    }
+    .hero-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: .7rem;
+      letter-spacing: .4em;
+      color: var(--gold-pale);
+      text-shadow: 0 2px 12px rgba(61,28,2,.5);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp .9s .3s forwards;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 8vw, 7.5rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--white);
+      text-shadow: 0 4px 40px rgba(61,28,2,.4);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.1s .5s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-pale);
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-style: italic;
+      color: rgba(255,253,248,.75);
+      margin-top: 1.2rem;
+      letter-spacing: .05em;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s .8s forwards;
+    }
+    .hero-divider {
+      width: 60px; height: 1px;
+      background: var(--gold);
+      margin: 2rem auto;
+      opacity: 0;
+      animation: fadeIn 1s 1.1s forwards;
+    }
+    .hero-cta-wrap {
+      display: flex; gap: 1.2rem;
+      justify-content: center;
+      margin-top: .5rem;
+      opacity: 0;
+      animation: fadeUp 1s 1.2s forwards;
+    }
+    .hero-btn {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .25em;
+      text-decoration: none;
+      padding: 1rem 2.2rem;
+      transition: background .3s, color .3s, border-color .3s;
+      display: inline-block;
+    }
+    .hero-btn-primary {
+      background: var(--gold);
+      color: var(--brown-dark);
+      border: 1px solid var(--gold);
+    }
+    .hero-btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+    .hero-btn-ghost {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(253,246,236,.5);
+    }
+    .hero-btn-ghost:hover { border-color: var(--cream); background: rgba(253,246,236,.1); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column;
+      align-items: center; gap: .5rem;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards;
+    }
+    .hero-scroll span {
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      letter-spacing: .3em;
+      color: var(--gold-light);
+    }
+    .scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+      50%  { opacity: 1; }
+      100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ══════════════════════════════════════
+       SECTIONS SHARED
+    ══════════════════════════════════════ */
+    section { position: relative; }
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .4em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--brown-dark);
+    }
+    .section-title em { font-style: italic; color: var(--brown-mid); }
+    .gold-line {
+      width: 50px; height: 1px;
+      background: var(--gold);
+      margin: 1.5rem 0;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .9s ease, transform .9s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: .15s; }
+    .reveal-delay-2 { transition-delay: .3s; }
+    .reveal-delay-3 { transition-delay: .45s; }
+    .reveal-delay-4 { transition-delay: .6s; }
+
+    /* ══════════════════════════════════════
+       INTRO / ABOUT
+    ══════════════════════════════════════ */
+    #hakkimizda {
+      padding: 9rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      background: var(--white);
+    }
+    .about-text .section-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      line-height: 1.85;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+    }
+    .about-text .section-body-small {
+      font-size: .95rem;
+      line-height: 1.9;
+      color: var(--brown-mid);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-img-frame {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: visible;
+      background: linear-gradient(160deg, #D4A664 0%, #8B4A10 50%, #3D1C02 100%);
+    }
+    /* Decorative border offset */
+    .about-img-frame::after {
+      content: '';
+      position: absolute;
+      top: 18px; left: 18px; right: -18px; bottom: -18px;
+      border: 1px solid var(--gold);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .about-img-inner {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-svg-decor {
+      opacity: .75;
+      position: relative; z-index: 1;
+    }
+    .about-stats {
+      display: flex; gap: 3rem; margin-top: 2.5rem;
+    }
+    .stat { display: flex; flex-direction: column; gap: .2rem; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .7rem;
+      letter-spacing: .2em;
+      font-family: 'Cinzel', serif;
+      color: var(--brown-mid);
+    }
+
+    /* ══════════════════════════════════════
+       EXPERIENCES
+    ══════════════════════════════════════ */
+    #deneyimler {
+      padding: 9rem 4rem;
+      background: var(--cream);
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 5rem;
+    }
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .exp-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      background: var(--brown-dark);
+      cursor: none;
+    }
+    .exp-card:first-child { grid-row: span 2; aspect-ratio: auto; }
+    .exp-card-bg {
+      position: absolute; inset: 0;
+      transition: transform .7s ease;
+    }
+    .exp-card:hover .exp-card-bg { transform: scale(1.06); }
+    .exp-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(61,28,2,.85) 0%, rgba(61,28,2,.1) 60%, transparent 100%);
+    }
+    .exp-card-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem;
+      transform: translateY(1rem);
+      transition: transform .4s ease;
+    }
+    .exp-card:hover .exp-card-content { transform: translateY(0); }
+    .exp-icon {
+      font-size: 1.5rem;
+      margin-bottom: .5rem;
+      display: block;
+    }
+    .exp-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: .5rem;
+    }
+    .exp-card-text {
+      font-size: .82rem;
+      line-height: 1.7;
+      color: rgba(253,246,236,.7);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .4s .1s, transform .4s .1s;
+    }
+    .exp-card:hover .exp-card-text { opacity: 1; transform: translateY(0); }
+    .exp-card-num {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.08);
+      line-height: 1;
+    }
+    /* Card colors */
+    .exp-card:nth-child(1) .exp-card-bg { background: linear-gradient(160deg, #8B4A15 0%, #3D1C02 100%); }
+    .exp-card:nth-child(2) .exp-card-bg { background: linear-gradient(160deg, #B87030 0%, #5C2E00 100%); }
+    .exp-card:nth-child(3) .exp-card-bg { background: linear-gradient(160deg, #E0A840 0%, #8A4E00 100%); }
+    .exp-card:nth-child(4) .exp-card-bg { background: linear-gradient(160deg, #1A0A00 0%, #3D1C02 100%); }
+    .exp-card:nth-child(5) .exp-card-bg { background: linear-gradient(160deg, #C9933A 0%, #6B3800 100%); }
+    .exp-card-art {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .12;
+      transition: opacity .5s;
+    }
+    .exp-card:hover .exp-card-art { opacity: .06; }
+
+    /* ══════════════════════════════════════
+       ODALAR / ROOMS
+    ══════════════════════════════════════ */
+    #odalar {
+      padding: 9rem 0;
+      background: var(--brown-dark);
+      overflow: hidden;
+    }
+    #odalar .section-title { color: var(--cream); }
+    #odalar .section-label { color: var(--gold-light); }
+    #odalar .gold-line { background: var(--gold-light); }
+    .rooms-header {
+      padding: 0 4rem;
+      margin-bottom: 4rem;
+    }
+    .rooms-track-wrap {
+      overflow: hidden;
+      position: relative;
+      padding: 1rem 0;
+    }
+    .rooms-track {
+      display: flex;
+      gap: 2rem;
+      padding: 0 4rem;
+      transition: transform .7s cubic-bezier(.25,.46,.45,.94);
+    }
+    .room-card {
+      flex: 0 0 380px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,147,58,.2);
+      cursor: none;
+      transition: border-color .3s;
+      overflow: hidden;
+    }
+    .room-card:hover { border-color: var(--gold); }
+    .room-card-img {
+      height: 280px;
+      position: relative;
+      overflow: hidden;
+    }
+    .room-card-img-bg {
+      position: absolute; inset: 0;
+      transition: transform .6s ease;
+    }
+    .room-card:hover .room-card-img-bg { transform: scale(1.05); }
+    .room-1 .room-card-img-bg { background: linear-gradient(135deg, #8B5520 0%, #4A2A00 50%, #2A1000 100%); }
+    .room-2 .room-card-img-bg { background: linear-gradient(135deg, #C9933A 0%, #7A4520 50%, #3D1C02 100%); }
+    .room-3 .room-card-img-bg { background: linear-gradient(135deg, #A06828 0%, #5C3200 50%, #2E1500 100%); }
+    .room-card-img-decor {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .15;
+    }
+    .room-card-body {
+      padding: 2rem;
+    }
+    .room-card-tag {
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      letter-spacing: .3em;
+      color: var(--gold);
+      margin-bottom: .8rem;
+    }
+    .room-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: .8rem;
+      line-height: 1.2;
+    }
+    .room-card-desc {
+      font-size: .82rem;
+      line-height: 1.75;
+      color: rgba(253,246,236,.55);
+      margin-bottom: 1.5rem;
+    }
+    .room-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(201,147,58,.15);
+      padding-top: 1.2rem;
+    }
+    .room-price {
+      display: flex; flex-direction: column;
+    }
+    .room-price-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .room-price-label {
+      font-size: .65rem;
+      letter-spacing: .15em;
+      color: rgba(253,246,236,.4);
+    }
+    .btn-ghost {
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      letter-spacing: .2em;
+      color: var(--cream);
+      border: 1px solid rgba(201,147,58,.4);
+      padding: .6rem 1.2rem;
+      background: transparent;
+      cursor: none;
+      text-decoration: none;
+      transition: background .3s, border-color .3s, color .3s;
+    }
+    .btn-ghost:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .rooms-controls {
+      display: flex; gap: 1rem;
+      justify-content: flex-end;
+      padding: 2rem 4rem 0;
+    }
+    .rooms-arrow {
+      width: 48px; height: 48px;
+      border: 1px solid rgba(201,147,58,.3);
+      background: transparent;
+      cursor: none;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .3s, border-color .3s;
+      color: var(--gold-light);
+      font-size: 1.1rem;
+    }
+    .rooms-arrow:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+
+    /* ══════════════════════════════════════
+       QUOTE
+    ══════════════════════════════════════ */
+    .quote-section {
+      padding: 8rem 4rem;
+      background: var(--cream-dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-section::before {
+      content: '"';
+      position: absolute;
+      top: -2rem; left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20rem;
+      color: var(--gold);
+      opacity: .06;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--brown-dark);
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .quote-author {
+      margin-top: 2rem;
+      font-family: 'Cinzel', serif;
+      font-size: .7rem;
+      letter-spacing: .3em;
+      color: var(--gold);
+    }
+    .quote-author::before { content: '— '; }
+
+    /* ══════════════════════════════════════
+       GALLERY
+    ══════════════════════════════════════ */
+    #galeri {
+      padding: 9rem 4rem;
+      background: var(--white);
+    }
+    .gallery-header { margin-bottom: 4rem; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 280px);
+      gap: 4px;
+    }
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      cursor: none;
+    }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(4) { grid-column: span 2; }
+    .gallery-bg {
+      position: absolute; inset: 0;
+      transition: transform .7s ease;
+    }
+    .gallery-item:hover .gallery-bg { transform: scale(1.07); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: rgba(61,28,2,0);
+      transition: background .4s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gallery-item:hover .gallery-overlay { background: rgba(61,28,2,.35); }
+    .gallery-overlay-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--cream);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .4s, transform .4s;
+    }
+    .gallery-item:hover .gallery-overlay-text { opacity: 1; transform: translateY(0); }
+    /* Gallery colors */
+    .g1 .gallery-bg { background: linear-gradient(160deg, #D4A664 0%, #7A3D00 40%, #3D1C02 100%); }
+    .g2 .gallery-bg { background: linear-gradient(160deg, #E8B86D 0%, #A06030 100%); }
+    .g3 .gallery-bg { background: linear-gradient(160deg, #C9933A 0%, #5C2E00 100%); }
+    .g4 .gallery-bg { background: linear-gradient(160deg, #B07A35 0%, #4A2000 50%, #3D1C02 100%); }
+    .g5 .gallery-bg { background: linear-gradient(160deg, #8B5520 0%, #2E1500 100%); }
+
+    /* SVG motifs in gallery */
+    .gallery-bg svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .12; }
+
+    /* ══════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════ */
+    #iletisim {
+      padding: 9rem 4rem;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+      align-items: center;
+    }
+    .contact-info .section-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: var(--brown);
+      margin-bottom: 3rem;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .contact-item-icon {
+      width: 36px; height: 36px;
+      border: 1px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: .85rem;
+    }
+    .contact-item-text {
+      display: flex; flex-direction: column; gap: .2rem;
+    }
+    .contact-item-label {
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      letter-spacing: .25em;
+      color: var(--gold);
+    }
+    .contact-item-value {
+      font-size: .9rem;
+      color: var(--brown);
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-field { display: flex; flex-direction: column; gap: .4rem; }
+    .form-label {
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      letter-spacing: .2em;
+      color: var(--brown-mid);
+    }
+    .form-input, .form-textarea {
+      border: 1px solid var(--cream-dark);
+      border-bottom-color: rgba(201,147,58,.4);
+      background: transparent;
+      padding: .8rem .6rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .9rem;
+      color: var(--brown-dark);
+      outline: none;
+      transition: border-color .3s;
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .btn-primary {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .25em;
+      color: var(--cream);
+      background: var(--brown-dark);
+      border: none;
+      padding: 1.1rem 2.5rem;
+      cursor: none;
+      align-self: flex-start;
+      transition: background .3s;
+    }
+    .btn-primary:hover { background: var(--gold); }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background: var(--brown-dark);
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      border-top: 1px solid rgba(201,147,58,.15);
+    }
+    .footer-brand {}
+    .footer-logo { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.2rem; }
+    .footer-logo img { height: 40px; filter: brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg); opacity: .8; }
+    .footer-logo-text {
+      font-family: 'Cinzel', serif;
+      font-size: .85rem;
+      letter-spacing: .15em;
+      color: var(--cream);
+    }
+    .footer-brand-text {
+      font-size: .82rem;
+      line-height: 1.8;
+      color: rgba(253,246,236,.4);
+      max-width: 280px;
+    }
+    .footer-col-title {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .25em;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex; flex-direction: column; gap: .7rem;
+    }
+    .footer-links a {
+      font-size: .82rem;
+      color: rgba(253,246,236,.45);
+      text-decoration: none;
+      transition: color .3s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      background: var(--brown-dark);
+      border-top: 1px solid rgba(201,147,58,.1);
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom-text {
+      font-size: .72rem;
+      color: rgba(253,246,236,.25);
+      letter-spacing: .05em;
+    }
+    .footer-social {
+      display: flex; gap: 1rem;
+    }
+    .footer-social a {
+      width: 32px; height: 32px;
+      border: 1px solid rgba(201,147,58,.2);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(253,246,236,.4);
+      font-size: .75rem;
+      text-decoration: none;
+      transition: border-color .3s, color .3s;
+    }
+    .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      nav { padding: 1.5rem 2rem; }
+      nav.scrolled { padding: 1rem 2rem; }
+      .nav-links { gap: 1.5rem; }
+      #hakkimizda, #iletisim { grid-template-columns: 1fr; gap: 4rem; padding: 6rem 2rem; }
+      #deneyimler { padding: 6rem 2rem; }
+      .exp-grid { grid-template-columns: 1fr 1fr; }
+      .exp-card:first-child { grid-row: span 1; }
+      #odalar { padding: 6rem 0; }
+      .rooms-header { padding: 0 2rem; }
+      .rooms-track { padding: 0 2rem; }
+      .rooms-controls { padding: 2rem 2rem 0; }
+      #galeri { padding: 6rem 2rem; }
+      .gallery-grid { grid-template-rows: repeat(2, 220px); }
+      footer { grid-template-columns: 1fr 1fr; padding: 3rem 2rem; }
+      .footer-bottom { padding: 1.5rem 2rem; flex-direction: column; gap: 1rem; }
+      #iletisim { padding: 6rem 2rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      nav { padding: 1.2rem 1.5rem; }
+      .hero-title { font-size: clamp(2.8rem, 12vw, 4rem); }
+      .exp-grid { grid-template-columns: 1fr; }
+      .room-card { flex: 0 0 300px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 180px); }
+      .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+      .gallery-item:nth-child(4) { grid-column: span 1; }
+      footer { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .quote-section { padding: 5rem 2rem; }
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Floating CTA -->
+<a class="floating-cta" id="floatingCta" href="#iletisim">REZERVASYON</a>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a class="nav-logo" href="#">
+    <img src="logo/AdemLogo.png" alt="Kapadokya'da Rüya Logo" />
+    <div class="nav-logo-text">
+      <span class="nav-logo-title">KAPADOKYA'DA</span>
+      <span class="nav-logo-sub">Rüya</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hakkimizda">HAKKIMIZDA</a></li>
+    <li><a href="#deneyimler">DENEYİMLER</a></li>
+    <li><a href="#odalar">ODALAR</a></li>
+    <li><a href="#galeri">GALERİ</a></li>
+    <li><a href="#iletisim">İLETİŞİM</a></li>
+  </ul>
+  <a class="nav-cta" href="#iletisim">REZERVASYON</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="stars"></div>
+
+  <!-- Landscape SVG -->
+  <svg class="hero-landscape" viewBox="0 0 1440 500" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Sky gradient -->
+    <!-- Ground -->
+    <ellipse cx="720" cy="520" rx="900" ry="200" fill="#4A2200" opacity=".3"/>
+    <!-- Far chimneys -->
+    <g fill="#7A3D10" opacity=".6">
+      <path d="M80 500 Q90 420 100 400 Q110 380 105 360 Q115 340 120 360 Q125 380 130 400 Q140 420 150 500Z"/>
+      <ellipse cx="115" cy="355" rx="22" ry="14"/>
+      <path d="M180 500 Q188 440 195 420 Q202 400 198 382 Q207 365 212 382 Q217 400 222 420 Q230 440 238 500Z"/>
+      <ellipse cx="209" cy="378" rx="18" ry="12"/>
+      <path d="M1260 500 Q1268 435 1275 415 Q1282 395 1278 378 Q1287 360 1292 378 Q1297 395 1302 415 Q1310 435 1318 500Z"/>
+      <ellipse cx="1288" cy="374" rx="19" ry="12"/>
+      <path d="M1340 500 Q1350 430 1358 408 Q1366 386 1361 366 Q1372 346 1378 366 Q1384 386 1390 408 Q1398 430 1408 500Z"/>
+      <ellipse cx="1374" cy="362" rx="21" ry="13"/>
+    </g>
+    <!-- Mid chimneys -->
+    <g fill="#5C2E08" opacity=".75">
+      <path d="M340 500 Q355 415 368 388 Q381 361 374 335 Q390 308 398 335 Q406 361 415 388 Q428 415 445 500Z"/>
+      <ellipse cx="391" cy="328" rx="30" ry="18"/>
+      <path d="M520 500 Q532 428 542 405 Q552 382 546 360 Q558 337 564 360 Q570 382 578 405 Q588 428 600 500Z"/>
+      <ellipse cx="560" cy="354" rx="24" ry="15"/>
+      <path d="M820 500 Q834 422 845 398 Q856 374 849 350 Q863 325 870 350 Q877 374 886 398 Q898 422 912 500Z"/>
+      <ellipse cx="866" cy="343" rx="26" ry="16"/>
+      <path d="M980 500 Q992 435 1002 413 Q1012 391 1006 370 Q1018 348 1024 370 Q1030 391 1038 413 Q1048 435 1060 500Z"/>
+      <ellipse cx="1020" cy="364" rx="22" ry="14"/>
+    </g>
+    <!-- Front chimneys -->
+    <g fill="#3D1C02" opacity=".9">
+      <path d="M620 500 Q640 390 658 355 Q676 320 666 282 Q688 244 698 282 Q708 320 718 355 Q736 390 758 500Z"/>
+      <ellipse cx="692" cy="272" rx="42" ry="24"/>
+      <path d="M700 500 Q718 395 734 362 Q750 329 742 294 Q762 258 771 294 Q780 329 788 362 Q802 395 820 500Z"/>
+      <ellipse cx="763" cy="284" rx="34" ry="20"/>
+    </g>
+    <!-- Ground plane -->
+    <path d="M0 480 Q360 440 720 460 Q1080 480 1440 455 L1440 500 L0 500Z" fill="#3D1C02" opacity=".7"/>
+    <path d="M0 490 Q360 475 720 480 Q1080 485 1440 472 L1440 500 L0 500Z" fill="#2A1000"/>
+  </svg>
+
+  <!-- Hot Air Balloon -->
+  <div class="balloon-wrap">
+    <svg width="160" height="220" viewBox="0 0 80 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Inner glow fill -->
+      <ellipse cx="40" cy="42" rx="32" ry="38" fill="#E8B86D" opacity=".12"/>
+      <!-- Panel segments -->
+      <path d="M40 4 Q8 20 8 42 Q8 64 40 80 Q72 64 72 42 Q72 20 40 4Z" fill="none" stroke="#E8B86D" stroke-width="1.5"/>
+      <!-- Vertical stripes (panels) -->
+      <path d="M40 4 Q30 42 40 80" stroke="#C9933A" stroke-width=".8" opacity=".7"/>
+      <path d="M40 4 Q50 42 40 80" stroke="#C9933A" stroke-width=".8" opacity=".7"/>
+      <path d="M40 4 Q22 30 8 42" stroke="#C9933A" stroke-width=".8" opacity=".5"/>
+      <path d="M40 4 Q58 30 72 42" stroke="#C9933A" stroke-width=".8" opacity=".5"/>
+      <!-- Horizontal bands -->
+      <path d="M10 30 Q40 22 70 30" stroke="#E8B86D" stroke-width=".8" fill="none" opacity=".6"/>
+      <path d="M8 42 Q40 34 72 42" stroke="#E8B86D" stroke-width=".8" fill="none" opacity=".6"/>
+      <path d="M10 54 Q40 62 70 54" stroke="#E8B86D" stroke-width=".8" fill="none" opacity=".6"/>
+      <!-- Highlight -->
+      <ellipse cx="30" cy="26" rx="10" ry="13" fill="white" opacity=".07"/>
+      <!-- Ropes -->
+      <line x1="26" y1="78" x2="22" y2="94" stroke="#C9933A" stroke-width="1"/>
+      <line x1="40" y1="80" x2="40" y2="94" stroke="#C9933A" stroke-width="1"/>
+      <line x1="54" y1="78" x2="58" y2="94" stroke="#C9933A" stroke-width="1"/>
+      <!-- Rope cross -->
+      <line x1="22" y1="94" x2="58" y2="94" stroke="#C9933A" stroke-width=".8" opacity=".5"/>
+      <!-- Basket -->
+      <rect x="20" y="94" width="40" height="16" rx="2" fill="#5C2E00" opacity=".7" stroke="#C9933A" stroke-width="1.5"/>
+      <line x1="20" y1="101" x2="60" y2="101" stroke="#C9933A" stroke-width=".7" opacity=".6"/>
+      <line x1="33" y1="94" x2="33" y2="110" stroke="#C9933A" stroke-width=".7" opacity=".5"/>
+      <line x1="47" y1="94" x2="47" y2="110" stroke="#C9933A" stroke-width=".7" opacity=".5"/>
+      <!-- Flame glow at bottom of balloon -->
+      <ellipse cx="40" cy="78" rx="5" ry="4" fill="#F5DDA8" opacity=".4"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">KAPADOKYA'NIN KALBİNDE</p>
+    <h1 class="hero-title">
+      Kapadokya'da<br/><em>Rüya</em>
+    </h1>
+    <p class="hero-tagline">Peri bacalarının arasında, gökyüzüne uzanan bir deneyim…</p>
+    <div class="hero-divider"></div>
+    <div class="hero-cta-wrap">
+      <a class="hero-btn hero-btn-primary" href="#iletisim">REZERVASYON YAP</a>
+      <a class="hero-btn hero-btn-ghost" href="#deneyimler">DENEYİMLERİ KEŞFET</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>KEŞFET</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ HAKKIMIZDA ═══ -->
+<section id="hakkimizda">
+  <div class="about-text">
+    <p class="section-label reveal">HAKKIMIZDA</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      Taşın içine<br/>işlenmiş bir <em>rüya</em>
+    </h2>
+    <div class="gold-line reveal reveal-delay-2"></div>
+    <p class="section-body reveal reveal-delay-2">
+      Kapadokya'nın eşsiz doğasında, yüzyıllık kaya oluşumlarının arasında, size özel bir dünya kuruyoruz. Her köşesi özenle tasarlanan mekanlarımızda geçmişin derinliğini ve lüksün konforunu bir arada yaşayabilirsiniz.
+    </p>
+    <p class="section-body-small reveal reveal-delay-3">
+      Ürgüp'ün sessiz vadilerinde, güneşin batımıyla altına dönen kayalıklar arasında konumlanan yerimiz; sizi hem tarihle hem de doğayla buluşturuyor. Sıcak hava balonundan seyrettiğiniz şafak, mağara suitinizdeki yıldız gecesi, yerel lezzetlerle bezeli kahvaltılarımız… Kapadokya'da Rüya, yalnızca bir konaklama değil; bir yaşam deneyimidir.
+    </p>
+    <div class="about-stats reveal reveal-delay-4">
+      <div class="stat">
+        <span class="stat-num">12</span>
+        <span class="stat-label">MAĞARA SÜİT</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">8</span>
+        <span class="stat-label">YIL DENEYİM</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">ANLIK</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-visual reveal reveal-delay-1">
+    <div class="about-img-frame">
+      <div class="about-img-inner">
+        <!-- Decorative SVG -->
+        <svg class="about-svg-decor" width="300" height="400" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sky gradient fill -->
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F5DDA8" stop-opacity=".15"/>
+              <stop offset="100%" stop-color="#F5DDA8" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="300" height="400" fill="url(#skyGrad)"/>
+          <!-- Stars -->
+          <circle cx="50" cy="60" r="2" fill="#F5DDA8" opacity=".9"/>
+          <circle cx="240" cy="45" r="1.5" fill="#F5DDA8" opacity=".8"/>
+          <circle cx="155" cy="30" r="2.5" fill="#F5DDA8" opacity=".95"/>
+          <circle cx="90" cy="40" r="1" fill="#F5DDA8" opacity=".7"/>
+          <circle cx="215" cy="75" r="1.5" fill="#F5DDA8" opacity=".85"/>
+          <circle cx="270" cy="55" r="1" fill="#F5DDA8" opacity=".6"/>
+          <circle cx="30" cy="90" r="1.5" fill="#F5DDA8" opacity=".7"/>
+          <!-- Crescent Moon -->
+          <circle cx="245" cy="38" r="16" fill="#F5DDA8" opacity=".7"/>
+          <circle cx="252" cy="33" r="13" fill="#8B4A10"/>
+          <!-- Hot air balloon (detailed) -->
+          <ellipse cx="70" cy="110" rx="28" ry="34" fill="#E8B86D" opacity=".2" stroke="#F5DDA8" stroke-width="1.5"/>
+          <path d="M70 76 Q55 93 42 110" stroke="#E8C080" stroke-width="1" opacity=".6"/>
+          <path d="M70 76 Q85 93 98 110" stroke="#E8C080" stroke-width="1" opacity=".6"/>
+          <path d="M44 96 Q70 88 96 96" stroke="#F5DDA8" stroke-width=".8" opacity=".6"/>
+          <path d="M42 110 Q70 102 98 110" stroke="#F5DDA8" stroke-width=".8" opacity=".6"/>
+          <line x1="57" y1="143" x2="53" y2="158" stroke="#E8B86D" stroke-width="1.2"/>
+          <line x1="70" y1="144" x2="70" y2="158" stroke="#E8B86D" stroke-width="1.2"/>
+          <line x1="83" y1="143" x2="87" y2="158" stroke="#E8B86D" stroke-width="1.2"/>
+          <rect x="50" y="157" width="40" height="14" rx="2" fill="none" stroke="#F5DDA8" stroke-width="1.5"/>
+          <!-- Fairy chimneys with detail -->
+          <g stroke="#FDF6EC" stroke-width="1.5" fill="none">
+            <!-- Left small chimney -->
+            <path d="M55 400 Q63 330 70 305 Q77 280 72 255 Q81 230 86 255 Q91 280 96 305 Q103 330 113 400Z"/>
+            <ellipse cx="83" cy="248" rx="19" ry="12"/>
+            <!-- Center main chimney -->
+            <path d="M118 400 Q132 300 144 268 Q156 236 149 198 Q163 160 172 198 Q181 236 186 268 Q196 300 212 400Z"/>
+            <ellipse cx="166" cy="190" rx="30" ry="19"/>
+            <!-- Right chimney -->
+            <path d="M188 400 Q198 330 207 308 Q216 286 210 264 Q220 242 226 264 Q232 286 238 308 Q247 330 258 400Z"/>
+            <ellipse cx="224" cy="257" rx="22" ry="14"/>
+          </g>
+          <!-- Ground -->
+          <path d="M0 390 Q150 375 300 385 L300 400 L0 400Z" fill="#FDF6EC" opacity=".12"/>
+          <!-- Ground line -->
+          <line x1="0" y1="388" x2="300" y2="388" stroke="#F5DDA8" stroke-width=".8" opacity=".4"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DENEYİMLER ═══ -->
+<section id="deneyimler">
+  <div class="exp-header">
+    <div>
+      <p class="section-label reveal">DENEYİMLER</p>
+      <h2 class="section-title reveal reveal-delay-1">Rüyanızı<br/><em>birlikte kuralım</em></h2>
+    </div>
+    <p class="reveal reveal-delay-2" style="max-width:320px; font-family:'Cormorant Garamond',serif; font-size:1.05rem; line-height:1.75; color:var(--brown-mid); font-style:italic;">
+      Her an, her his, her nefes — Kapadokya'nın büyüsünü farklı bir açıdan keşfetmek için tasarlanmıştır.
+    </p>
+  </div>
+
+  <div class="exp-grid reveal">
+    <div class="exp-card">
+      <div class="exp-card-bg"></div>
+      <div class="exp-card-art">
+        <svg width="220" height="280" viewBox="0 0 220 280" fill="none"><ellipse cx="110" cy="100" rx="70" ry="85" stroke="white" stroke-width="2"/><line x1="80" y1="183" x2="72" y2="210" stroke="white" stroke-width="1.5"/><line x1="110" y1="185" x2="110" y2="210" stroke="white" stroke-width="1.5"/><line x1="140" y1="183" x2="148" y2="210" stroke="white" stroke-width="1.5"/><rect x="60" y="208" width="100" height="30" rx="4" stroke="white" stroke-width="2"/><path d="M50 100 Q80 80 110 85 Q140 80 170 100" stroke="white" stroke-width="1" opacity=".6"/><path d="M50 100 Q80 120 110 115 Q140 120 170 100" stroke="white" stroke-width="1" opacity=".6"/></svg>
+      </div>
+      <div class="exp-card-overlay"></div>
+      <span class="exp-card-num">01</span>
+      <div class="exp-card-content">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><ellipse cx="14" cy="11" rx="11" ry="13" stroke="#E8B86D" stroke-width="1.5"/><line x1="9" y1="24" x2="7" y2="28" stroke="#E8B86D" stroke-width="1.5"/><line x1="14" y1="24" x2="14" y2="28" stroke="#E8B86D" stroke-width="1.5"/><line x1="19" y1="24" x2="21" y2="28" stroke="#E8B86D" stroke-width="1.5"/></svg>
+        <h3 class="exp-card-title">Sıcak Hava Balonu</h3>
+        <p class="exp-card-text">Şafakla birlikte gökyüzüne yükselin. Kapadokya vadilerini kuş bakışı seyrederek unutulmaz bir anın parçası olun. Her sabah yeni bir ufuk, yeni bir rüya.</p>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-card-bg"></div>
+      <div class="exp-card-art">
+        <svg width="220" height="220" viewBox="0 0 220 220" fill="none"><path d="M20 220 Q50 160 80 140 Q110 120 100 95 Q118 70 125 95 Q132 120 150 140 Q180 160 200 220Z" stroke="white" stroke-width="1.5"/><ellipse cx="112" cy="88" rx="20" ry="13" stroke="white" stroke-width="1.5"/><path d="M0 200 Q110 180 220 195" stroke="white" stroke-width="1" opacity=".4"/></svg>
+      </div>
+      <div class="exp-card-overlay"></div>
+      <span class="exp-card-num">02</span>
+      <div class="exp-card-content">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><path d="M4 28 Q8 18 12 14 Q16 10 14 6 Q18 2 20 6 Q22 10 24 14 Q28 18 28 28Z" stroke="#E8B86D" stroke-width="1.5"/><ellipse cx="17" cy="5" rx="5" ry="3" stroke="#E8B86D" stroke-width="1.5"/></svg>
+        <h3 class="exp-card-title">Vadi Yürüyüşleri</h3>
+        <p class="exp-card-text">Güvercinlik, Kızılçukur ve Ihlara vadilerinde rehberli doğa yürüyüşleri. Renk renk kaya oluşumlarının arasında kendinizi kaybedip bulun.</p>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-card-bg"></div>
+      <div class="exp-card-art">
+        <svg width="200" height="200" viewBox="0 0 200 200" fill="none"><ellipse cx="100" cy="80" rx="55" ry="30" stroke="white" stroke-width="1.5"/><path d="M55 80 Q100 200 145 80" stroke="white" stroke-width="1.5"/><ellipse cx="100" cy="170" rx="40" ry="10" stroke="white" stroke-width="1" opacity=".5"/></svg>
+      </div>
+      <div class="exp-card-overlay"></div>
+      <span class="exp-card-num">03</span>
+      <div class="exp-card-content">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><ellipse cx="14" cy="9" rx="10" ry="5" stroke="#E8B86D" stroke-width="1.5"/><path d="M4 9 Q14 28 24 9" stroke="#E8B86D" stroke-width="1.5"/><ellipse cx="14" cy="24" rx="8" ry="3" stroke="#E8B86D" stroke-width="1" opacity=".6"/></svg>
+        <h3 class="exp-card-title">Çömlek Atölyesi</h3>
+        <p class="exp-card-text">Avanos ustalarıyla geleneksel çömlekçilik sanatını öğrenin. Toprağı elinizle şekillendirin, Kapadokya'nın ruhunu dokunuşlarınıza taşıyın.</p>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-card-bg"></div>
+      <div class="exp-card-art">
+        <svg width="220" height="220" viewBox="0 0 220 220" fill="none"><circle cx="110" cy="60" r="40" stroke="white" stroke-width="1.5"/><circle cx="110" cy="60" r="25" stroke="white" stroke-width=".8" opacity=".5"/><circle cx="110" cy="60" r="10" stroke="white" stroke-width=".6" opacity=".3"/><g opacity=".6"><circle cx="40" cy="30" r="2" fill="white"/><circle cx="180" cy="20" r="1.5" fill="white"/><circle cx="70" cy="15" r="1" fill="white"/><circle cx="160" cy="45" r="2" fill="white"/><circle cx="200" cy="70" r="1.5" fill="white"/></g><ellipse cx="110" cy="190" rx="80" ry="12" stroke="white" stroke-width="1" opacity=".2"/></svg>
+      </div>
+      <div class="exp-card-overlay"></div>
+      <span class="exp-card-num">04</span>
+      <div class="exp-card-content">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><circle cx="14" cy="10" r="7" stroke="#E8B86D" stroke-width="1.5"/><circle cx="14" cy="10" r="3" stroke="#E8B86D" stroke-width=".8"/><g fill="#E8B86D" opacity=".7"><circle cx="4" cy="4" r="1.2"/><circle cx="24" cy="3" r="1"/><circle cx="8" cy="22" r="1"/><circle cx="22" cy="20" r="1.2"/></g></svg>
+        <h3 class="exp-card-title">Yıldız Gözlemi</h3>
+        <p class="exp-card-text">Işık kirliliğinden uzak, berrak Kapadokya gökyüzünde teleskopla yıldız gözlemi. Uzmanlar eşliğinde samanyolunu keşfedin.</p>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-card-bg"></div>
+      <div class="exp-card-art">
+        <svg width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M60 80 Q100 60 140 80 L130 160 Q100 180 70 160Z" stroke="white" stroke-width="1.5"/><line x1="60" y1="80" x2="70" y2="160" stroke="white" stroke-width=".8" opacity=".5"/><line x1="140" y1="80" x2="130" y2="160" stroke="white" stroke-width=".8" opacity=".5"/><line x1="60" y1="110" x2="140" y2="110" stroke="white" stroke-width=".8" opacity=".4"/><line x1="63" y1="135" x2="137" y2="135" stroke="white" stroke-width=".8" opacity=".4"/><path d="M85 40 Q100 10 115 40" stroke="white" stroke-width="1.2" fill="none"/><line x1="100" y1="40" x2="100" y2="80" stroke="white" stroke-width="1"/></svg>
+      </div>
+      <div class="exp-card-overlay"></div>
+      <span class="exp-card-num">05</span>
+      <div class="exp-card-content">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><path d="M10 8 Q14 2 18 8 L16 22 Q14 24 12 22Z" stroke="#E8B86D" stroke-width="1.5"/><line x1="14" y1="22" x2="14" y2="28" stroke="#E8B86D" stroke-width="1.5"/><path d="M6 10 Q14 4 22 10" stroke="#E8B86D" stroke-width=".8" opacity=".5"/></svg>
+        <h3 class="exp-card-title">Bağ Turu & Şarap</h3>
+        <p class="exp-card-text">Kapadokya'nın köklü bağlarında hasat turları. Yerelde üretilen şarapları tadarak toprak ile lezzetin dansını yaşayın.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ODALAR ═══ -->
+<section id="odalar">
+  <div class="rooms-header">
+    <p class="section-label reveal">ODALAR & SÜİTLER</p>
+    <h2 class="section-title reveal reveal-delay-1">Taşın içinde<br/><em>huzur bulun</em></h2>
+    <div class="gold-line reveal reveal-delay-2"></div>
+  </div>
+
+  <div class="rooms-track-wrap">
+    <div class="rooms-track" id="roomsTrack">
+
+      <div class="room-card room-1 reveal">
+        <div class="room-card-img">
+          <div class="room-card-img-bg"></div>
+          <div class="room-card-img-decor">
+            <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="80" cy="80" r="60" stroke="white" stroke-width="1"/>
+              <path d="M40 130 Q60 90 80 70 Q100 90 120 130" stroke="white" stroke-width="1" fill="none"/>
+              <ellipse cx="80" cy="65" rx="15" ry="10" stroke="white" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        <div class="room-card-body">
+          <p class="room-card-tag">MAĞARA SÜİT</p>
+          <h3 class="room-card-name">Peri Bacası<br/>Suit</h3>
+          <p class="room-card-desc">Doğal kaya tünelleriyle şekillendirilmiş, özel teraslı ve panoramik vadi manzaralı lüks suit. Şöminesi ve özel jakuzisi ile romantizmin zirvesi.</p>
+          <div class="room-card-footer">
+            <div class="room-price">
+              <span class="room-price-num">₺8.500</span>
+              <span class="room-price-label">/ GECE</span>
+            </div>
+            <a href="#iletisim" class="btn-ghost">İNCELE</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-card room-2 reveal reveal-delay-1">
+        <div class="room-card-img">
+          <div class="room-card-img-bg"></div>
+          <div class="room-card-img-decor">
+            <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="30" y="30" width="100" height="100" stroke="white" stroke-width="1" fill="none"/>
+              <rect x="45" y="45" width="70" height="70" stroke="white" stroke-width=".5" fill="none" opacity=".5"/>
+              <circle cx="80" cy="80" r="20" stroke="white" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        <div class="room-card-body">
+          <p class="room-card-tag">PREMIUM SÜİT</p>
+          <h3 class="room-card-name">Altın Vadi<br/>Suit</h3>
+          <p class="room-card-desc">Altın rengi kayalıklara bakan iki katlı suit. Üst katta yıldız gözlem terası, alt katta özel hamam ve sonsuzluk havuzu manzarası.</p>
+          <div class="room-card-footer">
+            <div class="room-price">
+              <span class="room-price-num">₺12.000</span>
+              <span class="room-price-label">/ GECE</span>
+            </div>
+            <a href="#iletisim" class="btn-ghost">İNCELE</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-card room-3 reveal reveal-delay-2">
+        <div class="room-card-img">
+          <div class="room-card-img-bg"></div>
+          <div class="room-card-img-decor">
+            <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M80 20 L140 140 L20 140Z" stroke="white" stroke-width="1" fill="none"/>
+              <path d="M80 50 L120 130 L40 130Z" stroke="white" stroke-width=".5" fill="none" opacity=".5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="room-card-body">
+          <p class="room-card-tag">BALAYИ ODA</p>
+          <h3 class="room-card-name">Rüya<br/>Odası</h3>
+          <p class="room-card-desc">Çiftler için özel tasarlanmış romantik mağara odası. Gül yaprakları, kişisel şef hizmeti ve gün batımı şampanya ritüeli dahildir.</p>
+          <div class="room-card-footer">
+            <div class="room-price">
+              <span class="room-price-num">₺6.200</span>
+              <span class="room-price-label">/ GECE</span>
+            </div>
+            <a href="#iletisim" class="btn-ghost">İNCELE</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="rooms-controls">
+    <button class="rooms-arrow" id="prevRoom" aria-label="Önceki">&#8592;</button>
+    <button class="rooms-arrow" id="nextRoom" aria-label="Sonraki">&#8594;</button>
+  </div>
+</section>
+
+<!-- ═══ QUOTE ═══ -->
+<div class="quote-section">
+  <blockquote class="quote-text reveal">
+    "Kapadokya, Tanrı'nın bir rüyasından doğmuştur. Biz ise o rüyanın içinde size özel bir köşe yaratıyoruz."
+  </blockquote>
+  <p class="quote-author reveal reveal-delay-1">Kapadokya'da Rüya</p>
+</div>
+
+<!-- ═══ GALERİ ═══ -->
+<section id="galeri">
+  <div class="gallery-header">
+    <p class="section-label reveal">GALERİ</p>
+    <h2 class="section-title reveal reveal-delay-1">Gözlerinizle <em>hissedin</em></h2>
+    <div class="gold-line reveal reveal-delay-2"></div>
+  </div>
+
+  <div class="gallery-grid reveal">
+    <div class="gallery-item g1">
+      <div class="gallery-bg">
+        <svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="g1g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#D4A664"/><stop offset="100%" stop-color="#3D1C02"/></linearGradient></defs>
+          <rect width="600" height="800" fill="url(#g1g)"/>
+          <!-- Sunrise glow -->
+          <ellipse cx="300" cy="300" rx="200" ry="180" fill="#E8B86D" opacity=".25"/>
+          <!-- Many balloons at sunrise -->
+          <g stroke="#FDF6EC" stroke-width="1.5" fill="none" opacity=".6">
+            <ellipse cx="180" cy="180" rx="35" ry="42"/>
+            <rect x="162" y="220" width="36" height="14" rx="2"/>
+            <ellipse cx="320" cy="140" rx="28" ry="34"/>
+            <rect x="305" y="172" width="30" height="12" rx="2"/>
+            <ellipse cx="440" cy="200" rx="22" ry="28"/>
+            <rect x="427" y="226" width="26" height="10" rx="2"/>
+          </g>
+          <!-- Chimneys silhouette -->
+          <g fill="#2A1000" opacity=".8">
+            <path d="M0 800 Q30 680 55 640 Q80 600 72 560 Q92 520 100 560 Q108 600 120 640 Q145 680 175 800Z"/>
+            <path d="M450 800 Q480 700 505 660 Q530 620 520 580 Q542 540 550 580 Q558 620 568 660 Q592 700 620 800Z"/>
+          </g>
+        </svg>
+      </div>
+      <div class="gallery-overlay">
+        <span class="gallery-overlay-text">Şafak Balonu</span>
+      </div>
+    </div>
+
+    <div class="gallery-item g2">
+      <div class="gallery-bg">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="g2g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8C080"/><stop offset="100%" stop-color="#7A3D00"/></linearGradient></defs>
+          <rect width="400" height="300" fill="url(#g2g)"/>
+          <!-- Interior cave room -->
+          <path d="M50 300 Q50 200 100 180 Q150 160 200 165 Q250 170 300 180 Q350 190 350 300Z" fill="#5C2E00" opacity=".4"/>
+          <ellipse cx="200" cy="120" rx="120" ry="60" fill="#3D1C02" opacity=".3"/>
+          <!-- Arch window with light -->
+          <path d="M150 100 Q200 50 250 100 L250 180 L150 180Z" fill="#F5DDA8" opacity=".3"/>
+          <path d="M155 100 Q200 55 245 100 L245 175 L155 175Z" fill="none" stroke="#C9933A" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay">
+        <span class="gallery-overlay-text">Mağara Suit</span>
+      </div>
+    </div>
+
+    <div class="gallery-item g3">
+      <div class="gallery-bg">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="g3g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C9933A"/><stop offset="100%" stop-color="#5C2E00"/></linearGradient></defs>
+          <rect width="400" height="300" fill="url(#g3g)"/>
+          <!-- Sunset valley -->
+          <ellipse cx="200" cy="100" rx="180" ry="80" fill="#E8B86D" opacity=".2"/>
+          <g fill="#3D1C02" opacity=".7">
+            <path d="M0 300 Q40 220 70 195 Q100 170 92 145 Q110 120 118 145 Q126 170 145 195 Q175 220 215 300Z"/>
+            <path d="M200 300 Q235 235 258 212 Q281 189 273 165 Q291 141 298 165 Q305 189 315 212 Q338 235 375 300Z"/>
+          </g>
+          <!-- Sun glow -->
+          <circle cx="310" cy="80" r="40" fill="#F5DDA8" opacity=".3"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay">
+        <span class="gallery-overlay-text">Gün Batımı Vadisi</span>
+      </div>
+    </div>
+
+    <div class="gallery-item g4">
+      <div class="gallery-bg">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="g4g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#B07A35"/><stop offset="100%" stop-color="#3D1C02"/></linearGradient></defs>
+          <rect width="800" height="300" fill="url(#g4g)"/>
+          <!-- Breakfast table setting suggestion -->
+          <ellipse cx="400" cy="200" rx="250" ry="60" fill="#5C2E00" opacity=".3"/>
+          <rect x="250" y="140" width="300" height="8" rx="4" fill="#C9933A" opacity=".3"/>
+          <!-- Panoramic view suggestion -->
+          <path d="M0 300 Q200 220 400 240 Q600 260 800 220 L800 300Z" fill="#2A1000" opacity=".5"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay">
+        <span class="gallery-overlay-text">Kahvaltı Terası</span>
+      </div>
+    </div>
+
+    <div class="gallery-item g5">
+      <div class="gallery-bg">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="g5g" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#2A0A00"/><stop offset="100%" stop-color="#0A0400"/></radialGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#g5g)"/>
+          <!-- Stars -->
+          <g fill="white">
+            <circle cx="50" cy="40" r="1.5" opacity=".9"/>
+            <circle cx="120" cy="20" r="1" opacity=".7"/>
+            <circle cx="200" cy="35" r="2" opacity=".8"/>
+            <circle cx="280" cy="15" r="1.5" opacity=".6"/>
+            <circle cx="350" cy="45" r="1" opacity=".9"/>
+            <circle cx="80" cy="70" r="1" opacity=".5"/>
+            <circle cx="320" cy="60" r="1.5" opacity=".7"/>
+            <circle cx="160" cy="55" r="1" opacity=".8"/>
+            <circle cx="240" cy="75" r="2" opacity=".6"/>
+            <circle cx="30" cy="90" r="1" opacity=".7"/>
+            <circle cx="380" cy="80" r="1.5" opacity=".5"/>
+          </g>
+          <!-- Milky way suggestion -->
+          <ellipse cx="200" cy="80" rx="180" ry="30" fill="white" opacity=".04"/>
+          <!-- Moon -->
+          <circle cx="320" cy="50" r="20" fill="#F5DDA8" opacity=".7"/>
+          <circle cx="328" cy="44" r="16" fill="#2A0A00"/>
+          <!-- Dark chimneys -->
+          <g fill="#1A0800">
+            <path d="M30 300 Q42 240 52 218 Q62 196 56 175 Q68 154 74 175 Q80 196 88 218 Q98 240 112 300Z"/>
+            <path d="M280 300 Q294 248 304 225 Q314 202 308 180 Q322 158 328 180 Q334 202 342 225 Q352 248 368 300Z"/>
+          </g>
+        </svg>
+      </div>
+      <div class="gallery-overlay">
+        <span class="gallery-overlay-text">Yıldızlı Gece</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ İLETİŞİM ═══ -->
+<section id="iletisim">
+  <div class="contact-info">
+    <p class="section-label reveal">İLETİŞİM & REZERVASYON</p>
+    <h2 class="section-title reveal reveal-delay-1">Rüyanızı<br/><em>planlayalım</em></h2>
+    <div class="gold-line reveal reveal-delay-2"></div>
+    <p class="section-body reveal reveal-delay-2">
+      Size özel deneyim paketlerimiz için bizimle iletişime geçin. Kapadokya'da rüyanızı gerçeğe dönüştürmekten mutluluk duyarız.
+    </p>
+    <div class="contact-details reveal reveal-delay-3">
+      <div class="contact-item">
+        <div class="contact-item-icon">&#9742;</div>
+        <div class="contact-item-text">
+          <span class="contact-item-label">TELEFON</span>
+          <span class="contact-item-value">+90 384 341 00 00</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">&#9993;</div>
+        <div class="contact-item-text">
+          <span class="contact-item-label">E-POSTA</span>
+          <span class="contact-item-value">info@kapadokyadaruya.com</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">&#9432;</div>
+        <div class="contact-item-text">
+          <span class="contact-item-label">ADRES</span>
+          <span class="contact-item-value">Mustafapaşa Mah., Ürgüp<br/>Nevşehir, Kapadokya</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form reveal reveal-delay-2">
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label">AD SOYAD</label>
+        <input type="text" class="form-input" placeholder="Adınız Soyadınız" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">E-POSTA</label>
+        <input type="email" class="form-input" placeholder="ornek@email.com" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label">GİRİŞ TARİHİ</label>
+        <input type="date" class="form-input" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">ÇIKIŞ TARİHİ</label>
+        <input type="date" class="form-input" />
+      </div>
+    </div>
+    <div class="form-field">
+      <label class="form-label">ODA / PAKET TERCİHİ</label>
+      <input type="text" class="form-input" placeholder="Peri Bacası Suit, Yıldız Gözlemi…" />
+    </div>
+    <div class="form-field">
+      <label class="form-label">MESAJINIZ</label>
+      <textarea class="form-textarea" placeholder="Özel isteklerinizi, sorularınızı bizimle paylaşın…"></textarea>
+    </div>
+    <button class="btn-primary">REZERVASYON TALEBI GÖNDER</button>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-logo">
+      <img src="logo/AdemLogo.png" alt="Kapadokya'da Rüya" />
+      <span class="footer-logo-text">KAPADOKYA'DA RÜYA</span>
+    </div>
+    <p class="footer-brand-text">
+      Peri bacalarının gölgesinde, yıldızların altında, rüzgarın sesinde — Kapadokya'nın kalbinde sizi bekliyoruz.
+    </p>
+  </div>
+  <div>
+    <p class="footer-col-title">KEŞFET</p>
+    <ul class="footer-links">
+      <li><a href="#hakkimizda">Hakkımızda</a></li>
+      <li><a href="#deneyimler">Deneyimler</a></li>
+      <li><a href="#odalar">Odalar & Suitler</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-col-title">HİZMETLER</p>
+    <ul class="footer-links">
+      <li><a href="#">Sıcak Hava Balonu</a></li>
+      <li><a href="#">Özel Yemek</a></li>
+      <li><a href="#">Spa & Hamam</a></li>
+      <li><a href="#">Tur Organizasyonu</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-col-title">REZERVASYON</p>
+    <ul class="footer-links">
+      <li><a href="#">Online Rezervasyon</a></li>
+      <li><a href="#">Hediye Çeki</a></li>
+      <li><a href="#">Kurumsal</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span class="footer-bottom-text">© 2025 Kapadokya'da Rüya. Tüm hakları saklıdır.</span>
+  <div class="footer-social">
+    <a href="#" aria-label="Instagram">&#9670;</a>
+    <a href="#" aria-label="Facebook">&#9670;</a>
+    <a href="#" aria-label="TripAdvisor">&#9670;</a>
+  </div>
+</div>
+
+<script>
+  // ── Custom Cursor ──
+  const cursor    = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top  = my + 'px';
+  });
+
+  // Lag ring
+  (function animRing() {
+    rx += (mx - rx) * .12;
+    ry += (my - ry) * .12;
+    cursorRing.style.left = rx + 'px';
+    cursorRing.style.top  = ry + 'px';
+    requestAnimationFrame(animRing);
+  })();
+
+  document.querySelectorAll('a, button, .exp-card, .gallery-item, .room-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width  = '20px';
+      cursor.style.height = '20px';
+      cursor.style.background = 'transparent';
+      cursor.style.border = '2px solid var(--gold)';
+      cursorRing.style.width  = '60px';
+      cursorRing.style.height = '60px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width  = '10px';
+      cursor.style.height = '10px';
+      cursor.style.background = 'var(--gold)';
+      cursor.style.border = 'none';
+      cursorRing.style.width  = '36px';
+      cursorRing.style.height = '36px';
+    });
+  });
+
+  // ── Nav scroll + Floating CTA ──
+  const nav = document.getElementById('nav');
+  const floatingCta = document.getElementById('floatingCta');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 60);
+    floatingCta.classList.toggle('show', y > window.innerHeight * 0.6);
+  });
+
+  // ── Scroll reveal ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: .12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ── Rooms slider ──
+  const track   = document.getElementById('roomsTrack');
+  const prevBtn = document.getElementById('prevRoom');
+  const nextBtn = document.getElementById('nextRoom');
+  let current = 0;
+  const cardW = () => track.children[0]?.offsetWidth + 32 || 412;
+
+  nextBtn.addEventListener('click', () => {
+    const max = track.children.length - 1;
+    if (current < max) {
+      current++;
+      track.style.transform = `translateX(-${current * cardW()}px)`;
+    }
+  });
+  prevBtn.addEventListener('click', () => {
+    if (current > 0) {
+      current--;
+      track.style.transform = `translateX(-${current * cardW()}px)`;
+    }
+  });
+
+  // ── Smooth anchor ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── Parallax hero ──
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    const landscape = document.querySelector('.hero-landscape');
+    if (landscape) landscape.style.transform = `translateY(${y * 0.2}px)`;
+    const balloon = document.querySelector('.balloon-wrap');
+    if (balloon) balloon.style.transform = `translateY(${-y * 0.15}px)`;
+  });
+</script>
+</body>
+</html>
+<style id="screenshot-override">
+.reveal { opacity: 1 !important; transform: translateY(0) !important; transition: none !important; }
+.hero-eyebrow, .hero-title, .hero-tagline, .hero-divider, .hero-cta-wrap, .hero-scroll {
+  opacity: 1 !important; transform: translateY(0) !important; animation: none !important;
+}
+.floating-cta { display: none !important; }
+</style>
+<script>document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));</script>
