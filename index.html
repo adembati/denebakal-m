@@ -181,6 +181,24 @@
     }
     .nav-phone svg { color: var(--gold); flex-shrink: 0; }
     .nav-phone:hover { color: var(--gold); border-color: var(--gold); background: rgba(201,147,58,.06); }
+    .lang-toggle {
+      display: flex; align-items: center; gap: .35rem;
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .15em;
+      color: var(--brown-dark);
+      background: none;
+      border: 1px solid rgba(201,147,58,.3);
+      padding: .5rem .9rem;
+      cursor: none;
+      transition: color .3s, border-color .3s;
+      white-space: nowrap;
+    }
+    .lang-toggle:hover { color: var(--gold); border-color: var(--gold); }
+    .lang-toggle .lang-active { color: var(--gold); font-weight: 500; }
+    @media (max-width: 768px) {
+      .lang-toggle { font-size: .6rem; padding: .45rem .7rem; }
+    }
 
     /* ══════════════════════════════════════
        HERO
@@ -1226,13 +1244,18 @@
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="#hakkimizda">HAKKIMIZDA</a></li>
-    <li><a href="#deneyimler">DENEYİMLER</a></li>
-    <li><a href="#odalar">VIP TURLAR</a></li>
-    <li><a href="#tur-programlari">TUR PROGRAMLARI</a></li>
-    <li><a href="#galeri">GALERİ</a></li>
-    <li><a href="#rehber-turlar">REHBERLERİ</a></li>
+    <li><a href="#hakkimizda" data-i18n="nav.about">HAKKIMIZDA</a></li>
+    <li><a href="#deneyimler" data-i18n="nav.experiences">DENEYİMLER</a></li>
+    <li><a href="#odalar" data-i18n="nav.tours">VIP TURLAR</a></li>
+    <li><a href="#tur-programlari" data-i18n="nav.programs">TUR PROGRAMLARI</a></li>
+    <li><a href="#galeri" data-i18n="nav.gallery">GALERİ</a></li>
+    <li><a href="#rehber-turlar" data-i18n="nav.guides">REHBERLERİ</a></li>
   </ul>
+  <button class="lang-toggle" onclick="switchLang()" id="langToggle" aria-label="Switch language">
+    <span id="langLabel-tr" class="lang-active">TR</span>
+    <span style="opacity:.4">/</span>
+    <span id="langLabel-en">EN</span>
+  </button>
   <a href="https://wa.me/905058751873" target="_blank" rel="noopener noreferrer" class="nav-phone">
     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
     0505 875 18 73
@@ -1318,19 +1341,19 @@
   </div>
 
   <div class="hero-content">
-    <p class="hero-eyebrow">KAPADOKYA'NIN KALBİNDE</p>
-    <h1 class="hero-title">
+    <p class="hero-eyebrow" data-i18n="hero.eyebrow">KAPADOKYA'NIN KALBİNDE</p>
+    <h1 class="hero-title" data-i18n-html="hero.title">
       Kapadokya'da<br/><em>Rüya</em>
     </h1>
-    <p class="hero-tagline">Peri bacalarının arasında, gökyüzüne uzanan bir deneyim…</p>
+    <p class="hero-tagline" data-i18n="hero.tagline">Peri bacalarının arasında, gökyüzüne uzanan bir deneyim…</p>
     <div class="hero-divider"></div>
     <div class="hero-cta-wrap">
-      <a class="hero-btn hero-btn-primary" href="#deneyimler">DENEYİMLERİ KEŞFET</a>
+      <a class="hero-btn hero-btn-primary" href="#deneyimler" data-i18n="hero.cta">DENEYİMLERİ KEŞFET</a>
     </div>
   </div>
 
   <div class="hero-scroll">
-    <span>KEŞFET</span>
+    <span data-i18n="hero.scroll">KEŞFET</span>
     <div class="scroll-line"></div>
   </div>
 </section>
@@ -1338,29 +1361,29 @@
 <!-- ═══ HAKKIMIZDA ═══ -->
 <section id="hakkimizda">
   <div class="about-text">
-    <p class="section-label reveal">HAKKIMIZDA</p>
-    <h2 class="section-title reveal reveal-delay-1">
+    <p class="section-label reveal" data-i18n="about.label">HAKKIMIZDA</p>
+    <h2 class="section-title reveal reveal-delay-1" data-i18n-html="about.title">
       Taşın içine<br/>işlenmiş bir <em>rüya</em>
     </h2>
     <div class="gold-line reveal reveal-delay-2"></div>
-    <p class="section-body reveal reveal-delay-2">
+    <p class="section-body reveal reveal-delay-2" data-i18n="about.body1">
       Kapadokya'nın eşsiz doğasında, yüzyıllık kaya oluşumlarının arasında, size özel bir dünya kuruyoruz. Her köşesi özenle tasarlanan mekanlarımızda geçmişin derinliğini ve lüksün konforunu bir arada yaşayabilirsiniz.
     </p>
-    <p class="section-body-small reveal reveal-delay-3">
+    <p class="section-body-small reveal reveal-delay-3" data-i18n="about.body2">
       Kapadokya'nın sessiz vadilerinde, güneşin batımıyla altına dönen kayalıklar arasında konumlanan yerimiz; sizi hem tarihle hem de doğayla buluşturuyor. Sıcak hava balonundan seyrettiğiniz şafak,  yerel lezzetlerle bezeli yemekler… Kapadokya'da Rüya, yalnızca bir gezi değil; bir yaşam deneyimidir.
     </p>
     <div class="about-stats reveal reveal-delay-4">
       <div class="stat">
-        <span class="stat-num">EŞSİZ</span>
-        <span class="stat-label">FARKLI ROTALAR</span>
+        <span class="stat-num" data-i18n="about.stat1num">EŞSİZ</span>
+        <span class="stat-label" data-i18n="about.stat1label">FARKLI ROTALAR</span>
       </div>
       <div class="stat">
         <span class="stat-num">8</span>
-        <span class="stat-label">YIL DENEYİM</span>
+        <span class="stat-label" data-i18n="about.stat2label">YIL DENEYİM</span>
       </div>
       <div class="stat">
         <span class="stat-num">∞</span>
-        <span class="stat-label">ANLIK</span>
+        <span class="stat-label" data-i18n="about.stat3label">ANLIK</span>
       </div>
     </div>
   </div>
@@ -1425,10 +1448,10 @@
 <section id="deneyimler">
   <div class="exp-header">
     <div>
-      <p class="section-label reveal">DENEYİMLER</p>
-      <h2 class="section-title reveal reveal-delay-1">Rüyanızda<br/><em>buluşalım</em></h2>
+      <p class="section-label reveal" data-i18n="exp.label">DENEYİMLER</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="exp.title">Rüyanızda<br/><em>buluşalım</em></h2>
     </div>
-    <p class="reveal reveal-delay-2" style="max-width:320px; font-family:'Cormorant Garamond',serif; font-size:1.05rem; line-height:1.75; color:var(--brown-mid); font-style:italic;">
+    <p class="reveal reveal-delay-2" style="max-width:320px; font-family:'Cormorant Garamond',serif; font-size:1.05rem; line-height:1.75; color:var(--brown-mid); font-style:italic;" data-i18n="exp.subtitle">
       Her an, her his, her nefes — Kapadokya'nın büyüsünü farklı bir açıdan keşfetmek için tasarlanmıştır.
     </p>
   </div>
@@ -1443,8 +1466,8 @@
       <span class="exp-card-num">01</span>
       <div class="exp-card-content">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><ellipse cx="14" cy="11" rx="11" ry="13" stroke="#E8B86D" stroke-width="1.5"/><line x1="9" y1="24" x2="7" y2="28" stroke="#E8B86D" stroke-width="1.5"/><line x1="14" y1="24" x2="14" y2="28" stroke="#E8B86D" stroke-width="1.5"/><line x1="19" y1="24" x2="21" y2="28" stroke="#E8B86D" stroke-width="1.5"/></svg>
-        <h3 class="exp-card-title">Sıcak Hava Balonu</h3>
-        <p class="exp-card-text">Şafakla birlikte gökyüzüne yükselin. Kapadokya vadilerini kuş bakışı seyrederek unutulmaz bir anın parçası olun. Her sabah yeni bir ufuk, yeni bir rüya.</p>
+        <h3 class="exp-card-title" data-i18n="exp1.title">Sıcak Hava Balonu</h3>
+        <p class="exp-card-text" data-i18n="exp1.text">Şafakla birlikte gökyüzüne yükselin. Kapadokya vadilerini kuş bakışı seyrederek unutulmaz bir anın parçası olun. Her sabah yeni bir ufuk, yeni bir rüya.</p>
       </div>
     </div>
     <div class="exp-card">
@@ -1456,8 +1479,8 @@
       <span class="exp-card-num">02</span>
       <div class="exp-card-content">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><path d="M4 28 Q8 18 12 14 Q16 10 14 6 Q18 2 20 6 Q22 10 24 14 Q28 18 28 28Z" stroke="#E8B86D" stroke-width="1.5"/><ellipse cx="17" cy="5" rx="5" ry="3" stroke="#E8B86D" stroke-width="1.5"/></svg>
-        <h3 class="exp-card-title">Vadi Yürüyüşleri</h3>
-        <p class="exp-card-text">Güvercinlik, Kızılçukur ve Ihlara vadilerinde rehberli doğa yürüyüşleri. Renk renk kaya oluşumlarının arasında kendinizi kaybedip bulun.</p>
+        <h3 class="exp-card-title" data-i18n="exp2.title">Vadi Yürüyüşleri</h3>
+        <p class="exp-card-text" data-i18n="exp2.text">Güvercinlik, Kızılçukur ve Ihlara vadilerinde rehberli doğa yürüyüşleri. Renk renk kaya oluşumlarının arasında kendinizi kaybedip bulun.</p>
       </div>
     </div>
     <div class="exp-card">
@@ -1469,8 +1492,8 @@
       <span class="exp-card-num">03</span>
       <div class="exp-card-content">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><ellipse cx="14" cy="9" rx="10" ry="5" stroke="#E8B86D" stroke-width="1.5"/><path d="M4 9 Q14 28 24 9" stroke="#E8B86D" stroke-width="1.5"/><ellipse cx="14" cy="24" rx="8" ry="3" stroke="#E8B86D" stroke-width="1" opacity=".6"/></svg>
-        <h3 class="exp-card-title">Çömlek Atölyesi</h3>
-        <p class="exp-card-text">Avanos ustalarıyla geleneksel çömlekçilik sanatını öğrenin. Toprağı elinizle şekillendirin, Kapadokya'nın ruhunu dokunuşlarınıza taşıyın.</p>
+        <h3 class="exp-card-title" data-i18n="exp3.title">Çömlek Atölyesi</h3>
+        <p class="exp-card-text" data-i18n="exp3.text">Avanos ustalarıyla geleneksel çömlekçilik sanatını öğrenin. Toprağı elinizle şekillendirin, Kapadokya'nın ruhunu dokunuşlarınıza taşıyın.</p>
       </div>
     </div>
     <div class="exp-card">
@@ -1482,8 +1505,8 @@
       <span class="exp-card-num">04</span>
       <div class="exp-card-content">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><circle cx="14" cy="10" r="7" stroke="#E8B86D" stroke-width="1.5"/><circle cx="14" cy="10" r="3" stroke="#E8B86D" stroke-width=".8"/><g fill="#E8B86D" opacity=".7"><circle cx="4" cy="4" r="1.2"/><circle cx="24" cy="3" r="1"/><circle cx="8" cy="22" r="1"/><circle cx="22" cy="20" r="1.2"/></g></svg>
-        <h3 class="exp-card-title">Kapadokya Onyx (Taş Atölyesi)</h3>
-        <p class="exp-card-text">Bu tür atölyelerde genellikle bölgeye özgü onyx, zultanit ve diğer değerli taşların nasıl işlendiğine dair canlı sunumlar yapılmakta ve el işçiliği ürünleri keşfedin.</p>
+        <h3 class="exp-card-title" data-i18n="exp4.title">Kapadokya Onyx (Taş Atölyesi)</h3>
+        <p class="exp-card-text" data-i18n="exp4.text">Bu tür atölyelerde genellikle bölgeye özgü onyx, zultanit ve diğer değerli taşların nasıl işlendiğine dair canlı sunumlar yapılmakta ve el işçiliği ürünleri keşfedin.</p>
       </div>
     </div>
     <div class="exp-card">
@@ -1495,8 +1518,8 @@
       <span class="exp-card-num">05</span>
       <div class="exp-card-content">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:.5rem"><path d="M10 8 Q14 2 18 8 L16 22 Q14 24 12 22Z" stroke="#E8B86D" stroke-width="1.5"/><line x1="14" y1="22" x2="14" y2="28" stroke="#E8B86D" stroke-width="1.5"/><path d="M6 10 Q14 4 22 10" stroke="#E8B86D" stroke-width=".8" opacity=".5"/></svg>
-        <h3 class="exp-card-title">Sütlü Kabak Çekirdeği Tadımı</h3>
-        <p class="exp-card-text">Kapadokya yöresel ürünlerini tadarak toprak ile lezzetin dansını yaşayın.</p>
+        <h3 class="exp-card-title" data-i18n="exp5.title">Sütlü Kabak Çekirdeği Tadımı</h3>
+        <p class="exp-card-text" data-i18n="exp5.text">Kapadokya yöresel ürünlerini tadarak toprak ile lezzetin dansını yaşayın.</p>
       </div>
     </div>
   </div>
@@ -1505,8 +1528,8 @@
 <!-- ═══ ODALAR ═══ -->
 <section id="odalar">
   <div class="rooms-header">
-    <p class="section-label reveal">VİP Turlarımız</p>
-    <h2 class="section-title reveal reveal-delay-1">Taşın içinde<br/><em>huzur bulun</em></h2>
+    <p class="section-label reveal" data-i18n="rooms.label">VİP Turlarımız</p>
+    <h2 class="section-title reveal reveal-delay-1" data-i18n-html="rooms.title">Taşın içinde<br/><em>huzur bulun</em></h2>
     <div class="gold-line reveal reveal-delay-2"></div>
   </div>
 
@@ -1525,15 +1548,15 @@
           </div>
         </div>
         <div class="room-card-body">
-          <p class="room-card-tag">Kırmızı Tur</p>
-          <h3 class="room-card-name">Kuzey Kapadokya <br/>Rotası</h3>
-          <p class="room-card-desc">Bu rota, Kapadokya'nın kalbi olarak bilinen ve birbirine nispeten daha yakın mesafede olan en ikonik peribacası oluşumlarını ve vadileri kapsar.</p>
+          <p class="room-card-tag" data-i18n="room1.tag">Kırmızı Tur</p>
+          <h3 class="room-card-name" data-i18n-html="room1.name">Kuzey Kapadokya <br/>Rotası</h3>
+          <p class="room-card-desc" data-i18n="room1.desc">Bu rota, Kapadokya'nın kalbi olarak bilinen ve birbirine nispeten daha yakın mesafede olan en ikonik peribacası oluşumlarını ve vadileri kapsar.</p>
           <div class="room-card-footer">
             <div class="room-price">
               <span class="room-price-num">...</span>
-              <span class="room-price-label">/ 1 GÜN</span>
+              <span class="room-price-label" data-i18n="room.priceLabel">/ 1 GÜN</span>
             </div>
-            <a href="#tur-programlari" class="btn-ghost">İNCELE</a>
+            <a href="#tur-programlari" class="btn-ghost" data-i18n="room.cta">İNCELE</a>
           </div>
         </div>
       </div>
@@ -1550,15 +1573,15 @@
           </div>
         </div>
         <div class="room-card-body">
-          <p class="room-card-tag">Yeşil Tur</p>
-          <h3 class="room-card-name">Güneybatı Kapadokya<br/>Rotası</h3>
-          <p class="room-card-desc">Yeşil tur, doğa yürüyüşü ve Kapadokya'nın derinliklerindeki yeraltı dünyasını keşfetmek üzerine kurulu daha uzun mesafeli bir rotadır.</p>
+          <p class="room-card-tag" data-i18n="room2.tag">Yeşil Tur</p>
+          <h3 class="room-card-name" data-i18n-html="room2.name">Güneybatı Kapadokya<br/>Rotası</h3>
+          <p class="room-card-desc" data-i18n="room2.desc">Yeşil tur, doğa yürüyüşü ve Kapadokya'nın derinliklerindeki yeraltı dünyasını keşfetmek üzerine kurulu daha uzun mesafeli bir rotadır.</p>
           <div class="room-card-footer">
             <div class="room-price">
               <span class="room-price-num">...</span>
-              <span class="room-price-label">/ 1 GÜN</span>
+              <span class="room-price-label" data-i18n="room.priceLabel">/ 1 GÜN</span>
             </div>
-            <a href="#tur-programlari" class="btn-ghost">İNCELE</a>
+            <a href="#tur-programlari" class="btn-ghost" data-i18n="room.cta">İNCELE</a>
           </div>
         </div>
       </div>
@@ -1574,15 +1597,15 @@
           </div>
         </div>
         <div class="room-card-body">
-          <p class="room-card-tag">Mavi Tur</p>
-          <h3 class="room-card-name">Güney Kapadokya<br/>Rotası</h3>
-          <p class="room-card-desc">Kırmızı ve Yeşil turlara kıyasla daha sakin, kalabalıktan uzak ve otantik bir rota arayanlar için idealdir. Daha çok eski Rum köylerini ve daha az bilinen vadileri içerir</p>
+          <p class="room-card-tag" data-i18n="room3.tag">Mavi Tur</p>
+          <h3 class="room-card-name" data-i18n-html="room3.name">Güney Kapadokya<br/>Rotası</h3>
+          <p class="room-card-desc" data-i18n="room3.desc">Kırmızı ve Yeşil turlara kıyasla daha sakin, kalabalıktan uzak ve otantik bir rota arayanlar için idealdir. Daha çok eski Rum köylerini ve daha az bilinen vadileri içerir</p>
           <div class="room-card-footer">
             <div class="room-price">
               <span class="room-price-num">...</span>
-              <span class="room-price-label">/ 1 GÜN</span>
+              <span class="room-price-label" data-i18n="room.priceLabel">/ 1 GÜN</span>
             </div>
-            <a href="#tur-programlari" class="btn-ghost">İNCELE</a>
+            <a href="#tur-programlari" class="btn-ghost" data-i18n="room.cta">İNCELE</a>
           </div>
         </div>
       </div>
@@ -1598,17 +1621,17 @@
 
 <!-- ═══ QUOTE ═══ -->
 <div class="quote-section">
-  <blockquote class="quote-text reveal">
+  <blockquote class="quote-text reveal" data-i18n="quote.text">
     "Kapadokya, Allah'ın insanlara vermiş olduğu eşsiz bir hediye. Biz ise onun içinde size özel bir macera yaşatıyoruz."
   </blockquote>
-  <p class="quote-author reveal reveal-delay-1">Kapadokya'da Rüya</p>
+  <p class="quote-author reveal reveal-delay-1" data-i18n="quote.author">Kapadokya'da Rüya</p>
 </div>
 
 <!-- ═══ GALERİ ═══ -->
 <section id="galeri">
   <div class="gallery-header">
-    <p class="section-label reveal">GALERİ</p>
-    <h2 class="section-title reveal reveal-delay-1">Gözlerinizle <em>hissedin</em></h2>
+    <p class="section-label reveal" data-i18n="gallery.label">GALERİ</p>
+    <h2 class="section-title reveal reveal-delay-1" data-i18n-html="gallery.title">Gözlerinizle <em>hissedin</em></h2>
     <div class="gold-line reveal reveal-delay-2"></div>
   </div>
 
@@ -1616,28 +1639,28 @@
     <div class="gallery-item g1">
       <div class="gallery-bg"></div>
       <div class="gallery-overlay">
-        <span class="gallery-overlay-text">Şafak Balonu</span>
+        <span class="gallery-overlay-text" data-i18n="gallery.g1">Şafak Balonu</span>
       </div>
     </div>
 
     <div class="gallery-item g2">
       <div class="gallery-bg"></div>
       <div class="gallery-overlay">
-        <span class="gallery-overlay-text">Güne Uyanış</span>
+        <span class="gallery-overlay-text" data-i18n="gallery.g2">Güne Uyanış</span>
       </div>
     </div>
 
     <div class="gallery-item g3">
       <div class="gallery-bg"></div>
       <div class="gallery-overlay">
-        <span class="gallery-overlay-text">Çömlek Kebabı</span>
+        <span class="gallery-overlay-text" data-i18n="gallery.g3">Çömlek Kebabı</span>
       </div>
     </div>
 
     <div class="gallery-item g4">
       <div class="gallery-bg"></div>
       <div class="gallery-overlay">
-        <span class="gallery-overlay-text">ATV Safarisi</span>
+        <span class="gallery-overlay-text" data-i18n="gallery.g4">ATV Safarisi</span>
       </div>
     </div>
 
@@ -1648,68 +1671,68 @@
 <!-- ═══ TUR PROGRAMLARI ═══ -->
 <section id="tur-programlari">
   <div class="tur-header">
-    <p class="section-label reveal">TUR ROTALARI & PROGRAMLAR</p>
-    <h2 class="section-title reveal reveal-delay-1">Kapadokya'yı<br/><em>keşfedin</em></h2>
+    <p class="section-label reveal" data-i18n="tur.label">TUR ROTALARI & PROGRAMLAR</p>
+    <h2 class="section-title reveal reveal-delay-1" data-i18n-html="tur.title">Kapadokya'yı<br/><em>keşfedin</em></h2>
     <div class="gold-line reveal reveal-delay-2"></div>
-    <p class="reveal reveal-delay-3" style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--brown-mid); line-height:1.8; font-style:italic;">
+    <p class="reveal reveal-delay-3" style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--brown-mid); line-height:1.8; font-style:italic;" data-i18n="tur.subtitle">
       Tarihi dokusu ve jeolojik zenginliğiyle Kapadokya, her rotada yeni bir hikâye sunar.
     </p>
   </div>
 
   <!-- Sekme düğmeleri -->
   <div class="tur-tabs reveal">
-    <button class="tur-tab active" onclick="turTab(event,'kirmizi')">● KIRMIZI TUR</button>
-    <button class="tur-tab" onclick="turTab(event,'yesil')">● YEŞİL TUR</button>
-    <button class="tur-tab" onclick="turTab(event,'mavi')">● MAVİ TUR</button>
-    <button class="tur-tab" onclick="turTab(event,'program')">🗓 2 GÜNLÜK PROGRAM</button>
+    <button class="tur-tab active" onclick="turTab(event,'kirmizi')" data-i18n="tur.tab1">● KIRMIZI TUR</button>
+    <button class="tur-tab" onclick="turTab(event,'yesil')" data-i18n="tur.tab2">● YEŞİL TUR</button>
+    <button class="tur-tab" onclick="turTab(event,'mavi')" data-i18n="tur.tab3">● MAVİ TUR</button>
+    <button class="tur-tab" onclick="turTab(event,'program')" data-i18n="tur.tab4">🗓 2 GÜNLÜK PROGRAM</button>
   </div>
 
   <!-- Kırmızı Tur -->
   <div class="tur-panel active" id="tur-kirmizi">
-    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;">
+    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;" data-i18n="kirmizi.intro">
       Kapadokya'nın kalbi — ikonik peribacaları ve vadilerle kuzey rotası.
     </p>
     <div class="tur-grid reveal">
       <div class="tur-stop">
         <span class="tur-stop-num">01</span>
         <div>
-          <p class="tur-stop-title">UÇHİSAR KALESİ</p>
-          <p class="tur-stop-text">Bölgenin en yüksek noktası; panoramik manzara sunan doğal kaya kalesi.</p>
+          <p class="tur-stop-title" data-i18n="kirmizi.s1.title">UÇHİSAR KALESİ</p>
+          <p class="tur-stop-text" data-i18n="kirmizi.s1.text">Bölgenin en yüksek noktası; panoramik manzara sunan doğal kaya kalesi.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">02</span>
         <div>
-          <p class="tur-stop-title">GÖREME AÇIK HAVA MÜZESİ</p>
-          <p class="tur-stop-text">UNESCO Dünya Mirası; kayalara oyulmuş kiliseler ve tarihi freskler.</p>
+          <p class="tur-stop-title" data-i18n="kirmizi.s2.title">GÖREME AÇIK HAVA MÜZESİ</p>
+          <p class="tur-stop-text" data-i18n="kirmizi.s2.text">UNESCO Dünya Mirası; kayalara oyulmuş kiliseler ve tarihi freskler.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">03</span>
         <div>
-          <p class="tur-stop-title">AŞK VADİSİ</p>
-          <p class="tur-stop-text">Silindir şeklindeki devasa peribacalarıyla ünlü Bağlıdere Vadisi.</p>
+          <p class="tur-stop-title" data-i18n="kirmizi.s3.title">AŞK VADİSİ</p>
+          <p class="tur-stop-text" data-i18n="kirmizi.s3.text">Silindir şeklindeki devasa peribacalarıyla ünlü Bağlıdere Vadisi.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">04</span>
         <div>
-          <p class="tur-stop-title">AVANOS ÇÖMLEK ATÖLYELERİ</p>
-          <p class="tur-stop-text">Kızılırmak çamuruyla yapılan geleneksel Hitit sanatı deneyimi.</p>
+          <p class="tur-stop-title" data-i18n="kirmizi.s4.title">AVANOS ÇÖMLEK ATÖLYELERİ</p>
+          <p class="tur-stop-text" data-i18n="kirmizi.s4.text">Kızılırmak çamuruyla yapılan geleneksel Hitit sanatı deneyimi.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">05</span>
         <div>
-          <p class="tur-stop-title">PAŞABAĞ VADİSİ</p>
-          <p class="tur-stop-text">Mantar başlı peribacaları ve Aziz Simeon'un hücresiyle Rahipler Vadisi.</p>
+          <p class="tur-stop-title" data-i18n="kirmizi.s5.title">PAŞABAĞ VADİSİ</p>
+          <p class="tur-stop-text" data-i18n="kirmizi.s5.text">Mantar başlı peribacaları ve Aziz Simeon'un hücresiyle Rahipler Vadisi.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">06</span>
         <div>
-          <p class="tur-stop-title">DEVRENT VADİSİ</p>
-          <p class="tur-stop-text">Hayvan figürlerine benzeyen doğal kaya oluşumlarıyla Hayal Vadisi.</p>
+          <p class="tur-stop-title" data-i18n="kirmizi.s6.title">DEVRENT VADİSİ</p>
+          <p class="tur-stop-text" data-i18n="kirmizi.s6.text">Hayvan figürlerine benzeyen doğal kaya oluşumlarıyla Hayal Vadisi.</p>
         </div>
       </div>
     </div>
@@ -1717,50 +1740,50 @@
 
   <!-- Yeşil Tur -->
   <div class="tur-panel" id="tur-yesil">
-    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;">
+    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;" data-i18n="yesil.intro">
       Doğa yürüyüşleri ve derin yeraltı şehirlerine odaklanan güneybatı rotası.
     </p>
     <div class="tur-grid reveal">
       <div class="tur-stop">
         <span class="tur-stop-num">01</span>
         <div>
-          <p class="tur-stop-title">GÖREME PANORAMİK SEYİR TEPESİ</p>
-          <p class="tur-stop-text">Esentepe'den vadi manzarasını kuşbakışı izleme noktası.</p>
+          <p class="tur-stop-title" data-i18n="yesil.s1.title">GÖREME PANORAMİK SEYİR TEPESİ</p>
+          <p class="tur-stop-text" data-i18n="yesil.s1.text">Esentepe'den vadi manzarasını kuşbakışı izleme noktası.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">02</span>
         <div>
-          <p class="tur-stop-title">DERİNKUYU YERALTI ŞEHRİ</p>
-          <p class="tur-stop-text">Bölgenin en derin ve geniş yeraltı yerleşimi; tarihin derinliklerine yolculuk.</p>
+          <p class="tur-stop-title" data-i18n="yesil.s2.title">DERİNKUYU YERALTI ŞEHRİ</p>
+          <p class="tur-stop-text" data-i18n="yesil.s2.text">Bölgenin en derin ve geniş yeraltı yerleşimi; tarihin derinliklerine yolculuk.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">03</span>
         <div>
-          <p class="tur-stop-title">IHLARA VADİSİ</p>
-          <p class="tur-stop-text">Melendiz Çayı kenarında kaya kiliseleri eşliğinde 3–4 km doğa yürüyüşü.</p>
+          <p class="tur-stop-title" data-i18n="yesil.s3.title">IHLARA VADİSİ</p>
+          <p class="tur-stop-text" data-i18n="yesil.s3.text">Melendiz Çayı kenarında kaya kiliseleri eşliğinde 3–4 km doğa yürüyüşü.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">04</span>
         <div>
-          <p class="tur-stop-title">BELİSIRMA KÖYÜ</p>
-          <p class="tur-stop-text">Nehir kenarında öğle yemeği ve dinlenme durağı; otantik Kapadokya lezzetleri.</p>
+          <p class="tur-stop-title" data-i18n="yesil.s4.title">BELİSIRMA KÖYÜ</p>
+          <p class="tur-stop-text" data-i18n="yesil.s4.text">Nehir kenarında öğle yemeği ve dinlenme durağı; otantik Kapadokya lezzetleri.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">05</span>
         <div>
-          <p class="tur-stop-title">SELİME KATEDRALİ</p>
-          <p class="tur-stop-text">Kayalara oyulmuş en büyük manastır kompleksi; ihtişamlı bir mimari şölen.</p>
+          <p class="tur-stop-title" data-i18n="yesil.s5.title">SELİME KATEDRALİ</p>
+          <p class="tur-stop-text" data-i18n="yesil.s5.text">Kayalara oyulmuş en büyük manastır kompleksi; ihtişamlı bir mimari şölen.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">06</span>
         <div>
-          <p class="tur-stop-title">GÜVERCİNLİK VADİSİ</p>
-          <p class="tur-stop-text">Binlerce tarihi güvercinliğin görülebildiği panoramik durak.</p>
+          <p class="tur-stop-title" data-i18n="yesil.s6.title">GÜVERCİNLİK VADİSİ</p>
+          <p class="tur-stop-text" data-i18n="yesil.s6.text">Binlerce tarihi güvercinliğin görülebildiği panoramik durak.</p>
         </div>
       </div>
     </div>
@@ -1768,43 +1791,43 @@
 
   <!-- Mavi Tur -->
   <div class="tur-panel" id="tur-mavi">
-    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;">
+    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;" data-i18n="mavi.intro">
       Sakinlik arayanlar için; eski Rum köyleri ve az bilinen vadilerin otantik rotası.
     </p>
     <div class="tur-grid reveal">
       <div class="tur-stop">
         <span class="tur-stop-num">01</span>
         <div>
-          <p class="tur-stop-title">MUSTAFAPAŞA (SİNASOS)</p>
-          <p class="tur-stop-text">Tarihi konaklar ve taş işçiliğiyle ünlü eski Rum kasabası.</p>
+          <p class="tur-stop-title" data-i18n="mavi.s1.title">MUSTAFAPAŞA (SİNASOS)</p>
+          <p class="tur-stop-text" data-i18n="mavi.s1.text">Tarihi konaklar ve taş işçiliğiyle ünlü eski Rum kasabası.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">02</span>
         <div>
-          <p class="tur-stop-title">KEŞLİK MANASTIRI</p>
-          <p class="tur-stop-text">Freskli kiliseleri ve geniş yemekhanesiyle bilinen manastır kompleksi.</p>
+          <p class="tur-stop-title" data-i18n="mavi.s2.title">KEŞLİK MANASTIRI</p>
+          <p class="tur-stop-text" data-i18n="mavi.s2.text">Freskli kiliseleri ve geniş yemekhanesiyle bilinen manastır kompleksi.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">03</span>
         <div>
-          <p class="tur-stop-title">ŞAHİNEFENDİ (SOBESOS)</p>
-          <p class="tur-stop-text">Roma dönemine ait mozaikli hamam ve bazilika kalıntıları.</p>
+          <p class="tur-stop-title" data-i18n="mavi.s3.title">ŞAHİNEFENDİ (SOBESOS)</p>
+          <p class="tur-stop-text" data-i18n="mavi.s3.text">Roma dönemine ait mozaikli hamam ve bazilika kalıntıları.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">04</span>
         <div>
-          <p class="tur-stop-title">SOĞANLI VADİSİ</p>
-          <p class="tur-stop-text">Kubbeli kaya kiliseleri ve meşhur bez bebekleriyle otantik bir vadi deneyimi.</p>
+          <p class="tur-stop-title" data-i18n="mavi.s4.title">SOĞANLI VADİSİ</p>
+          <p class="tur-stop-text" data-i18n="mavi.s4.text">Kubbeli kaya kiliseleri ve meşhur bez bebekleriyle otantik bir vadi deneyimi.</p>
         </div>
       </div>
       <div class="tur-stop">
         <span class="tur-stop-num">05</span>
         <div>
-          <p class="tur-stop-title">KAYMAKLI YERALTI ŞEHRİ</p>
-          <p class="tur-stop-text">Dar tüneller ve havalandırma sistemleriyle büyüleyen yeraltı yapısı.</p>
+          <p class="tur-stop-title" data-i18n="mavi.s5.title">KAYMAKLI YERALTI ŞEHRİ</p>
+          <p class="tur-stop-text" data-i18n="mavi.s5.text">Dar tüneller ve havalandırma sistemleriyle büyüleyen yeraltı yapısı.</p>
         </div>
       </div>
     </div>
@@ -1817,8 +1840,8 @@
     </p>
     <div class="tur-days reveal">
       <div class="tur-day-card">
-        <p class="tur-day-label">1. GÜN</p>
-        <p class="tur-day-title">Kapadokya'nın Kalbi</p>
+        <p class="tur-day-label" data-i18n="day1.label">1. GÜN</p>
+        <p class="tur-day-title" data-i18n="day1.title">Kapadokya'nın Kalbi</p>
         <ul class="tur-day-items">
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
@@ -1872,8 +1895,8 @@
         </ul>
       </div>
       <div class="tur-day-card">
-        <p class="tur-day-label">2. GÜN</p>
-        <p class="tur-day-title">Yeraltı Gizemleri & Doğa</p>
+        <p class="tur-day-label" data-i18n="day2.label">2. GÜN</p>
+        <p class="tur-day-title" data-i18n="day2.title">Yeraltı Gizemleri & Doğa</p>
         <ul class="tur-day-items">
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
@@ -1930,39 +1953,39 @@
 <section class="rehber-section" id="rehber-turlar">
   <div class="rehber-inner">
 
-    <p class="section-label reveal">KAPPADOKYA TUR REHBERİ</p>
-    <h1 class="rehber-h1 reveal reveal-delay-1">Kapadokya'da Hangi Tura Katılmalısınız?<br/><em>Kırmızı, Yeşil ve Mavi Tur Karşılaştırması</em></h1>
+    <p class="section-label reveal" data-i18n="rturlar.label">KAPPADOKYA TUR REHBERİ</p>
+    <h1 class="rehber-h1 reveal reveal-delay-1" data-i18n-html="rturlar.h1">Kapadokya'da Hangi Tura Katılmalısınız?<br/><em>Kırmızı, Yeşil ve Mavi Tur Karşılaştırması</em></h1>
 
     <div class="rehber-snippet reveal reveal-delay-2">
-      <strong>ÖNE ÇIKAN ÖZET</strong>
-      Kapadokya'nın Kırmızı Tur, Yeşil Tur ve Mavi Tur güzergahları; bölgenin en ikonik vadilerini, yeraltı şehirlerini ve peri bacalarını kapsayan profesyonel rehberli günlük turlarıdır. Her tur farklı bir coğrafi bölgeyi ve deneyim yoğunluğunu hedefler — doğru seçim, zamanınızı ve beklentinizi doğrudan belirler.
+      <strong data-i18n="rehber.featured">ÖNE ÇIKAN ÖZET</strong>
+      <span data-i18n="rturlar.snippet">Kapadokya'nın Kırmızı Tur, Yeşil Tur ve Mavi Tur güzergahları; bölgenin en ikonik vadilerini, yeraltı şehirlerini ve peri bacalarını kapsayan profesyonel rehberli günlük turlarıdır. Her tur farklı bir coğrafi bölgeyi ve deneyim yoğunluğunu hedefler — doğru seçim, zamanınızı ve beklentinizi doğrudan belirler.</span>
     </div>
 
     <div class="rehber-divider reveal"><span></span></div>
 
-    <h2 class="rehber-h2 reveal">Kırmızı Tur: Kapadokya'nın Klasik Kuzey Rotası</h2>
-    <p class="rehber-p reveal">Kırmızı Tur, Kapadokya'ya ilk kez gelenlerin büyük çoğunluğunun tercih ettiği rota olarak öne çıkar. Sabah 09:30'da Göreme'den hareket eden tur; Göreme Açık Hava Müzesi, Uçhisar Kalesi, Paşabağ Peribacaları ve Devrent Vadisi'ni kapsar. Uçhisar'ın zirvesinden uzanan panoramik Erciyes manzarası, Kırmızı Tur'un en çok fotoğraflanan karesi olarak öne çıkar.</p>
-    <p class="rehber-p reveal">Mesafe yaklaşık 65 kilometredir, tur ortalama 7-8 saat sürer. Orta kondisyon düzeyi yeterlidir.</p>
+    <h2 class="rehber-h2 reveal" data-i18n="rturlar.h2.red">Kırmızı Tur: Kapadokya'nın Klasik Kuzey Rotası</h2>
+    <p class="rehber-p reveal" data-i18n="rturlar.red.p1">Kırmızı Tur, Kapadokya'ya ilk kez gelenlerin büyük çoğunluğunun tercih ettiği rota olarak öne çıkar. Sabah 09:30'da Göreme'den hareket eden tur; Göreme Açık Hava Müzesi, Uçhisar Kalesi, Paşabağ Peribacaları ve Devrent Vadisi'ni kapsar. Uçhisar'ın zirvesinden uzanan panoramik Erciyes manzarası, Kırmızı Tur'un en çok fotoğraflanan karesi olarak öne çıkar.</p>
+    <p class="rehber-p reveal" data-i18n="rturlar.red.p2">Mesafe yaklaşık 65 kilometredir, tur ortalama 7-8 saat sürer. Orta kondisyon düzeyi yeterlidir.</p>
 
-    <h3 class="rehber-h3 reveal">Fotoğraf Çekimi İçin En İyi Saatler</h3>
-    <p class="rehber-p reveal">Kızılçukur Vadisi'nde sabah 07:00-08:30 arası "altın saat" yakalanabilir. Bu zaman dilimi standart tur programının dışında olduğundan sabah erken bağımsız bir vadi yürüyüşü planlamak deneyimi ikiye katlar.</p>
-
-    <div class="rehber-divider reveal"><span></span></div>
-
-    <h2 class="rehber-h2 reveal">Yeşil Tur: Yeraltı Dünyasına ve Ihlara Vadisi'ne Yolculuk</h2>
-    <p class="rehber-p reveal">Yeşil Tur, güneybatı Kapadokya'ya uzanan ve fiziksel açıdan en zorlu güzergahtır. Ihlara Vadisi boyunca 3-4 saatlik yürüyüş, Selime Manastırı ve Derinkuyu Yeraltı Şehri bu turun omurgasını oluşturur. Toplam güzergah süresi 9-10 saati bulabilir.</p>
-    <p class="rehber-p reveal">Ihlara Vadisi'nde Melendiz Nehri boyunca yürürken vadi duvarlarına oyulmuş Bizans dönemi kiliseleri görülür. 9. yüzyıl fresklerinin korunma kalitesi birçok kapalı müzedekini geride bırakır.</p>
-
-    <h3 class="rehber-h3 reveal">Yeraltı Şehirlerinde Güvenlik</h3>
-    <p class="rehber-p reveal">Derinkuyu 8 kat derinliğe iner ve dar geçitler içerir. Klaustrofobi yaşayan ziyaretçilerin önceden bilgi vermesi önerilir. Sağlam tabanlı, kapalı burunlu ayakkabı zorunludur.</p>
+    <h3 class="rehber-h3 reveal" data-i18n="rturlar.h3.photo">Fotoğraf Çekimi İçin En İyi Saatler</h3>
+    <p class="rehber-p reveal" data-i18n="rturlar.photo.p">Kızılçukur Vadisi'nde sabah 07:00-08:30 arası "altın saat" yakalanabilir. Bu zaman dilimi standart tur programının dışında olduğundan sabah erken bağımsız bir vadi yürüyüşü planlamak deneyimi ikiye katlar.</p>
 
     <div class="rehber-divider reveal"><span></span></div>
 
-    <h2 class="rehber-h2 reveal">Mavi Tur: Sakin, Özgün ve Az Keşfedilmiş Güney Rotası</h2>
-    <p class="rehber-p reveal">Mavi Tur, Kapadokya'nın güney aksını takip eden ve kalabalıktan en uzak güzergahı temsil eder. Mustafapaşa kasabası, Soğanlı Vadisi ve Nar Gölü bu turun ana duraklarıdır. Kırmızı ve Yeşil turlara kıyasla çok daha az turist barındırır — bu durum hem fotoğraf hem atmosfer açısından ciddi bir avantaj yaratır.</p>
-    <p class="rehber-p reveal">Soğanlı Vadisi'ndeki kaya kiliseleri, UNESCO listesindeki Göreme kadar tanınmasa da mimari açıdan daha az değildir. Tüm vadiyi yalnızca küçük bir grupla keşfetmek mümkün olabilir.</p>
+    <h2 class="rehber-h2 reveal" data-i18n="rturlar.h2.green">Yeşil Tur: Yeraltı Dünyasına ve Ihlara Vadisi'ne Yolculuk</h2>
+    <p class="rehber-p reveal" data-i18n="rturlar.green.p1">Yeşil Tur, güneybatı Kapadokya'ya uzanan ve fiziksel açıdan en zorlu güzergahtır. Ihlara Vadisi boyunca 3-4 saatlik yürüyüş, Selime Manastırı ve Derinkuyu Yeraltı Şehri bu turun omurgasını oluşturur. Toplam güzergah süresi 9-10 saati bulabilir.</p>
+    <p class="rehber-p reveal" data-i18n="rturlar.green.p2">Ihlara Vadisi'nde Melendiz Nehri boyunca yürürken vadi duvarlarına oyulmuş Bizans dönemi kiliseleri görülür. 9. yüzyıl fresklerinin korunma kalitesi birçok kapalı müzedekini geride bırakır.</p>
 
-    <h2 class="rehber-h2 reveal">Üç Turun Hızlı Karşılaştırması</h2>
+    <h3 class="rehber-h3 reveal" data-i18n="rturlar.h3.safety">Yeraltı Şehirlerinde Güvenlik</h3>
+    <p class="rehber-p reveal" data-i18n="rturlar.safety.p">Derinkuyu 8 kat derinliğe iner ve dar geçitler içerir. Klaustrofobi yaşayan ziyaretçilerin önceden bilgi vermesi önerilir. Sağlam tabanlı, kapalı burunlu ayakkabı zorunludur.</p>
+
+    <div class="rehber-divider reveal"><span></span></div>
+
+    <h2 class="rehber-h2 reveal" data-i18n="rturlar.h2.blue">Mavi Tur: Sakin, Özgün ve Az Keşfedilmiş Güney Rotası</h2>
+    <p class="rehber-p reveal" data-i18n="rturlar.blue.p1">Mavi Tur, Kapadokya'nın güney aksını takip eden ve kalabalıktan en uzak güzergahı temsil eder. Mustafapaşa kasabası, Soğanlı Vadisi ve Nar Gölü bu turun ana duraklarıdır. Kırmızı ve Yeşil turlara kıyasla çok daha az turist barındırır — bu durum hem fotoğraf hem atmosfer açısından ciddi bir avantaj yaratır.</p>
+    <p class="rehber-p reveal" data-i18n="rturlar.blue.p2">Soğanlı Vadisi'ndeki kaya kiliseleri, UNESCO listesindeki Göreme kadar tanınmasa da mimari açıdan daha az değildir. Tüm vadiyi yalnızca küçük bir grupla keşfetmek mümkün olabilir.</p>
+
+    <h2 class="rehber-h2 reveal" data-i18n="rturlar.h2.compare">Üç Turun Hızlı Karşılaştırması</h2>
 
     <div class="rehber-table-wrap reveal">
       <table class="rehber-table">
@@ -1984,34 +2007,34 @@
       </table>
     </div>
 
-    <h2 class="rehber-h2 reveal">Transfer Hizmeti ve Sezon Tavsiyesi</h2>
-    <p class="rehber-p reveal">Üç tur da sabah otelden alımla başlar. Göreme, Avanos, Ürgüp ve Mustafapaşa çıkışlı transferler standarttır. Kayseri veya Nevşehir havalimanından gelenler için havalimanı-otel-tur entegre transferi ayrıca organize edilebilir.</p>
-    <p class="rehber-p reveal">En ideal dönem Mayıs-Haziran ile Eylül-Ekim'dir. Balon sezonu Nisan'dan Kasım'a uzanır. Turu balonla birleştirmek isteyenler için Mayıs ve Ekim ideal denge noktasıdır: ne yaz kalabalığı ne kış belirsizliği.</p>
+    <h2 class="rehber-h2 reveal" data-i18n="rturlar.h2.transfer">Transfer Hizmeti ve Sezon Tavsiyesi</h2>
+    <p class="rehber-p reveal" data-i18n="rturlar.transfer.p1">Üç tur da sabah otelden alımla başlar. Göreme, Avanos, Ürgüp ve Mustafapaşa çıkışlı transferler standarttır. Kayseri veya Nevşehir havalimanından gelenler için havalimanı-otel-tur entegre transferi ayrıca organize edilebilir.</p>
+    <p class="rehber-p reveal" data-i18n="rturlar.transfer.p2">En ideal dönem Mayıs-Haziran ile Eylül-Ekim'dir. Balon sezonu Nisan'dan Kasım'a uzanır. Turu balonla birleştirmek isteyenler için Mayıs ve Ekim ideal denge noktasıdır: ne yaz kalabalığı ne kış belirsizliği.</p>
 
     <div class="rehber-faq reveal">
-      <p class="rehber-faq-title">SIKÇA SORULAN SORULAR</p>
+      <p class="rehber-faq-title" data-i18n="rehber.faq">SIKÇA SORULAN SORULAR</p>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Hangi tura önce katılmalıyım?</button>
-        <div class="faq-a">İlk kez geliyorsanız Kırmızı Tur ile başlamanız önerilir. Temel coğrafyayı anlamanızı sağlar ve diğer turlar için bağlam oluşturur.</div>
+        <button class="faq-q" onclick="toggleFaq(this)" data-i18n="rturlar.faq1.q">Hangi tura önce katılmalıyım?</button>
+        <div class="faq-a" data-i18n="rturlar.faq1.a">İlk kez geliyorsanız Kırmızı Tur ile başlamanız önerilir. Temel coğrafyayı anlamanızı sağlar ve diğer turlar için bağlam oluşturur.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Turlar yağmurlu havada iptal edilir mi?</button>
-        <div class="faq-a">Hafif yağış iptal gerekçesi değildir; turlar devam eder. Şiddetli fırtına durumunda tur sabahı bilgilendirme yapılır ve alternatif tarih sunulur.</div>
+        <button class="faq-q" onclick="toggleFaq(this)" data-i18n="rturlar.faq2.q">Turlar yağmurlu havada iptal edilir mi?</button>
+        <div class="faq-a" data-i18n="rturlar.faq2.a">Hafif yağış iptal gerekçesi değildir; turlar devam eder. Şiddetli fırtına durumunda tur sabahı bilgilendirme yapılır ve alternatif tarih sunulur.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Yeşil Tur fiziksel olarak zor mu?</button>
-        <div class="faq-a">Ihlara Vadisi yürüyüşü 3-4 km düz zemin içerir. Kronik diz veya kalça problemi olanların önceden danışması önerilir. 65 yaş üstü katılımcılar için kısaltılmış versiyon mevcuttur.</div>
+        <button class="faq-q" onclick="toggleFaq(this)" data-i18n="rturlar.faq3.q">Yeşil Tur fiziksel olarak zor mu?</button>
+        <div class="faq-a" data-i18n="rturlar.faq3.a">Ihlara Vadisi yürüyüşü 3-4 km düz zemin içerir. Kronik diz veya kalça problemi olanların önceden danışması önerilir. 65 yaş üstü katılımcılar için kısaltılmış versiyon mevcuttur.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Çocuklar turları yapabilir mi?</button>
-        <div class="faq-a">8 yaş üstü çocuklar Kırmızı ve Mavi turlara rahatlıkla katılabilir. Yeşil Tur için 10 yaş ve üstü önerilir; Derinkuyu'nun dar galerileri küçük çocuklar için bunaltıcı olabilir.</div>
+        <button class="faq-q" onclick="toggleFaq(this)" data-i18n="rturlar.faq4.q">Çocuklar turları yapabilir mi?</button>
+        <div class="faq-a" data-i18n="rturlar.faq4.a">8 yaş üstü çocuklar Kırmızı ve Mavi turlara rahatlıkla katılabilir. Yeşil Tur için 10 yaş ve üstü önerilir; Derinkuyu'nun dar galerileri küçük çocuklar için bunaltıcı olabilir.</div>
       </div>
     </div>
 
     <div class="rehber-cta-box reveal">
-      <p>Kapadokya'nın eşsiz vadilerini rehberli bir tur eşliğinde keşfetmeye hazır mısınız?</p>
-      <a href="#tur-programlari" class="btn-rehber">TUR PROGRAMLARINI İNCELE</a>
+      <p data-i18n="rturlar.cta.p">Kapadokya'nın eşsiz vadilerini rehberli bir tur eşliğinde keşfetmeye hazır mısınız?</p>
+      <a href="#tur-programlari" class="btn-rehber" data-i18n="rturlar.cta.btn">TUR PROGRAMLARINI İNCELE</a>
     </div>
 
   </div>
@@ -2021,21 +2044,21 @@
 <section class="rehber-section" id="rehber-balon">
   <div class="rehber-inner">
 
-    <p class="section-label reveal">SICAK HAVA BALONU REHBERİ</p>
-    <h1 class="rehber-h1 reveal reveal-delay-1">Kapadokya'da Sıcak Hava Balonu:<br/><em>Gün Doğumunda Gökyüzünden Peri Bacaları</em></h1>
+    <p class="section-label reveal" data-i18n="rbalon.label">SICAK HAVA BALONU REHBERİ</p>
+    <h1 class="rehber-h1 reveal reveal-delay-1" data-i18n-html="rbalon.h1">Kapadokya'da Sıcak Hava Balonu:<br/><em>Gün Doğumunda Gökyüzünden Peri Bacaları</em></h1>
 
     <div class="rehber-snippet reveal reveal-delay-2">
-      <strong>ÖNE ÇIKAN ÖZET</strong>
-      Kapadokya sıcak hava balonu turu, Türkiye Sivil Havacılık Genel Müdürlüğü (SHGM) tarafından lisanslı operatörler aracılığıyla gün doğumundan önce başlayan, ortalama 60-90 dakika süren bir uçuş deneyimidir. Göreme Milli Parkı üzerinde irtifaya çıkan balonlar; Kızılçukur Vadisi, Güvercinlik Vadisi ve Peribacaları silüetini tek bir karede sunar. Uçuşun gerçekleşip gerçekleşmeyeceğini belirleyen en kritik faktör rüzgar hızıdır.
+      <strong data-i18n="rehber.featured">ÖNE ÇIKAN ÖZET</strong>
+      <span data-i18n="rbalon.snippet">Kapadokya sıcak hava balonu turu, Türkiye Sivil Havacılık Genel Müdürlüğü (SHGM) tarafından lisanslı operatörler aracılığıyla gün doğumundan önce başlayan, ortalama 60-90 dakika süren bir uçuş deneyimidir. Göreme Milli Parkı üzerinde irtifaya çıkan balonlar; Kızılçukur Vadisi, Güvercinlik Vadisi ve Peribacaları silüetini tek bir karede sunar. Uçuşun gerçekleşip gerçekleşmeyeceğini belirleyen en kritik faktör rüzgar hızıdır.</span>
     </div>
 
     <div class="rehber-divider reveal"><span></span></div>
 
-    <h2 class="rehber-h2 reveal">Kapadokya Balonu Neden Dünyanın En İyi Destinasyonu?</h2>
-    <p class="rehber-p reveal">Dünyanın dört bir yanında balon uçuşu yapılan yer yüzlerle ifade edilir — ama Kapadokya ayrı bir kategoride durur. Bunun nedeni yalnızca Peribacaları'nın estetik gücü değil; bölgenin kendine özgü termal hava akımları ve görece sakin sabah rüzgarlarıdır.</p>
-    <p class="rehber-p reveal">Göreme havzasında sabah saatlerinde ölçülen ortalama rüzgar hızı 3-12 km/saat aralığında kalır. Yasal uçuş sınırı SHGM mevzuatı kapsamında 25 km/saattir. Bu eşiğin üzerine çıkıldığında operatörler uçuşu iptal etmek zorundadır — bu kararı pilot verir, turist değil.</p>
+    <h2 class="rehber-h2 reveal" data-i18n="rbalon.h2.why">Kapadokya Balonu Neden Dünyanın En İyi Destinasyonu?</h2>
+    <p class="rehber-p reveal" data-i18n="rbalon.why.p1">Dünyanın dört bir yanında balon uçuşu yapılan yer yüzlerle ifade edilir — ama Kapadokya ayrı bir kategoride durur. Bunun nedeni yalnızca Peribacaları'nın estetik gücü değil; bölgenin kendine özgü termal hava akımları ve görece sakin sabah rüzgarlarıdır.</p>
+    <p class="rehber-p reveal" data-i18n="rbalon.why.p2">Göreme havzasında sabah saatlerinde ölçülen ortalama rüzgar hızı 3-12 km/saat aralığında kalır. Yasal uçuş sınırı SHGM mevzuatı kapsamında 25 km/saattir. Bu eşiğin üzerine çıkıldığında operatörler uçuşu iptal etmek zorundadır — bu kararı pilot verir, turist değil.</p>
 
-    <h2 class="rehber-h2 reveal">Kapadokya Balon Turu Fiyatları 2025</h2>
+    <h2 class="rehber-h2 reveal" data-i18n="rbalon.h2.prices">Kapadokya Balon Turu Fiyatları 2025</h2>
 
     <div class="rehber-table-wrap reveal">
       <table class="rehber-table">
@@ -2056,11 +2079,11 @@
       </table>
     </div>
 
-    <h2 class="rehber-h2 reveal">Güvenlik: SHGM Lisansı Neden Önemli?</h2>
-    <p class="rehber-p reveal">Türkiye'de ticari balon uçuşları Sivil Havacılık Genel Müdürlüğü'nün denetimi altındadır. Her ticari operatörün geçerli bir SHGM işletme lisansı, pilotların ise minimum 35 ticari uçuşu tamamlamış sertifikası olması zorunludur. Rezervasyon yapmadan önce operatörün lisans durumunu sorgulamak hem hakkınız hem güvenliğiniz açısından kritiktir.</p>
-    <p class="rehber-p reveal">Balonlar her uçuştan önce teknik kontrolden geçirilir; brülör sistemi, propan kapasitesi ve sepet bağlantıları kontrol listesiyle doğrulanır. Beklenmedik bir hava değişikliğinde pilot iniş alanını anlık olarak değiştirebilir.</p>
+    <h2 class="rehber-h2 reveal" data-i18n="rbalon.h2.safety">Güvenlik: SHGM Lisansı Neden Önemli?</h2>
+    <p class="rehber-p reveal" data-i18n="rbalon.safety.p1">Türkiye'de ticari balon uçuşları Sivil Havacılık Genel Müdürlüğü'nün denetimi altındadır. Her ticari operatörün geçerli bir SHGM işletme lisansı, pilotların ise minimum 35 ticari uçuşu tamamlamış sertifikası olması zorunludur. Rezervasyon yapmadan önce operatörün lisans durumunu sorgulamak hem hakkınız hem güvenliğiniz açısından kritiktir.</p>
+    <p class="rehber-p reveal" data-i18n="rbalon.safety.p2">Balonlar her uçuştan önce teknik kontrolden geçirilir; brülör sistemi, propan kapasitesi ve sepet bağlantıları kontrol listesiyle doğrulanır. Beklenmedik bir hava değişikliğinde pilot iniş alanını anlık olarak değiştirebilir.</p>
 
-    <h2 class="rehber-h2 reveal">En İyi Sezon ve Rüzgar Hızı Takvimi</h2>
+    <h2 class="rehber-h2 reveal" data-i18n="rbalon.h2.season">En İyi Sezon ve Rüzgar Hızı Takvimi</h2>
 
     <div class="rehber-table-wrap reveal">
       <table class="rehber-table">
@@ -2083,7 +2106,7 @@
       </table>
     </div>
 
-    <h2 class="rehber-h2 reveal">Yanınıza Almanız Gerekenler</h2>
+    <h2 class="rehber-h2 reveal" data-i18n="rbalon.h2.pack">Yanınıza Almanız Gerekenler</h2>
 
     <div class="rehber-table-wrap reveal">
       <table class="rehber-table">
@@ -2104,38 +2127,38 @@
       </table>
     </div>
 
-    <h2 class="rehber-h2 reveal">Balon Turunu Kapadokya Programınıza Entegre Edin</h2>
-    <p class="rehber-p reveal">Balon turu sabahı yaklaşık 08:30-09:00'da tamamlanır. Bu saat günün geri kalanını verimli kullanmak için idealdir. Sabah uçuşu tamamlandıktan sonra <a href="#tur-programlari" style="color:var(--gold); text-decoration:none;">Kırmızı Tur, Yeşil Tur veya Mavi Tur</a> güzergahlarından biriyle devam edebilirsiniz. Kapadokya'nın hem havadan hem karadan tüm boyutları tek günde görülmüş olur.</p>
-    <p class="rehber-p reveal">Transfer hizmeti otelden doğrudan sağlanır. Kayseri veya Nevşehir havalimanından gelenler için havalimanı-otel-tur entegre transferi ayrıca organize edilebilir.</p>
+    <h2 class="rehber-h2 reveal" data-i18n="rbalon.h2.integrate">Balon Turunu Kapadokya Programınıza Entegre Edin</h2>
+    <p class="rehber-p reveal" data-i18n="rbalon.integrate.p1">Balon turu sabahı yaklaşık 08:30-09:00'da tamamlanır. Bu saat günün geri kalanını verimli kullanmak için idealdir. Sabah uçuşu tamamlandıktan sonra <a href="#tur-programlari" style="color:var(--gold); text-decoration:none;">Kırmızı Tur, Yeşil Tur veya Mavi Tur</a> güzergahlarından biriyle devam edebilirsiniz. Kapadokya'nın hem havadan hem karadan tüm boyutları tek günde görülmüş olur.</p>
+    <p class="rehber-p reveal" data-i18n="rbalon.integrate.p2">Transfer hizmeti otelden doğrudan sağlanır. Kayseri veya Nevşehir havalimanından gelenler için havalimanı-otel-tur entegre transferi ayrıca organize edilebilir.</p>
 
     <div class="rehber-faq reveal">
-      <p class="rehber-faq-title">SIKÇA SORULAN SORULAR</p>
+      <p class="rehber-faq-title" data-i18n="rehber.faq">SIKÇA SORULAN SORULAR</p>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Balon uçuşu iptal edilirse param iade edilir mi?</button>
-        <div class="faq-a">Hava koşulları nedeniyle operatör tarafından iptal edilen uçuşlarda tam iade veya alternatif tarih sunulması yasal zorunluluktur. Ziyaretçi tarafından yapılan iptallerde operatörün iptal politikası geçerlidir.</div>
+        <button class="faq-q" onclick="toggleFaq(this)" data-i18n="rbalon.faq1.q">Balon uçuşu iptal edilirse param iade edilir mi?</button>
+        <div class="faq-a" data-i18n="rbalon.faq1.a">Hava koşulları nedeniyle operatör tarafından iptal edilen uçuşlarda tam iade veya alternatif tarih sunulması yasal zorunluluktur. Ziyaretçi tarafından yapılan iptallerde operatörün iptal politikası geçerlidir.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Minimum yaş sınırı var mı?</button>
-        <div class="faq-a">Çoğu operatör 6 yaş ve altı çocukları sepete almaz. 6-12 yaş arası için ebeveyn onayı zorunludur. Hamile bireyler için uçuş önerilmez.</div>
+        <button class="faq-q" onclick="toggleFaq(this)" data-i18n="rbalon.faq2.q">Minimum yaş sınırı var mı?</button>
+        <div class="faq-a" data-i18n="rbalon.faq2.a">Çoğu operatör 6 yaş ve altı çocukları sepete almaz. 6-12 yaş arası için ebeveyn onayı zorunludur. Hamile bireyler için uçuş önerilmez.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Kaç kişiyle uçacağım?</button>
-        <div class="faq-a">Standart paketlerde sepet kapasitesi 16-20 kişidir. Küçük grup deneyimi için konfor veya VIP paketleri tercih edilmelidir.</div>
+        <button class="faq-q" onclick="toggleFaq(this)" data-i18n="rbalon.faq3.q">Kaç kişiyle uçacağım?</button>
+        <div class="faq-a" data-i18n="rbalon.faq3.a">Standart paketlerde sepet kapasitesi 16-20 kişidir. Küçük grup deneyimi için konfor veya VIP paketleri tercih edilmelidir.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Yükseklik korkusu olanlar için uygun mu?</button>
-        <div class="faq-a">Sepet yarım duvar yüksekliğine sahip olduğundan yüzeyi görmenizi kısıtlar. Birçok acrofobik katılımcı uçuşu sorunsuz tamamlar; ilk 2-3 dakika kritiktir — bu eşiği geçenler genellikle uçuşun geri kalanını rahat tamamlar.</div>
+        <button class="faq-q" onclick="toggleFaq(this)" data-i18n="rbalon.faq4.q">Yükseklik korkusu olanlar için uygun mu?</button>
+        <div class="faq-a" data-i18n="rbalon.faq4.a">Sepet yarım duvar yüksekliğine sahip olduğundan yüzeyi görmenizi kısıtlar. Birçok acrofobik katılımcı uçuşu sorunsuz tamamlar; ilk 2-3 dakika kritiktir — bu eşiği geçenler genellikle uçuşun geri kalanını rahat tamamlar.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Drone ile fotoğraf çekebilir miyim?</button>
-        <div class="faq-a">Ticari balon uçuş bölgeleri SHGM tarafından belirlenmiş hava sahasıdır. Drone uçuşu ayrı bir izin sürecine tabidir ve standart tur kapsamı dışındadır.</div>
+        <button class="faq-q" onclick="toggleFaq(this)" data-i18n="rbalon.faq5.q">Drone ile fotoğraf çekebilir miyim?</button>
+        <div class="faq-a" data-i18n="rbalon.faq5.a">Ticari balon uçuş bölgeleri SHGM tarafından belirlenmiş hava sahasıdır. Drone uçuşu ayrı bir izin sürecine tabidir ve standart tur kapsamı dışındadır.</div>
       </div>
     </div>
 
     <div class="rehber-cta-box reveal">
-      <p>Göreme üzerinde gün doğumunu gökyüzünden yaşamaya hazır mısınız?</p>
-      <a href="#deneyimler" class="btn-rehber">DENEYİMLERİ KEŞFEDİN</a>
+      <p data-i18n="rbalon.cta.p">Göreme üzerinde gün doğumunu gökyüzünden yaşamaya hazır mısınız?</p>
+      <a href="#deneyimler" class="btn-rehber" data-i18n="rbalon.cta.btn">DENEYİMLERİ KEŞFEDİN</a>
     </div>
 
   </div>
@@ -2148,33 +2171,33 @@
       <img src="logo/AdemLogo.png" alt="Kapadokya'da Rüya" />
       <span class="footer-logo-text">KAPADOKYA'DA RÜYA</span>
     </div>
-    <p class="footer-brand-text">
+    <p class="footer-brand-text" data-i18n="footer.brand">
       Peri bacalarının gölgesinde, yıldızların altında, rüzgarın sesinde — Kapadokya'nın kalbinde sizi bekliyoruz.
     </p>
   </div>
   <div>
-    <p class="footer-col-title">KEŞFET</p>
+    <p class="footer-col-title" data-i18n="footer.col1">KEŞFET</p>
     <ul class="footer-links">
-      <li><a href="#hakkimizda">Hakkımızda</a></li>
-      <li><a href="#deneyimler">Deneyimler</a></li>
-      <li><a href="#odalar">Odalar & Suitler</a></li>
-      <li><a href="#galeri">Galeri</a></li>
-      <li><a href="#tur-programlari">Tur Programları</a></li>
-      <li><a href="#rehber-turlar">Tur Rehberi</a></li>
-      <li><a href="#rehber-balon">Balon Rehberi</a></li>
+      <li><a href="#hakkimizda" data-i18n="footer.about">Hakkımızda</a></li>
+      <li><a href="#deneyimler" data-i18n="footer.experiences">Deneyimler</a></li>
+      <li><a href="#odalar" data-i18n="footer.rooms">Odalar & Suitler</a></li>
+      <li><a href="#galeri" data-i18n="footer.gallery">Galeri</a></li>
+      <li><a href="#tur-programlari" data-i18n="footer.programs">Tur Programları</a></li>
+      <li><a href="#rehber-turlar" data-i18n="footer.guide">Tur Rehberi</a></li>
+      <li><a href="#rehber-balon" data-i18n="footer.balloon">Balon Rehberi</a></li>
     </ul>
   </div>
   <div>
-    <p class="footer-col-title">HİZMETLER</p>
+    <p class="footer-col-title" data-i18n="footer.col2">HİZMETLER</p>
     <ul class="footer-links">
-      <li><a href="#">Sıcak Hava Balonu</a></li>
-      <li><a href="#">Özel Yemek</a></li>
-      <li><a href="#">Spa & Hamam</a></li>
-      <li><a href="#">Tur Organizasyonu</a></li>
+      <li><a href="#" data-i18n="footer.s1">Sıcak Hava Balonu</a></li>
+      <li><a href="#" data-i18n="footer.s2">Özel Yemek</a></li>
+      <li><a href="#" data-i18n="footer.s3">Spa & Hamam</a></li>
+      <li><a href="#" data-i18n="footer.s4">Tur Organizasyonu</a></li>
     </ul>
   </div>
   <div>
-    <p class="footer-col-title">İLETİŞİM</p>
+    <p class="footer-col-title" data-i18n="footer.col3">İLETİŞİM</p>
     <ul class="footer-links">
       <li><a href="tel:+905058751873">+90 505 875 18 73</a></li>
       <li><a href="mailto:adembati@gmail.com">adembati@gmail.com</a></li>
@@ -2183,7 +2206,7 @@
   </div>
 </footer>
 <div class="footer-bottom">
-  <span class="footer-bottom-text">© 2025 Kapadokya'da Rüya. Tüm hakları saklıdır.</span>
+  <span class="footer-bottom-text" data-i18n="footer.copy">© 2025 Kapadokya'da Rüya. Tüm hakları saklıdır.</span>
   <div class="footer-social">
     <a href="#" aria-label="Instagram">&#9670;</a>
     <a href="#" aria-label="Facebook">&#9670;</a>
@@ -2285,6 +2308,265 @@
     const isOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
+  }
+
+  // ── i18n ──
+  let currentLang = 'tr';
+
+  const translations = {
+    tr: {
+      'nav.about': 'HAKKIMIZDA', 'nav.experiences': 'DENEYİMLER', 'nav.tours': 'VIP TURLAR',
+      'nav.programs': 'TUR PROGRAMLARI', 'nav.gallery': 'GALERİ', 'nav.guides': 'REHBERLERİ',
+      'hero.eyebrow': "KAPADOKYA'NIN KALBİNDE",
+      'hero.title': "Kapadokya'da<br/><em>Rüya</em>",
+      'hero.tagline': 'Peri bacalarının arasında, gökyüzüne uzanan bir deneyim…',
+      'hero.cta': 'DENEYİMLERİ KEŞFET', 'hero.scroll': 'KEŞFET',
+      'about.label': 'HAKKIMIZDA',
+      'about.title': "Taşın içine<br/>işlenmiş bir <em>rüya</em>",
+      'about.body1': "Kapadokya'nın eşsiz doğasında, yüzyıllık kaya oluşumlarının arasında, size özel bir dünya kuruyoruz. Her köşesi özenle tasarlanan mekanlarımızda geçmişin derinliğini ve lüksün konforunu bir arada yaşayabilirsiniz.",
+      'about.body2': "Kapadokya'nın sessiz vadilerinde, güneşin batımıyla altına dönen kayalıklar arasında konumlanan yerimiz; sizi hem tarihle hem de doğayla buluşturuyor. Sıcak hava balonundan seyrettiğiniz şafak, yerel lezzetlerle bezeli yemekler… Kapadokya'da Rüya, yalnızca bir gezi değil; bir yaşam deneyimidir.",
+      'about.stat1num': 'EŞSİZ', 'about.stat1label': 'FARKLI ROTALAR',
+      'about.stat2label': 'YIL DENEYİM', 'about.stat3label': 'ANLIK',
+      'exp.label': 'DENEYİMLER', 'exp.title': "Rüyanızda<br/><em>buluşalım</em>",
+      'exp.subtitle': "Her an, her his, her nefes — Kapadokya'nın büyüsünü farklı bir açıdan keşfetmek için tasarlanmıştır.",
+      'exp1.title': 'Sıcak Hava Balonu', 'exp1.text': "Şafakla birlikte gökyüzüne yükselin. Kapadokya vadilerini kuş bakışı seyrederek unutulmaz bir anın parçası olun. Her sabah yeni bir ufuk, yeni bir rüya.",
+      'exp2.title': 'Vadi Yürüyüşleri', 'exp2.text': "Güvercinlik, Kızılçukur ve Ihlara vadilerinde rehberli doğa yürüyüşleri. Renk renk kaya oluşumlarının arasında kendinizi kaybedip bulun.",
+      'exp3.title': 'Çömlek Atölyesi', 'exp3.text': "Avanos ustalarıyla geleneksel çömlekçilik sanatını öğrenin. Toprağı elinizle şekillendirin, Kapadokya'nın ruhunu dokunuşlarınıza taşıyın.",
+      'exp4.title': 'Kapadokya Onyx (Taş Atölyesi)', 'exp4.text': "Bu tür atölyelerde genellikle bölgeye özgü onyx, zultanit ve diğer değerli taşların nasıl işlendiğine dair canlı sunumlar yapılmakta ve el işçiliği ürünleri keşfedin.",
+      'exp5.title': 'Sütlü Kabak Çekirdeği Tadımı', 'exp5.text': "Kapadokya yöresel ürünlerini tadarak toprak ile lezzetin dansını yaşayın.",
+      'rooms.label': 'VİP Turlarımız', 'rooms.title': "Taşın içinde<br/><em>huzur bulun</em>",
+      'room1.tag': 'Kırmızı Tur', 'room1.name': "Kuzey Kapadokya <br/>Rotası",
+      'room1.desc': "Bu rota, Kapadokya'nın kalbi olarak bilinen ve birbirine nispeten daha yakın mesafede olan en ikonik peribacası oluşumlarını ve vadileri kapsar.",
+      'room2.tag': 'Yeşil Tur', 'room2.name': "Güneybatı Kapadokya<br/>Rotası",
+      'room2.desc': "Yeşil tur, doğa yürüyüşü ve Kapadokya'nın derinliklerindeki yeraltı dünyasını keşfetmek üzerine kurulu daha uzun mesafeli bir rotadır.",
+      'room3.tag': 'Mavi Tur', 'room3.name': "Güney Kapadokya<br/>Rotası",
+      'room3.desc': "Kırmızı ve Yeşil turlara kıyasla daha sakin, kalabalıktan uzak ve otantik bir rota arayanlar için idealdir. Daha çok eski Rum köylerini ve daha az bilinen vadileri içerir.",
+      'room.priceLabel': '/ 1 GÜN', 'room.cta': 'İNCELE',
+      'quote.text': '"Kapadokya, Allah\'ın insanlara vermiş olduğu eşsiz bir hediye. Biz ise onun içinde size özel bir macera yaşatıyoruz."',
+      'quote.author': "Kapadokya'da Rüya",
+      'gallery.label': 'GALERİ', 'gallery.title': "Gözlerinizle <em>hissedin</em>",
+      'gallery.g1': 'Şafak Balonu', 'gallery.g2': 'Güne Uyanış', 'gallery.g3': 'Çömlek Kebabı', 'gallery.g4': 'ATV Safarisi',
+      'tur.label': 'TUR ROTALARI & PROGRAMLAR', 'tur.title': "Kapadokya'yı<br/><em>keşfedin</em>",
+      'tur.subtitle': "Tarihi dokusu ve jeolojik zenginliğiyle Kapadokya, her rotada yeni bir hikâye sunar.",
+      'tur.tab1': '● KIRMIZI TUR', 'tur.tab2': '● YEŞİL TUR', 'tur.tab3': '● MAVİ TUR', 'tur.tab4': '🗓 2 GÜNLÜK PROGRAM',
+      'kirmizi.intro': "Kapadokya'nın kalbi — ikonik peribacaları ve vadilerle kuzey rotası.",
+      'kirmizi.s1.title': 'UÇHİSAR KALESİ', 'kirmizi.s1.text': 'Bölgenin en yüksek noktası; panoramik manzara sunan doğal kaya kalesi.',
+      'kirmizi.s2.title': 'GÖREME AÇIK HAVA MÜZESİ', 'kirmizi.s2.text': 'UNESCO Dünya Mirası; kayalara oyulmuş kiliseler ve tarihi freskler.',
+      'kirmizi.s3.title': 'AŞK VADİSİ', 'kirmizi.s3.text': 'Silindir şeklindeki devasa peribacalarıyla ünlü Bağlıdere Vadisi.',
+      'kirmizi.s4.title': 'AVANOS ÇÖMLEK ATÖLYELERİ', 'kirmizi.s4.text': 'Kızılırmak çamuruyla yapılan geleneksel Hitit sanatı deneyimi.',
+      'kirmizi.s5.title': 'PAŞABAĞ VADİSİ', 'kirmizi.s5.text': "Mantar başlı peribacaları ve Aziz Simeon'un hücresiyle Rahipler Vadisi.",
+      'kirmizi.s6.title': 'DEVRENT VADİSİ', 'kirmizi.s6.text': 'Hayvan figürlerine benzeyen doğal kaya oluşumlarıyla Hayal Vadisi.',
+      'yesil.intro': 'Doğa yürüyüşleri ve derin yeraltı şehirlerine odaklanan güneybatı rotası.',
+      'yesil.s1.title': 'GÖREME PANORAMİK SEYİR TEPESİ', 'yesil.s1.text': "Esentepe'den vadi manzarasını kuşbakışı izleme noktası.",
+      'yesil.s2.title': 'DERİNKUYU YERALTI ŞEHRİ', 'yesil.s2.text': 'Bölgenin en derin ve geniş yeraltı yerleşimi; tarihin derinliklerine yolculuk.',
+      'yesil.s3.title': 'IHLARA VADİSİ', 'yesil.s3.text': 'Melendiz Çayı kenarında kaya kiliseleri eşliğinde 3–4 km doğa yürüyüşü.',
+      'yesil.s4.title': 'BELİSIRMA KÖYÜ', 'yesil.s4.text': 'Nehir kenarında öğle yemeği ve dinlenme durağı; otantik Kapadokya lezzetleri.',
+      'yesil.s5.title': 'SELİME KATEDRALİ', 'yesil.s5.text': 'Kayalara oyulmuş en büyük manastır kompleksi; ihtişamlı bir mimari şölen.',
+      'yesil.s6.title': 'GÜVERCİNLİK VADİSİ', 'yesil.s6.text': 'Binlerce tarihi güvercinliğin görülebildiği panoramik durak.',
+      'mavi.intro': 'Sakinlik arayanlar için; eski Rum köyleri ve az bilinen vadilerin otantik rotası.',
+      'mavi.s1.title': 'MUSTAFAPAŞA (SİNASOS)', 'mavi.s1.text': 'Tarihi konaklar ve taş işçiliğiyle ünlü eski Rum kasabası.',
+      'mavi.s2.title': 'KEŞLİK MANASTIRI', 'mavi.s2.text': 'Freskli kiliseleri ve geniş yemekhanesiyle bilinen manastır kompleksi.',
+      'mavi.s3.title': 'ŞAHİNEFENDİ (SOBESOS)', 'mavi.s3.text': 'Roma dönemine ait mozaikli hamam ve bazilika kalıntıları.',
+      'mavi.s4.title': 'SOĞANLI VADİSİ', 'mavi.s4.text': 'Kubbeli kaya kiliseleri ve meşhur bez bebekleriyle otantik bir vadi deneyimi.',
+      'mavi.s5.title': 'KAYMAKLI YERALTI ŞEHRİ', 'mavi.s5.text': 'Dar tüneller ve havalandırma sistemleriyle büyüleyen yeraltı yapısı.',
+      'day1.label': '1. GÜN', 'day1.title': "Kapadokya'nın Kalbi",
+      'day2.label': '2. GÜN', 'day2.title': 'Yeraltı Gizemleri & Doğa',
+      'rehber.featured': 'ÖNE ÇIKAN ÖZET', 'rehber.faq': 'SIKÇA SORULAN SORULAR',
+      'rturlar.label': 'KAPPADOKYA TUR REHBERİ',
+      'rturlar.h1': "Kapadokya'da Hangi Tura Katılmalısınız?<br/><em>Kırmızı, Yeşil ve Mavi Tur Karşılaştırması</em>",
+      'rturlar.snippet': "Kapadokya'nın Kırmızı Tur, Yeşil Tur ve Mavi Tur güzergahları; bölgenin en ikonik vadilerini, yeraltı şehirlerini ve peri bacalarını kapsayan profesyonel rehberli günlük turlarıdır. Her tur farklı bir coğrafi bölgeyi ve deneyim yoğunluğunu hedefler — doğru seçim, zamanınızı ve beklentinizi doğrudan belirler.",
+      'rturlar.h2.red': "Kırmızı Tur: Kapadokya'nın Klasik Kuzey Rotası",
+      'rturlar.red.p1': "Kırmızı Tur, Kapadokya'ya ilk kez gelenlerin büyük çoğunluğunun tercih ettiği rota olarak öne çıkar. Sabah 09:30'da Göreme'den hareket eden tur; Göreme Açık Hava Müzesi, Uçhisar Kalesi, Paşabağ Peribacaları ve Devrent Vadisi'ni kapsar. Uçhisar'ın zirvesinden uzanan panoramik Erciyes manzarası, Kırmızı Tur'un en çok fotoğraflanan karesi olarak öne çıkar.",
+      'rturlar.red.p2': 'Mesafe yaklaşık 65 kilometredir, tur ortalama 7-8 saat sürer. Orta kondisyon düzeyi yeterlidir.',
+      'rturlar.h3.photo': 'Fotoğraf Çekimi İçin En İyi Saatler',
+      'rturlar.photo.p': "Kızılçukur Vadisi'nde sabah 07:00-08:30 arası \"altın saat\" yakalanabilir. Bu zaman dilimi standart tur programının dışında olduğundan sabah erken bağımsız bir vadi yürüyüşü planlamak deneyimi ikiye katlar.",
+      'rturlar.h2.green': "Yeşil Tur: Yeraltı Dünyasına ve Ihlara Vadisi'ne Yolculuk",
+      'rturlar.green.p1': "Yeşil Tur, güneybatı Kapadokya'ya uzanan ve fiziksel açıdan en zorlu güzergahtır. Ihlara Vadisi boyunca 3-4 saatlik yürüyüş, Selime Manastırı ve Derinkuyu Yeraltı Şehri bu turun omurgasını oluşturur. Toplam güzergah süresi 9-10 saati bulabilir.",
+      'rturlar.green.p2': "Ihlara Vadisi'nde Melendiz Nehri boyunca yürürken vadi duvarlarına oyulmuş Bizans dönemi kiliseleri görülür. 9. yüzyıl fresklerinin korunma kalitesi birçok kapalı müzedekini geride bırakır.",
+      'rturlar.h3.safety': 'Yeraltı Şehirlerinde Güvenlik',
+      'rturlar.safety.p': 'Derinkuyu 8 kat derinliğe iner ve dar geçitler içerir. Klaustrofobi yaşayan ziyaretçilerin önceden bilgi vermesi önerilir. Sağlam tabanlı, kapalı burunlu ayakkabı zorunludur.',
+      'rturlar.h2.blue': 'Mavi Tur: Sakin, Özgün ve Az Keşfedilmiş Güney Rotası',
+      'rturlar.blue.p1': "Mavi Tur, Kapadokya'nın güney aksını takip eden ve kalabalıktan en uzak güzergahı temsil eder. Mustafapaşa kasabası, Soğanlı Vadisi ve Nar Gölü bu turun ana duraklarıdır. Kırmızı ve Yeşil turlara kıyasla çok daha az turist barındırır — bu durum hem fotoğraf hem atmosfer açısından ciddi bir avantaj yaratır.",
+      'rturlar.blue.p2': "Soğanlı Vadisi'ndeki kaya kiliseleri, UNESCO listesindeki Göreme kadar tanınmasa da mimari açıdan daha az değildir. Tüm vadiyi yalnızca küçük bir grupla keşfetmek mümkün olabilir.",
+      'rturlar.h2.compare': 'Üç Turun Hızlı Karşılaştırması',
+      'rturlar.h2.transfer': 'Transfer Hizmeti ve Sezon Tavsiyesi',
+      'rturlar.transfer.p1': "Üç tur da sabah otelden alımla başlar. Göreme, Avanos, Ürgüp ve Mustafapaşa çıkışlı transferler standarttır. Kayseri veya Nevşehir havalimanından gelenler için havalimanı-otel-tur entegre transferi ayrıca organize edilebilir.",
+      'rturlar.transfer.p2': "En ideal dönem Mayıs-Haziran ile Eylül-Ekim'dir. Balon sezonu Nisan'dan Kasım'a uzanır. Turu balonla birleştirmek isteyenler için Mayıs ve Ekim ideal denge noktasıdır: ne yaz kalabalığı ne kış belirsizliği.",
+      'rturlar.faq1.q': 'Hangi tura önce katılmalıyım?', 'rturlar.faq1.a': 'İlk kez geliyorsanız Kırmızı Tur ile başlamanız önerilir. Temel coğrafyayı anlamanızı sağlar ve diğer turlar için bağlam oluşturur.',
+      'rturlar.faq2.q': 'Turlar yağmurlu havada iptal edilir mi?', 'rturlar.faq2.a': 'Hafif yağış iptal gerekçesi değildir; turlar devam eder. Şiddetli fırtına durumunda tur sabahı bilgilendirme yapılır ve alternatif tarih sunulur.',
+      'rturlar.faq3.q': 'Yeşil Tur fiziksel olarak zor mu?', 'rturlar.faq3.a': "Ihlara Vadisi yürüyüşü 3-4 km düz zemin içerir. Kronik diz veya kalça problemi olanların önceden danışması önerilir. 65 yaş üstü katılımcılar için kısaltılmış versiyon mevcuttur.",
+      'rturlar.faq4.q': 'Çocuklar turları yapabilir mi?', 'rturlar.faq4.a': "8 yaş üstü çocuklar Kırmızı ve Mavi turlara rahatlıkla katılabilir. Yeşil Tur için 10 yaş ve üstü önerilir; Derinkuyu'nun dar galerileri küçük çocuklar için bunaltıcı olabilir.",
+      'rturlar.cta.p': "Kapadokya'nın eşsiz vadilerini rehberli bir tur eşliğinde keşfetmeye hazır mısınız?", 'rturlar.cta.btn': 'TUR PROGRAMLARINI İNCELE',
+      'rbalon.label': 'SICAK HAVA BALONU REHBERİ',
+      'rbalon.h1': "Kapadokya'da Sıcak Hava Balonu:<br/><em>Gün Doğumunda Gökyüzünden Peri Bacaları</em>",
+      'rbalon.snippet': "Kapadokya sıcak hava balonu turu, Türkiye Sivil Havacılık Genel Müdürlüğü (SHGM) tarafından lisanslı operatörler aracılığıyla gün doğumundan önce başlayan, ortalama 60-90 dakika süren bir uçuş deneyimidir. Göreme Milli Parkı üzerinde irtifaya çıkan balonlar; Kızılçukur Vadisi, Güvercinlik Vadisi ve Peribacaları silüetini tek bir karede sunar. Uçuşun gerçekleşip gerçekleşmeyeceğini belirleyen en kritik faktör rüzgar hızıdır.",
+      'rbalon.h2.why': "Kapadokya Balonu Neden Dünyanın En İyi Destinasyonu?",
+      'rbalon.why.p1': "Dünyanın dört bir yanında balon uçuşu yapılan yer yüzlerle ifade edilir — ama Kapadokya ayrı bir kategoride durur. Bunun nedeni yalnızca Peribacaları'nın estetik gücü değil; bölgenin kendine özgü termal hava akımları ve görece sakin sabah rüzgarlarıdır.",
+      'rbalon.why.p2': "Göreme havzasında sabah saatlerinde ölçülen ortalama rüzgar hızı 3-12 km/saat aralığında kalır. Yasal uçuş sınırı SHGM mevzuatı kapsamında 25 km/saattir. Bu eşiğin üzerine çıkıldığında operatörler uçuşu iptal etmek zorundadır — bu kararı pilot verir, turist değil.",
+      'rbalon.h2.prices': 'Kapadokya Balon Turu Fiyatları 2025',
+      'rbalon.h2.safety': 'Güvenlik: SHGM Lisansı Neden Önemli?',
+      'rbalon.safety.p1': "Türkiye'de ticari balon uçuşları Sivil Havacılık Genel Müdürlüğü'nün denetimi altındadır. Her ticari operatörün geçerli bir SHGM işletme lisansı, pilotların ise minimum 35 ticari uçuşu tamamlamış sertifikası olması zorunludur. Rezervasyon yapmadan önce operatörün lisans durumunu sorgulamak hem hakkınız hem güvenliğiniz açısından kritiktir.",
+      'rbalon.safety.p2': "Balonlar her uçuştan önce teknik kontrolden geçirilir; brülör sistemi, propan kapasitesi ve sepet bağlantıları kontrol listesiyle doğrulanır. Beklenmedik bir hava değişikliğinde pilot iniş alanını anlık olarak değiştirebilir.",
+      'rbalon.h2.season': 'En İyi Sezon ve Rüzgar Hızı Takvimi',
+      'rbalon.h2.pack': 'Yanınıza Almanız Gerekenler',
+      'rbalon.h2.integrate': "Balon Turunu Kapadokya Programınıza Entegre Edin",
+      'rbalon.integrate.p1': "Balon turu sabahı yaklaşık 08:30-09:00'da tamamlanır. Bu saat günün geri kalanını verimli kullanmak için idealdir. Sabah uçuşu tamamlandıktan sonra Kırmızı Tur, Yeşil Tur veya Mavi Tur güzergahlarından biriyle devam edebilirsiniz. Kapadokya'nın hem havadan hem karadan tüm boyutları tek günde görülmüş olur.",
+      'rbalon.integrate.p2': "Transfer hizmeti otelden doğrudan sağlanır. Kayseri veya Nevşehir havalimanından gelenler için havalimanı-otel-tur entegre transferi ayrıca organize edilebilir.",
+      'rbalon.faq1.q': 'Balon uçuşu iptal edilirse param iade edilir mi?', 'rbalon.faq1.a': 'Hava koşulları nedeniyle operatör tarafından iptal edilen uçuşlarda tam iade veya alternatif tarih sunulması yasal zorunluluktur. Ziyaretçi tarafından yapılan iptallerde operatörün iptal politikası geçerlidir.',
+      'rbalon.faq2.q': 'Minimum yaş sınırı var mı?', 'rbalon.faq2.a': '6 yaş ve altı çocukları çoğu operatör sepete almaz. 6-12 yaş arası için ebeveyn onayı zorunludur. Hamile bireyler için uçuş önerilmez.',
+      'rbalon.faq3.q': 'Kaç kişiyle uçacağım?', 'rbalon.faq3.a': 'Standart paketlerde sepet kapasitesi 16-20 kişidir. Küçük grup deneyimi için konfor veya VIP paketleri tercih edilmelidir.',
+      'rbalon.faq4.q': 'Yükseklik korkusu olanlar için uygun mu?', 'rbalon.faq4.a': "Sepet yarım duvar yüksekliğine sahip olduğundan yüzeyi görmenizi kısıtlar. Birçok acrofobik katılımcı uçuşu sorunsuz tamamlar; ilk 2-3 dakika kritiktir — bu eşiği geçenler genellikle uçuşun geri kalanını rahat tamamlar.",
+      'rbalon.faq5.q': 'Drone ile fotoğraf çekebilir miyim?', 'rbalon.faq5.a': 'Ticari balon uçuş bölgeleri SHGM tarafından belirlenmiş hava sahasıdır. Drone uçuşu ayrı bir izin sürecine tabidir ve standart tur kapsamı dışındadır.',
+      'rbalon.cta.p': 'Göreme üzerinde gün doğumunu gökyüzünden yaşamaya hazır mısınız?', 'rbalon.cta.btn': 'DENEYİMLERİ KEŞFEDİN',
+      'footer.brand': "Peri bacalarının gölgesinde, yıldızların altında, rüzgarın sesinde — Kapadokya'nın kalbinde sizi bekliyoruz.",
+      'footer.col1': 'KEŞFET', 'footer.col2': 'HİZMETLER', 'footer.col3': 'İLETİŞİM',
+      'footer.about': 'Hakkımızda', 'footer.experiences': 'Deneyimler', 'footer.rooms': 'Odalar & Suitler',
+      'footer.gallery': 'Galeri', 'footer.programs': 'Tur Programları', 'footer.guide': 'Tur Rehberi', 'footer.balloon': 'Balon Rehberi',
+      'footer.s1': 'Sıcak Hava Balonu', 'footer.s2': 'Özel Yemek', 'footer.s3': 'Spa & Hamam', 'footer.s4': 'Tur Organizasyonu',
+      'footer.copy': "© 2025 Kapadokya'da Rüya. Tüm hakları saklıdır.",
+    },
+    en: {
+      'nav.about': 'ABOUT US', 'nav.experiences': 'EXPERIENCES', 'nav.tours': 'VIP TOURS',
+      'nav.programs': 'TOUR PROGRAMS', 'nav.gallery': 'GALLERY', 'nav.guides': 'GUIDES',
+      'hero.eyebrow': 'IN THE HEART OF CAPPADOCIA',
+      'hero.title': 'A Dream<br/>in <em>Cappadocia</em>',
+      'hero.tagline': 'Among fairy chimneys, an experience reaching towards the sky…',
+      'hero.cta': 'DISCOVER EXPERIENCES', 'hero.scroll': 'EXPLORE',
+      'about.label': 'ABOUT US',
+      'about.title': 'A dream<br/>carved in <em>stone</em>',
+      'about.body1': "In Cappadocia's unique nature, among centuries-old rock formations, we create a world designed just for you. In our carefully crafted spaces, you can experience the depth of the past and the comfort of luxury together.",
+      'about.body2': "Located amid the silent valleys and golden cliffs of Cappadocia at sunset, our venue brings you face to face with both history and nature. The sunrise watched from a hot air balloon, meals adorned with local flavors… Kapadokya'da Rüya is not just a trip; it is a life experience.",
+      'about.stat1num': 'UNIQUE', 'about.stat1label': 'DIVERSE ROUTES',
+      'about.stat2label': 'YEARS EXPERIENCE', 'about.stat3label': 'MEMORIES',
+      'exp.label': 'EXPERIENCES', 'exp.title': "Let's meet<br/>in your <em>dream</em>",
+      'exp.subtitle': 'Every moment, every feeling, every breath — designed to discover the magic of Cappadocia from a different angle.',
+      'exp1.title': 'Hot Air Balloon', 'exp1.text': 'Rise to the sky at the break of dawn. Become part of an unforgettable moment watching Cappadocia\'s valleys from a bird\'s eye view. Every morning a new horizon, a new dream.',
+      'exp2.title': 'Valley Walks', 'exp2.text': 'Guided nature walks through Pigeon Valley, Kızılçukur and Ihlara Valley. Get lost and find yourself among colorful rock formations.',
+      'exp3.title': 'Pottery Workshop', 'exp3.text': 'Learn the traditional art of pottery with Avanos masters. Shape the earth with your hands and carry the spirit of Cappadocia in your touch.',
+      'exp4.title': 'Cappadocia Onyx (Stone Workshop)', 'exp4.text': 'Live presentations on how region-specific onyx, sultanite and other precious stones are processed, and discover handcrafted products.',
+      'exp5.title': 'Local Tasting Experience', 'exp5.text': 'Taste local Cappadocian products and experience the dance of earth and flavor.',
+      'rooms.label': 'OUR VIP TOURS', 'rooms.title': 'Find<br/><em>peace in stone</em>',
+      'room1.tag': 'Red Tour', 'room1.name': 'North Cappadocia<br/>Route',
+      'room1.desc': 'This route covers the most iconic fairy chimney formations and valleys that are known as the heart of Cappadocia and are relatively close to each other.',
+      'room2.tag': 'Green Tour', 'room2.name': 'Southwest Cappadocia<br/>Route',
+      'room2.desc': 'The Green Tour is a longer-distance route focused on nature hiking and exploring the underground world deep within Cappadocia.',
+      'room3.tag': 'Blue Tour', 'room3.name': 'South Cappadocia<br/>Route',
+      'room3.desc': 'Ideal for those seeking a quieter, less crowded and more authentic route compared to the Red and Green tours. Covers mostly old Greek villages and lesser-known valleys.',
+      'room.priceLabel': '/ 1 DAY', 'room.cta': 'EXPLORE',
+      'quote.text': '"Cappadocia is a unique gift given by God to humanity. We, in turn, create a special adventure for you within it."',
+      'quote.author': 'A Dream in Cappadocia',
+      'gallery.label': 'GALLERY', 'gallery.title': 'Feel it<br/>with your <em>eyes</em>',
+      'gallery.g1': 'Dawn Balloon', 'gallery.g2': 'Morning Awakening', 'gallery.g3': 'Pottery Kebab', 'gallery.g4': 'ATV Safari',
+      'tur.label': 'TOUR ROUTES & PROGRAMS', 'tur.title': 'Discover<br/><em>Cappadocia</em>',
+      'tur.subtitle': 'With its historical texture and geological richness, Cappadocia tells a new story on every route.',
+      'tur.tab1': '● RED TOUR', 'tur.tab2': '● GREEN TOUR', 'tur.tab3': '● BLUE TOUR', 'tur.tab4': '🗓 2-DAY PROGRAM',
+      'kirmizi.intro': 'Heart of Cappadocia — the northern route with iconic fairy chimneys and valleys.',
+      'kirmizi.s1.title': 'UÇHISAR CASTLE', 'kirmizi.s1.text': 'The highest point in the region; a natural rock castle offering panoramic views.',
+      'kirmizi.s2.title': 'GÖREME OPEN AIR MUSEUM', 'kirmizi.s2.text': 'UNESCO World Heritage Site; rock-carved churches and historical frescoes.',
+      'kirmizi.s3.title': 'LOVE VALLEY', 'kirmizi.s3.text': 'Bağlıdere Valley, famous for its massive cylindrical fairy chimneys.',
+      'kirmizi.s4.title': 'AVANOS POTTERY WORKSHOPS', 'kirmizi.s4.text': 'Traditional Hittite art experience made with Kızılırmak clay.',
+      'kirmizi.s5.title': 'PAŞABAĞ VALLEY', 'kirmizi.s5.text': "Monks Valley with mushroom-capped fairy chimneys and Saint Simeon's cell.",
+      'kirmizi.s6.title': 'DEVRENT VALLEY', 'kirmizi.s6.text': 'Imagination Valley with natural rock formations resembling animal figures.',
+      'yesil.intro': 'The southwestern route focused on nature hikes and deep underground cities.',
+      'yesil.s1.title': 'GÖREME PANORAMIC VIEWPOINT', 'yesil.s1.text': "Bird's eye view of the valley landscape from Esentepe.",
+      'yesil.s2.title': 'DERİNKUYU UNDERGROUND CITY', 'yesil.s2.text': 'The deepest and largest underground settlement in the region; a journey to the depths of history.',
+      'yesil.s3.title': 'IHLARA VALLEY', 'yesil.s3.text': '3–4 km nature walk beside rock churches along the Melendiz Stream.',
+      'yesil.s4.title': 'BELİSIRMA VILLAGE', 'yesil.s4.text': 'Lunch and rest stop by the river; authentic Cappadocian flavors.',
+      'yesil.s5.title': 'SELİME CATHEDRAL', 'yesil.s5.text': 'The largest rock-carved monastery complex; a magnificent architectural feast.',
+      'yesil.s6.title': 'PIGEON VALLEY', 'yesil.s6.text': 'Panoramic stop where thousands of historical pigeon houses can be seen.',
+      'mavi.intro': 'For those seeking tranquility; the authentic route of old Greek villages and lesser-known valleys.',
+      'mavi.s1.title': 'MUSTAFAPAŞA (SİNASOS)', 'mavi.s1.text': 'An old Greek town famous for its historical mansions and stone craftsmanship.',
+      'mavi.s2.title': 'KEŞLİK MONASTERY', 'mavi.s2.text': 'A monastery complex known for its frescoed churches and large dining hall.',
+      'mavi.s3.title': 'ŞAHİNEFENDİ (SOBESOS)', 'mavi.s3.text': 'Roman-era mosaic baths and basilica ruins.',
+      'mavi.s4.title': 'SOĞANLI VALLEY', 'mavi.s4.text': 'An authentic valley experience with domed rock churches and famous cloth dolls.',
+      'mavi.s5.title': 'KAYMAKLI UNDERGROUND CITY', 'mavi.s5.text': 'A fascinating underground structure with narrow tunnels and ventilation systems.',
+      'day1.label': 'DAY 1', 'day1.title': 'Heart of Cappadocia',
+      'day2.label': 'DAY 2', 'day2.title': 'Underground Mysteries & Nature',
+      'rehber.featured': 'FEATURED SUMMARY', 'rehber.faq': 'FREQUENTLY ASKED QUESTIONS',
+      'rturlar.label': 'CAPPADOCIA TOUR GUIDE',
+      'rturlar.h1': 'Which Tour Should You Join in Cappadocia?<br/><em>Red, Green and Blue Tour Comparison</em>',
+      'rturlar.snippet': "Cappadocia's Red Tour, Green Tour and Blue Tour routes are professionally guided daily tours covering the region's most iconic valleys, underground cities and fairy chimneys. Each tour targets a different geographic area and experience intensity — the right choice directly determines how you spend your time.",
+      'rturlar.h2.red': "Red Tour: Cappadocia's Classic Northern Route",
+      'rturlar.red.p1': 'The Red Tour is the route preferred by the vast majority of first-time visitors to Cappadocia. Departing from Göreme at 09:30, the tour covers Göreme Open Air Museum, Uçhisar Castle, Paşabağ Fairy Chimneys and Devrent Valley. The panoramic Erciyes view from the top of Uçhisar is the most photographed frame of the Red Tour.',
+      'rturlar.red.p2': 'The distance is approximately 65 kilometers; the tour takes an average of 7-8 hours. Moderate fitness level is sufficient.',
+      'rturlar.h3.photo': 'Best Hours for Photography',
+      'rturlar.photo.p': 'The "golden hour" can be captured between 07:00-08:30 in Kızılçukur Valley. Since this time slot is outside the standard tour schedule, planning an early morning independent valley walk doubles the experience.',
+      'rturlar.h2.green': 'Green Tour: Journey to the Underground World and Ihlara Valley',
+      'rturlar.green.p1': 'The Green Tour is the physically most demanding route extending to southwest Cappadocia. A 3-4 hour walk through Ihlara Valley, Selime Monastery and Derinkuyu Underground City form the backbone of this tour. Total route duration can reach 9-10 hours.',
+      'rturlar.green.p2': 'While walking along the Melendiz River in Ihlara Valley, Byzantine-era churches carved into the valley walls are visible. The preservation quality of 9th century frescoes surpasses many enclosed museums.',
+      'rturlar.h3.safety': 'Safety in Underground Cities',
+      'rturlar.safety.p': 'Derinkuyu descends 8 floors deep and contains narrow passages. Visitors with claustrophobia are recommended to inform the guide in advance. Sturdy, closed-toe shoes are mandatory.',
+      'rturlar.h2.blue': 'Blue Tour: Calm, Authentic and Lesser-Known Southern Route',
+      'rturlar.blue.p1': 'The Blue Tour follows the southern axis of Cappadocia and represents the route furthest from the crowds. Mustafapaşa town, Soğanlı Valley and Nar Lake are the main stops. It hosts far fewer tourists compared to the Red and Green tours — a significant advantage both photographically and atmospherically.',
+      'rturlar.blue.p2': 'The rock churches in Soğanlı Valley are not architecturally inferior to the UNESCO-listed Göreme, even if less well-known. It may be possible to explore the entire valley with just a small group.',
+      'rturlar.h2.compare': 'Quick Comparison of Three Tours',
+      'rturlar.h2.transfer': 'Transfer Service and Season Recommendation',
+      'rturlar.transfer.p1': 'All three tours begin with hotel pickup in the morning. Transfers from Göreme, Avanos, Ürgüp and Mustafapaşa are standard. Integrated airport-hotel-tour transfer can also be arranged for those arriving from Kayseri or Nevşehir airports.',
+      'rturlar.transfer.p2': 'The most ideal periods are May-June and September-October. Balloon season extends from April to November. For those wishing to combine the tour with ballooning, May and October are the ideal balance point: neither summer crowds nor winter uncertainty.',
+      'rturlar.faq1.q': 'Which tour should I join first?', 'rturlar.faq1.a': 'If it is your first visit, starting with the Red Tour is recommended. It helps you understand the basic geography and provides context for the other tours.',
+      'rturlar.faq2.q': 'Are tours cancelled in rainy weather?', 'rturlar.faq2.a': 'Light rain is not grounds for cancellation; tours continue. In case of severe storms, notification is given on the morning of the tour and an alternative date is offered.',
+      'rturlar.faq3.q': 'Is the Green Tour physically demanding?', 'rturlar.faq3.a': "Ihlara Valley walk involves 3-4 km of flat terrain. Those with chronic knee or hip problems are recommended to consult in advance. A shortened version is available for participants over 65.",
+      'rturlar.faq4.q': 'Can children participate in tours?', 'rturlar.faq4.a': "Children over 8 can comfortably join the Red and Blue Tours. Age 10 and above is recommended for the Green Tour; Derinkuyu's narrow galleries can be overwhelming for young children.",
+      'rturlar.cta.p': 'Ready to discover the unique valleys of Cappadocia with a guided tour?', 'rturlar.cta.btn': 'VIEW TOUR PROGRAMS',
+      'rbalon.label': 'HOT AIR BALLOON GUIDE',
+      'rbalon.h1': 'Hot Air Balloon in Cappadocia:<br/><em>Fairy Chimneys from the Sky at Sunrise</em>',
+      'rbalon.snippet': 'The Cappadocia hot air balloon tour is a flight experience lasting an average of 60-90 minutes, beginning before sunrise through SHGM-licensed operators. Balloons ascending over Göreme National Park present Kızılçukur Valley, Pigeon Valley and the Fairy Chimney silhouettes in a single frame. The most critical factor determining whether the flight takes place is wind speed.',
+      'rbalon.h2.why': "Why is Cappadocia the World's Best Balloon Destination?",
+      'rbalon.why.p1': "Balloon flights are available in hundreds of places around the world — but Cappadocia stands in a separate category. The reason is not only the aesthetic power of the Fairy Chimneys; it's the region's unique thermal air currents and relatively calm morning winds.",
+      'rbalon.why.p2': 'The average wind speed measured in the Göreme basin during morning hours stays in the 3-12 km/h range. The legal flight limit under SHGM regulations is 25 km/h. When this threshold is exceeded, operators must cancel the flight — this decision is made by the pilot, not the tourist.',
+      'rbalon.h2.prices': 'Cappadocia Balloon Tour Prices 2025',
+      'rbalon.h2.safety': 'Safety: Why Does the SHGM License Matter?',
+      'rbalon.safety.p1': 'Commercial balloon flights in Turkey are under the supervision of the Civil Aviation Authority. Each commercial operator must have a valid SHGM operating license, and pilots must have a certificate of completing a minimum of 35 commercial flights. Querying the operator\'s license status before booking is both your right and critical for your safety.',
+      'rbalon.safety.p2': 'Balloons undergo technical inspection before each flight; the burner system, propane capacity and basket connections are verified with a checklist. In the event of an unexpected weather change, the pilot can change the landing area in real time.',
+      'rbalon.h2.season': 'Best Season and Wind Speed Calendar',
+      'rbalon.h2.pack': 'What to Bring With You',
+      'rbalon.h2.integrate': 'Integrate the Balloon Tour Into Your Cappadocia Itinerary',
+      'rbalon.integrate.p1': 'The balloon tour morning is completed at approximately 08:30-09:00. This time is ideal for making efficient use of the rest of the day. After the morning flight, you can continue with one of the Red Tour, Green Tour or Blue Tour routes. All dimensions of Cappadocia, both from the air and ground, can be seen in a single day.',
+      'rbalon.integrate.p2': 'Transfer service is provided directly from the hotel. Integrated airport-hotel-tour transfer can also be arranged for those arriving from Kayseri or Nevşehir airports.',
+      'rbalon.faq1.q': 'Will I get a refund if the balloon flight is cancelled?', 'rbalon.faq1.a': 'For flights cancelled by the operator due to weather conditions, full refund or alternative date is a legal requirement. For cancellations made by the visitor, the operator\'s cancellation policy applies.',
+      'rbalon.faq2.q': 'Is there a minimum age limit?', 'rbalon.faq2.a': 'Most operators do not allow children aged 6 and under in the basket. Parental consent is mandatory for ages 6-12. Flight is not recommended for pregnant individuals.',
+      'rbalon.faq3.q': 'How many people will I fly with?', 'rbalon.faq3.a': 'Standard packages have a basket capacity of 16-20 people. For a small group experience, comfort or VIP packages should be preferred.',
+      'rbalon.faq4.q': 'Is it suitable for people with fear of heights?', 'rbalon.faq4.a': "The basket is half-wall height which limits your view of the ground. Many acrophobic participants complete the flight without issue; the first 2-3 minutes are critical — those who pass this threshold generally complete the rest of the flight comfortably.",
+      'rbalon.faq5.q': 'Can I take photos with a drone?', 'rbalon.faq5.a': 'Commercial balloon flight zones are airspace designated by SHGM. Drone flight is subject to a separate permit process and is outside the scope of a standard tour.',
+      'rbalon.cta.p': 'Ready to experience sunrise over Göreme from the sky?', 'rbalon.cta.btn': 'DISCOVER EXPERIENCES',
+      'footer.brand': 'In the shadow of fairy chimneys, under the stars, in the sound of the wind — we await you at the heart of Cappadocia.',
+      'footer.col1': 'EXPLORE', 'footer.col2': 'SERVICES', 'footer.col3': 'CONTACT',
+      'footer.about': 'About Us', 'footer.experiences': 'Experiences', 'footer.rooms': 'Rooms & Suites',
+      'footer.gallery': 'Gallery', 'footer.programs': 'Tour Programs', 'footer.guide': 'Tour Guide', 'footer.balloon': 'Balloon Guide',
+      'footer.s1': 'Hot Air Balloon', 'footer.s2': 'Private Dining', 'footer.s3': 'Spa & Hammam', 'footer.s4': 'Tour Organization',
+      'footer.copy': '© 2025 A Dream in Cappadocia. All rights reserved.',
+    }
+  };
+
+  function switchLang() {
+    currentLang = currentLang === 'tr' ? 'en' : 'tr';
+    const t = translations[currentLang];
+
+    // Update text elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+
+    // Update HTML elements (with br, em etc.)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+
+    // Update lang toggle labels
+    const trLabel = document.getElementById('langLabel-tr');
+    const enLabel = document.getElementById('langLabel-en');
+    if (currentLang === 'tr') {
+      trLabel.classList.add('lang-active');
+      enLabel.classList.remove('lang-active');
+    } else {
+      enLabel.classList.add('lang-active');
+      trLabel.classList.remove('lang-active');
+    }
+
+    // Update html lang attribute
+    document.documentElement.lang = currentLang;
   }
 
   // ── Smooth anchor ──
