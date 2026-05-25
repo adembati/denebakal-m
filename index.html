@@ -1306,6 +1306,8 @@
   <button class="lang-toggle" onclick="switchLang()" id="langToggle" aria-label="Switch language">
     <span id="langLabel-tr" class="lang-active">TR</span>
     <span style="opacity:.4">/</span>
+    <span id="langLabel-ar">AR</span>
+    <span style="opacity:.4">/</span>
     <span id="langLabel-en">EN</span>
   </button>
 </nav>
@@ -1314,8 +1316,8 @@
 <section class="poster-section">
   <img class="poster-img" src="res/türkceafis.png" alt="Kapadokya Afişi">
   <div class="poster-caption">
-    <strong>Kapadokya Aktiviteleri</strong>
-    Bu sayfa Kapadokya'da sunulan turlar, ATV & atlı safariler, tarihi ve yeraltı gezileri ile deneyimleri tanıtmak içindir. Aşağıya kaydırarak her aktivitenin detaylarına ulaşabilirsiniz.
+    <strong data-i18n="poster.title">Kapadokya Aktiviteleri</strong>
+    <div data-i18n="poster.desc">Bu sayfa Kapadokya'da sunulan turlar, ATV & atlı safariler, tarihi ve yeraltı gezileri ile deneyimleri tanıtmak içindir. Aşağıya kaydırarak her aktivitenin detaylarına ulaşabilirsiniz.</div>
   </div>
 </section>
 
@@ -2638,12 +2640,27 @@
       'tbl.camera': 'Charged phone / camera', 'tbl.recommended': 'Recommended', 'tbl.camera.note': 'Photos can be taken throughout the flight',
       'tbl.water': 'Water', 'tbl.water.note': 'Thirst may be felt during a 90 min flight',
       'tbl.sunglasses': 'Sunglasses', 'tbl.sunglasses.note': 'Critical for looking toward sunrise',
+    },
+    ar: {
+      'nav.about': 'معلومات عنا', 'nav.experiences': 'التجارب', 'nav.tours': 'الجولات المميزة',
+      'nav.programs': 'برامج الجولات', 'nav.gallery': 'المعرض', 'nav.guides': 'المرشدون',
+      'hero.eyebrow': 'في قلب كابادوكيا',
+      'hero.title': 'حلم<br/><em>في كابادوكيا</em>',
+      'hero.tagline': 'تجربة بين مداخن الجنيات تصل إلى السماء…',
+      'hero.cta': 'اكتشف التجارب', 'hero.scroll': 'استكشف',
+      'poster.title': 'أنشطة كابادوكيا',
+      'poster.desc': 'تعرض هذه الصفحة الجولات والرحلات وورش العمل والخبرات المتاحة في كابادوكيا. مرّ للأسفل لرؤية التفاصيل.',
+      'footer.brand': 'في ظل مداخن الجنيات، تحت النجوم، في صوت الريح — بانتظاركم في قلب كابادوكيا.',
+      'footer.col1': 'استكشف', 'footer.col2': 'الخدمات', 'footer.col3': 'اتصال'
     }
   };
 
   function switchLang() {
-    currentLang = currentLang === 'tr' ? 'en' : 'tr';
-    const t = translations[currentLang];
+    const langs = ['tr','ar','en'];
+    let idx = langs.indexOf(currentLang);
+    if (idx === -1) idx = 0;
+    currentLang = langs[(idx + 1) % langs.length];
+    const t = translations[currentLang] || {};
 
     // Update text elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -2659,17 +2676,29 @@
 
     // Update lang toggle labels
     const trLabel = document.getElementById('langLabel-tr');
+    const arLabel = document.getElementById('langLabel-ar');
     const enLabel = document.getElementById('langLabel-en');
-    if (currentLang === 'tr') {
-      trLabel.classList.add('lang-active');
-      enLabel.classList.remove('lang-active');
-    } else {
-      enLabel.classList.add('lang-active');
-      trLabel.classList.remove('lang-active');
+    if (trLabel) trLabel.classList.toggle('lang-active', currentLang === 'tr');
+    if (arLabel) arLabel.classList.toggle('lang-active', currentLang === 'ar');
+    if (enLabel) enLabel.classList.toggle('lang-active', currentLang === 'en');
+
+    // Swap poster image for Arabic
+    const poster = document.querySelector('.poster-img');
+    if (poster) {
+      poster.src = currentLang === 'ar' ? 'res/arabcaafis.png' : 'res/türkceafis.png';
+      poster.alt = currentLang === 'ar' ? 'أفيش كابادوكيا' : 'Kapadokya Afişi';
     }
 
-    // Update html lang attribute
-    document.documentElement.lang = currentLang;
+    // Direction and alignment
+    if (currentLang === 'ar') {
+      document.documentElement.lang = 'ar';
+      document.documentElement.dir = 'rtl';
+      document.querySelectorAll('.poster-caption').forEach(c => c.style.textAlign = 'right');
+    } else {
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = 'ltr';
+      document.querySelectorAll('.poster-caption').forEach(c => c.style.textAlign = 'center');
+    }
   }
 
   // ── Smooth anchor ──
