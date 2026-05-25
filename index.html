@@ -92,6 +92,54 @@
       opacity: .4;
     }
 
+    /* ═════════ Poster (responsive) ═════════ */
+    .poster-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .6rem;
+      padding: 2rem 1rem;
+      background: linear-gradient(180deg, rgba(253,246,236,0.9), rgba(248,238,219,0.85));
+      margin-top: 96px;
+    }
+    .poster-section .poster-img {
+      max-width: 1100px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+      border: 1px solid rgba(92,46,0,.06);
+      object-fit: cover;
+      display: block;
+    }
+    .poster-section .poster-caption {
+      text-align: center;
+      color: var(--brown-dark);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      max-width: 1100px;
+      padding: 0 1rem;
+    }
+    .poster-section .poster-caption strong {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      color: var(--brown-dark);
+      letter-spacing: .06em;
+      margin-bottom: .2rem;
+    }
+
+    @media (max-width: 1000px) {
+      .poster-section { padding: 1.25rem; }
+      .poster-section .poster-img { max-width: 900px; }
+      .poster-section .poster-caption { font-size: 1rem; }
+    }
+    @media (max-width: 600px) {
+      .poster-section { padding: .9rem; margin-top: 72px; }
+      .poster-section .poster-img { max-height: 420px; border-radius: 6px; }
+      .poster-section .poster-caption { font-size: .95rem; padding: 0 .6rem; }
+    }
+
     /* ══════════════════════════════════════
        NAV
     ══════════════════════════════════════ */
@@ -1263,11 +1311,11 @@
 </nav>
 
 <!-- Poster section (inserted) -->
-<section class="poster-section" style="display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:2rem 1rem;background:linear-gradient(180deg,rgba(253,246,236,0.9),rgba(248,238,219,0.85));margin-top:96px;">
-  <img src="res/türkceafis.png" alt="Kapadokya Afişi" style="max-width:1100px;width:100%;height:auto;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.18);border:1px solid rgba(92,46,0,.06)">
-  <div style="text-align:center;color:var(--brown-dark);font-family:'Cormorant Garamond',serif;font-size:1.05rem;max-width:1100px;">
-    <strong style="display:block;font-family:'Cinzel',serif;font-size:1.15rem;color:var(--brown-dark);letter-spacing:.06em;">Kapadokya Aktiviteleri</strong>
-    Bu sayfa kapadokya'da sunulan turlar, ATV & atlı safariler, tarihi ve yeraltı gezileri ile deneyimleri tanıtmak içindir. Aşağıya kaydırarak her aktivitenin detaylarına ulaşabilirsiniz.
+<section class="poster-section">
+  <img class="poster-img" src="res/türkceafis.png" alt="Kapadokya Afişi">
+  <div class="poster-caption">
+    <strong>Kapadokya Aktiviteleri</strong>
+    Bu sayfa Kapadokya'da sunulan turlar, ATV & atlı safariler, tarihi ve yeraltı gezileri ile deneyimleri tanıtmak içindir. Aşağıya kaydırarak her aktivitenin detaylarına ulaşabilirsiniz.
   </div>
 </section>
 
