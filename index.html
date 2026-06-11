@@ -92,54 +92,6 @@
       opacity: .4;
     }
 
-    /* ═════════ Poster (responsive) ═════════ */
-    .poster-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .6rem;
-      padding: 2rem 1rem;
-      background: linear-gradient(180deg, rgba(253,246,236,0.9), rgba(248,238,219,0.85));
-      margin-top: 96px;
-    }
-    .poster-section .poster-img {
-      max-width: 1100px;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.18);
-      border: 1px solid rgba(92,46,0,.06);
-      object-fit: cover;
-      display: block;
-    }
-    .poster-section .poster-caption {
-      text-align: center;
-      color: var(--brown-dark);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      max-width: 1100px;
-      padding: 0 1rem;
-    }
-    .poster-section .poster-caption strong {
-      display: block;
-      font-family: 'Cinzel', serif;
-      font-size: 1.15rem;
-      color: var(--brown-dark);
-      letter-spacing: .06em;
-      margin-bottom: .2rem;
-    }
-
-    @media (max-width: 1000px) {
-      .poster-section { padding: 1.25rem; }
-      .poster-section .poster-img { max-width: 900px; }
-      .poster-section .poster-caption { font-size: 1rem; }
-    }
-    @media (max-width: 600px) {
-      .poster-section { padding: .9rem; margin-top: 72px; }
-      .poster-section .poster-img { max-height: 420px; border-radius: 6px; }
-      .poster-section .poster-caption { font-size: .95rem; padding: 0 .6rem; }
-    }
-
     /* ══════════════════════════════════════
        NAV
     ══════════════════════════════════════ */
@@ -1289,10 +1241,10 @@
 <!-- ═══ NAV ═══ -->
 <nav id="nav">
   <a class="nav-logo" href="#">
-    <img src="logo/AdemLogo.png" alt="Kapadokya'da Rüya Logo" />
+    <img src="logo/AdemLogo.png" alt="Kapadokya'da Rüya Logo" data-i18n-alt="nav.logoAlt" />
     <div class="nav-logo-text">
-      <span class="nav-logo-title">KAPADOKYA'DA</span>
-      <span class="nav-logo-sub">Rüya</span>
+      <span class="nav-logo-title" data-i18n="nav.brandTitle">KAPADOKYA'DA</span>
+      <span class="nav-logo-sub" data-i18n="nav.brandSub">Rüya</span>
     </div>
   </a>
   <ul class="nav-links">
@@ -1311,15 +1263,6 @@
     <span id="langLabel-en">EN</span>
   </button>
 </nav>
-
-<!-- Poster section (inserted) -->
-<section class="poster-section">
-  <img class="poster-img" src="res/türkceafis.png" alt="Kapadokya Afişi">
-  <div class="poster-caption">
-    <strong data-i18n="poster.title">Kapadokya Aktiviteleri</strong>
-    <div data-i18n="poster.desc">Bu sayfa Kapadokya'da sunulan turlar, ATV & atlı safariler, tarihi ve yeraltı gezileri ile deneyimleri tanıtmak içindir. Aşağıya kaydırarak her aktivitenin detaylarına ulaşabilirsiniz.</div>
-  </div>
-</section>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
@@ -1894,7 +1837,7 @@
 
   <!-- 2 Günlük Program -->
   <div class="tur-panel" id="tur-program">
-    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;">
+    <p class="reveal" style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--brown-mid); margin-bottom:3rem; max-width:560px; margin-left:auto; margin-right:auto;" data-i18n="day.program.intro">
       Kırmızı ve Yeşil tur bileşimi; kısıtlı zamanı en verimli şekilde değerlendiren optimize program.
     </p>
     <div class="tur-days reveal">
@@ -1905,50 +1848,50 @@
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">GÜNBATIMI (OPSİYONEL)</span>
-              <span class="tur-day-item-text">Sıcak Hava Balon Turu ile vadilerin üzerinden süzülüş</span>
+              <span class="tur-day-item-time" data-i18n="day1.item1.time">GÜNBATIMI (OPSİYONEL)</span>
+              <span class="tur-day-item-text" data-i18n="day1.item1.text">Sıcak Hava Balon Turu ile vadilerin üzerinden süzülüş</span>
             </div>
           </li>
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">SABAH</span>
-              <span class="tur-day-item-text">Uçhisar Kalesi altında panoramik fotoğraf molası</span>
+              <span class="tur-day-item-time" data-i18n="day1.item2.time">SABAH</span>
+              <span class="tur-day-item-text" data-i18n="day1.item2.text">Uçhisar Kalesi altında panoramik fotoğraf molası</span>
             </div>
           </li>
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">MÜZE</span>
-              <span class="tur-day-item-text">Göreme Açık Hava Müzesi'ndeki tarihi kilise ve freskler</span>
+              <span class="tur-day-item-time" data-i18n="day1.item3.time">MÜZE</span>
+              <span class="tur-day-item-text" data-i18n="day1.item3.text">Göreme Açık Hava Müzesi'ndeki tarihi kilise ve freskler</span>
             </div>
           </li>
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">VADİ</span>
-              <span class="tur-day-item-text">Aşk Vadisi Seyir Tepesi'nde silindirik yapıların izlenmesi</span>
+              <span class="tur-day-item-time" data-i18n="day1.item4.time">VADİ</span>
+              <span class="tur-day-item-text" data-i18n="day1.item4.text">Aşk Vadisi Seyir Tepesi'nde silindirik yapıların izlenmesi</span>
             </div>
           </li>
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">ÖĞLE</span>
-              <span class="tur-day-item-text">Avanos'ta testi kebabı tadımı ve çark başında çömlek yapımı</span>
+              <span class="tur-day-item-time" data-i18n="day1.item5.time">ÖĞLE</span>
+              <span class="tur-day-item-text" data-i18n="day1.item5.text">Avanos'ta testi kebabı tadımı ve çark başında çömlek yapımı</span>
             </div>
           </li>
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">ÖĞLEDEN SONRA</span>
-              <span class="tur-day-item-text">Paşabağları'nda şapkalı peribacaları arasında yürüyüş</span>
+              <span class="tur-day-item-time" data-i18n="day1.item6.time">ÖĞLEDEN SONRA</span>
+              <span class="tur-day-item-text" data-i18n="day1.item6.text">Paşabağları'nda şapkalı peribacaları arasında yürüyüş</span>
             </div>
           </li>
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">GÜN SONU</span>
-              <span class="tur-day-item-text">Devrent Vadisi'ndeki doğal figürlerin keşfi ve otele dönüş</span>
+              <span class="tur-day-item-time" data-i18n="day1.item7.time">GÜN SONU</span>
+              <span class="tur-day-item-text" data-i18n="day1.item7.text">Devrent Vadisi'ndeki doğal figürlerin keşfi ve otele dönüş</span>
             </div>
           </li>
         </ul>
@@ -1960,43 +1903,43 @@
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">BAŞLANGIÇ</span>
-              <span class="tur-day-item-text">Göreme Panoramik Seyir Tepesi'nde vadi manzarası</span>
+              <span class="tur-day-item-time" data-i18n="day2.item1.time">BAŞLANGIÇ</span>
+              <span class="tur-day-item-text" data-i18n="day2.item1.text">Göreme Panoramik Seyir Tepesi'nde vadi manzarası</span>
             </div>
           </li>
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">YER ALTI</span>
-              <span class="tur-day-item-text">Derinkuyu veya Kaymaklı Yeraltı Şehri'nde tarihi tüneller</span>
+              <span class="tur-day-item-time" data-i18n="day2.item2.time">YER ALTI</span>
+              <span class="tur-day-item-text" data-i18n="day2.item2.text">Derinkuyu veya Kaymaklı Yeraltı Şehri'nde tarihi tüneller</span>
             </div>
           </li>
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">DOĞA YÜRÜYÜŞÜ</span>
-              <span class="tur-day-item-text">Ihlara Vadisi'nde nehir kenarında ağaçlar arasında yürüyüş</span>
+              <span class="tur-day-item-time" data-i18n="day2.item3.time">DOĞA YÜRÜYÜŞÜ</span>
+              <span class="tur-day-item-text" data-i18n="day2.item3.text">Ihlara Vadisi'nde nehir kenarında ağaçlar arasında yürüyüş</span>
             </div>
           </li>
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">ÖĞLE</span>
-              <span class="tur-day-item-text">Belisırma Köyü'nde su üzerine kurulu localarda yemek molası</span>
+              <span class="tur-day-item-time" data-i18n="day2.item4.time">ÖĞLE</span>
+              <span class="tur-day-item-text" data-i18n="day2.item4.text">Belisırma Köyü'nde su üzerine kurulu localarda yemek molası</span>
             </div>
           </li>
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">TARİHİ YAPI</span>
-              <span class="tur-day-item-text">Selime Katedrali'ndeki devasa manastır kompleksinin incelenmesi</span>
+              <span class="tur-day-item-time" data-i18n="day2.item5.time">TARİHİ YAPI</span>
+              <span class="tur-day-item-text" data-i18n="day2.item5.text">Selime Katedrali'ndeki devasa manastır kompleksinin incelenmesi</span>
             </div>
           </li>
           <li class="tur-day-item">
             <span class="tur-day-dot"></span>
             <div>
-              <span class="tur-day-item-time">AKŞAM (ALTERNATİF)</span>
-              <span class="tur-day-item-text">Kızılçukur gün batımı yürüyüşü · ATV Safari · Türk Gecesi</span>
+              <span class="tur-day-item-time" data-i18n="day2.item6.time">AKŞAM (ALTERNATİF)</span>
+              <span class="tur-day-item-text" data-i18n="day2.item6.text">Kızılçukur gün batımı yürüyüşü · ATV Safari · Türk Gecesi</span>
             </div>
           </li>
         </ul>
@@ -2376,10 +2319,18 @@
     tr: {
       'nav.about': 'HAKKIMIZDA', 'nav.experiences': 'DENEYİMLER', 'nav.tours': 'VIP TURLAR',
       'nav.programs': 'TUR PROGRAMLARI', 'nav.gallery': 'GALERİ', 'nav.guides': 'REHBERLERİ',
+      'nav.logoAlt': 'Kapadokya\'da Rüya Logo', 'nav.brandTitle': 'KAPADOKYA\'DA', 'nav.brandSub': 'Rüya',
+      'poster.alt': 'Kapadokya afişi',
+      'page.title': "Kapadokya'da Rüya | VIP Tur & Balon Deneyimi",
+      'meta.description': "Kapadokya'nın efsanevi Kırmızı, Yeşil ve Mavi turları ile sıcak hava balonu deneyimi. SHGM onaylı pilotlar, transfer hizmeti ve gün doğumu uçuşları. Detaylı rehber.",
+      'meta.ogTitle': "Kapadokya'da Rüya | VIP Tur & Balon Deneyimi",
+      'meta.ogDescription': "Kırmızı, Yeşil ve Mavi turların tam karşılaştırması. SHGM lisanslı balon turu rehberi, fiyatlar ve sezon tavsiyesi.",
       'hero.eyebrow': "KAPADOKYA'NIN KALBİNDE",
       'hero.title': "Kapadokya'da<br/><em>Rüya</em>",
       'hero.tagline': 'Peri bacalarının arasında, gökyüzüne uzanan bir deneyim…',
       'hero.cta': 'DENEYİMLERİ KEŞFET', 'hero.scroll': 'KEŞFET',
+      'poster.title': 'Kapadokya Aktiviteleri',
+      'poster.desc': "Bu sayfa Kapadokya'da sunulan turlar, ATV & atlı safariler, tarihi ve yeraltı gezileri ile deneyimleri tanıtmak içindir. Aşağıya kaydırarak her aktivitenin detaylarına ulaşabilirsiniz.",
       'about.label': 'HAKKIMIZDA',
       'about.title': "Taşın içine<br/>işlenmiş bir <em>rüya</em>",
       'about.body1': "Kapadokya'nın eşsiz doğasında, yüzyıllık kaya oluşumlarının arasında, size özel bir dünya kuruyoruz. Her köşesi özenle tasarlanan mekanlarımızda geçmişin derinliğini ve lüksün konforunu bir arada yaşayabilirsiniz.",
@@ -2429,6 +2380,13 @@
       'mavi.s4.title': 'SOĞANLI VADİSİ', 'mavi.s4.text': 'Kubbeli kaya kiliseleri ve meşhur bez bebekleriyle otantik bir vadi deneyimi.',
       'mavi.s5.title': 'KAYMAKLI YERALTI ŞEHRİ', 'mavi.s5.text': 'Dar tüneller ve havalandırma sistemleriyle büyüleyen yeraltı yapısı.',
       'day1.label': '1. GÜN', 'day1.title': "Kapadokya'nın Kalbi",
+      'day1.item1.time': 'GÜNBATIMI (OPSİYONEL)', 'day1.item1.text': 'Sıcak Hava Balon Turu ile vadilerin üzerinden süzülüş',
+      'day1.item2.time': 'SABAH', 'day1.item2.text': 'Uçhisar Kalesi altında panoramik fotoğraf molası',
+      'day1.item3.time': 'MÜZE', 'day1.item3.text': "Göreme Açık Hava Müzesi'ndeki tarihi kilise ve freskler",
+      'day1.item4.time': 'VADİ', 'day1.item4.text': "Aşk Vadisi Seyir Tepesi'nde silindirik yapıların izlenmesi",
+      'day1.item5.time': 'ÖĞLE', 'day1.item5.text': "Avanos'ta testi kebabı tadımı ve çark başında çömlek yapımı",
+      'day1.item6.time': 'ÖĞLEDEN SONRA', 'day1.item6.text': "Paşabağları'nda şapkalı peribacaları arasında yürüyüş",
+      'day1.item7.time': 'GÜN SONU', 'day1.item7.text': "Devrent Vadisi'ndeki doğal figürlerin keşfi ve otele dönüş",
       'day2.label': '2. GÜN', 'day2.title': 'Yeraltı Gizemleri & Doğa',
       'rehber.featured': 'ÖNE ÇIKAN ÖZET', 'rehber.faq': 'SIKÇA SORULAN SORULAR',
       'rturlar.label': 'KAPPADOKYA TUR REHBERİ',
@@ -2510,10 +2468,18 @@
     en: {
       'nav.about': 'ABOUT US', 'nav.experiences': 'EXPERIENCES', 'nav.tours': 'VIP TOURS',
       'nav.programs': 'TOUR PROGRAMS', 'nav.gallery': 'GALLERY', 'nav.guides': 'GUIDES',
+      'nav.logoAlt': 'A Dream in Cappadocia Logo', 'nav.brandTitle': 'A DREAM IN', 'nav.brandSub': 'Cappadocia',
+      'poster.alt': 'Cappadocia poster',
+      'page.title': 'A Dream in Cappadocia | VIP Tours & Balloon Experience',
+      'meta.description': 'Legendary Red, Green and Blue tours in Cappadocia with hot air balloon experiences. SHGM-approved pilots, transfer service and sunrise flights. Detailed guide.',
+      'meta.ogTitle': 'A Dream in Cappadocia | VIP Tours & Balloon Experience',
+      'meta.ogDescription': 'Complete comparison of Red, Green and Blue tours. SHGM-licensed balloon tour guide, prices and season advice.',
       'hero.eyebrow': 'IN THE HEART OF CAPPADOCIA',
       'hero.title': 'A Dream<br/>in <em>Cappadocia</em>',
       'hero.tagline': 'Among fairy chimneys, an experience reaching towards the sky…',
       'hero.cta': 'DISCOVER EXPERIENCES', 'hero.scroll': 'EXPLORE',
+      'poster.title': 'Cappadocia Activities',
+      'poster.desc': 'This page presents tours, safaris, historical and underground experiences available in Cappadocia. Scroll down to discover each activity in detail.',
       'about.label': 'ABOUT US',
       'about.title': 'A dream<br/>carved in <em>stone</em>',
       'about.body1': "In Cappadocia's unique nature, among centuries-old rock formations, we create a world designed just for you. In our carefully crafted spaces, you can experience the depth of the past and the comfort of luxury together.",
@@ -2650,8 +2616,137 @@
       'hero.cta': 'اكتشف التجارب', 'hero.scroll': 'استكشف',
       'poster.title': 'أنشطة كابادوكيا',
       'poster.desc': 'تعرض هذه الصفحة الجولات والرحلات وورش العمل والخبرات المتاحة في كابادوكيا. مرّ للأسفل لرؤية التفاصيل.',
+      'about.label': 'معلومات عنا',
+      'about.title': 'حلم<br/>منحوت<br/><em>في الحجر</em>',
+      'about.body1': 'في طبيعة كابادوكيا الفريدة، بين تشكيلات الصخور التي تعود لقرون، نخلق عالمًا خصيصًا لك. في مساحاتنا المصممة بعناية، يمكنك أن تختبر عمق الماضي وراحة الفخامة معًا.',
+      'about.body2': 'في وديان كابادوكيا الهادئة، وبين الصخور التي يغطيها غسق الشمس الذهبية، يلتقي مكاننا بك بالتاريخ والطبيعة. الفجر الذي تشاهده من منطاد الهواء الساخن، وأطباق المنطقة المحلية المليئة بالنكهات… حلم في كابادوكيا ليست رحلة فقط؛ إنها تجربة حياة.',
+      'about.stat1num': 'فريد', 'about.stat1label': 'مسارات متنوعة',
+      'about.stat2label': 'سنوات خبرة', 'about.stat3label': 'لحظات',
+      'exp.label': 'التجارب', 'exp.title': 'دعنا نلتقي<br/><em>في حلمك</em>',
+      'exp.subtitle': 'كل لحظة، كل إحساس، كل نفس — مصممة لاكتشاف سحر كابادوكيا من زاوية مختلفة.',
+      'exp1.title': 'منطاد هواء ساخن', 'exp1.text': 'اصعد إلى السماء عند الفجر. كن جزءًا من لحظة لا تُنسى وأنت تشاهد وديان كابادوكيا من منظور عين الطائر. كل صباح أفق جديد، حلم جديد.',
+      'exp2.title': 'جولات الوادي', 'exp2.text': 'جولات طبيعية مع مرشد في وادي الحمام، وادي التل الأحمر وادي إهلارا. ضِع نفسك ثم اعثر على نفسك بين تكوينات الصخور الملونة.',
+      'exp3.title': 'ورشة الفخار', 'exp3.text': 'تعلم فن الفخار التقليدي مع أساتذة أفانوس. شكّل الأرض بيديك وحمِل روح كابادوكيا في لمساتك.',
+      'exp4.title': 'ورشة أونيكس كابادوكيا (حجر)', 'exp4.text': 'عروض حية لكيفية معالجة الأونيكس والسلطانيت والأحجار الكريمة الأخرى المحلية، واكتشاف المنتجات المصنوعة يدويًا.',
+      'exp5.title': 'تذوّق محلي', 'exp5.text': 'تذوّق منتجات كابادوكيا المحلية وعِش رقصة الأرض والنكهة.',
+      'rooms.label': 'جولاتنا المميزة', 'rooms.title': 'ابحث عن<br/><em>السلام في الحجر</em>',
+      'room1.tag': 'الجولة الحمراء', 'room1.name': 'مسار شمال كابادوكيا',
+      'room1.desc': 'يشمل هذا المسار أكثر تكوينات مداخن الجنيات شهرةً في قلب كابادوكيا، وتقع على مسافات قريبة نسبيًا من بعضها البعض.',
+      'room2.tag': 'الجولة الخضراء', 'room2.name': 'مسار جنوب غرب كابادوكيا',
+      'room2.desc': 'الجولة الخضراء هي مسار أطول يركز على المشي في الطبيعة واستكشاف العالم تحت الأرض العميق داخل كابادوكيا.',
+      'room3.tag': 'الجولة الزرقاء', 'room3.name': 'مسار جنوب كابادوكيا',
+      'room3.desc': 'مثالية لمن يبحث عن مسار أكثر هدوءًا وأقل ازدحامًا وأكثر أصالة مقارنة بالجولتين الحمراء والخضراء. يشمل في الغالب قرى يونانية قديمة ووديان أقل شهرة.',
+      'nav.logoAlt': 'شعار حلم في كابادوكيا', 'nav.brandTitle': 'حلم', 'nav.brandSub': 'في كابادوكيا',
+      'poster.alt': 'ملصق كابادوكيا',
+      'page.title': 'حلم في كابادوكيا | جولات مميزة وتجربة منطاد هواء ساخن',
+      'meta.description': 'جولات حمراء وخضراء وزرقاء أسطورية في كابادوكيا مع تجربة منطاد الهواء الساخن. طيارون معتمدون SHGM، خدمة نقل ورحلات شروق الشمس. دليل تفصيلي.',
+      'meta.ogTitle': 'حلم في كابادوكيا | جولات مميزة وتجربة منطاد هواء ساخن',
+      'meta.ogDescription': 'مقارنة كاملة للجولات الحمراء والخضراء والزرقاء. دليل جولات منطاد معتمد SHGM، الأسعار وتوصية الموسم.',
+      'quote.text': '"كابادوكيا هدية فريدة منحها الله للبشرية. ونحن بدورنا نخلق لكم مغامرة خاصة بداخلها."',
+      'quote.author': 'حلم في كابادوكيا',
+      'gallery.label': 'المعرض', 'gallery.title': 'اشعر به<br/>بعيونك',
+      'gallery.g1': 'بالون الفجر', 'gallery.g2': 'الاستيقاظ الصباحي', 'gallery.g3': 'كباب الفخار', 'gallery.g4': 'سفاري ATV',
+      'tur.label': 'مسارات وبرامج الجولات', 'tur.title': 'اكتشف<br/><em>كابادوكيا</em>',
+      'tur.subtitle': 'بملمسها التاريخي وغناها الجيولوجي، تحكي كابادوكيا قصة جديدة في كل مسار.',
+      'tur.tab1': '● الجولة الحمراء', 'tur.tab2': '● الجولة الخضراء', 'tur.tab3': '● الجولة الزرقاء', 'tur.tab4': '🗓 برنامج لمدة يومين',
+      'kirmizi.intro': 'قلب كابادوكيا — المسار الشمالي مع مداخن الجنيات الأيقونية والوديان.',
+      'kirmizi.s1.title': 'قلعة أوشيسار', 'kirmizi.s1.text': 'أعلى نقطة في المنطقة؛ قلعة صخرية طبيعية توفر مناظر بانورامية.',
+      'kirmizi.s2.title': 'متحف غوريم في الهواء الطلق', 'kirmizi.s2.text': 'موقع تراث عالمي لليونسكو؛ كنائس منحوتة في الصخور وجصوص تاريخية.',
+      'kirmizi.s3.title': 'وادي الحب', 'kirmizi.s3.text': 'وادي باغلديري الشهير بمداخنه الأسطوانية الضخمة.',
+      'kirmizi.s4.title': 'ورش فخار أفانوس', 'kirmizi.s4.text': 'تجربة فن الحرف الحثية التقليدي بالطين من نهر قيزلرماك.',
+      'kirmizi.s5.title': 'وادي باشاباغ', 'kirmizi.s5.text': 'الوادي الراهب بمداخن الجنيات ذات القبعات الفطرية وغرفة القديس سمعان.',
+      'kirmizi.s6.title': 'وادي ديفرنت', 'kirmizi.s6.text': 'وادي الخيال مع تكوينات صخرية طبيعية تشبه أشكال الحيوانات.',
+      'yesil.intro': 'المسار الجنوب غربي الذي يركز على المشي في الطبيعة والمدن تحت الأرض العميقة.',
+      'yesil.s1.title': 'نقطة عرض غوريم البانورامية', 'yesil.s1.text': 'مشهد وادي من أعلى نقطة إسنتبه.',
+      'yesil.s2.title': 'مدينة ديرنكوي تحت الأرض', 'yesil.s2.text': 'أعمق وأكبر مستوطنة تحت الأرض في المنطقة؛ رحلة إلى أعماق التاريخ.',
+      'yesil.s3.title': 'وادي إهلارا', 'yesil.s3.text': 'مسير طبيعي 3-4 كم بجانب كنائس منحوتة في الصخور على ضفاف نهر ميلينديز.',
+      'yesil.s4.title': 'قرية بليسيرما', 'yesil.s4.text': 'غداء واستراحة بجانب النهر؛ نكهات كابادوكيا الأصيلة.',
+      'yesil.s5.title': 'كاتدرائية سليم', 'yesil.s5.text': 'أكبر مجمع دير منحوت في الصخور؛ وليمة معمارية رائعة.',
+      'yesil.s6.title': 'وادي الحمام', 'yesil.s6.text': 'وقف بانورامي حيث يمكن رؤية آلاف المنازل الخاصة بالحمام التاريخي.',
+      'mavi.intro': 'للباحثين عن الهدوء؛ المسار الأصيل للقرى اليونانية القديمة والوديان الأقل اكتشافًا.',
+      'mavi.s1.title': 'موستفاباشا (سيناسوس)', 'mavi.s1.text': 'مدينة يونانية قديمة شهيرة ببيوتها التاريخية وحرفيتها الحجرية.',
+      'mavi.s2.title': 'دير كيشليك', 'mavi.s2.text': 'مجمع دير معروف بكنائسه المزخرفة وقاعة طعامه الكبيرة.',
+      'mavi.s3.title': 'شاهين إفندي (سوبسوس)', 'mavi.s3.text': 'حمامات فسيفسائية وأطلال بازيليكا تعود للعصر الروماني.',
+      'mavi.s4.title': 'وادي سوانلي', 'mavi.s4.text': 'تجربة وادي أصيلة بكنائس الصخور ذات القباب ودمى القماش المشهورة.',
+      'mavi.s5.title': 'مدينة كايماكلي تحت الأرض', 'mavi.s5.text': 'بنية تحت الأرض مثيرة للإعجاب مع أنفاق ضيقة وأنظمة تهوية.',
+      'day1.label': 'اليوم الأول', 'day1.title': 'قلب كابادوكيا',
+      'day2.label': 'اليوم الثاني', 'day2.title': 'ألغاز تحت الأرض والطبيعة',
+      'rehber.featured': 'الملخص المميز', 'rehber.faq': 'الأسئلة المتكررة',
+      'rturlar.label': 'دليل جولات كابادوكيا',
+      'rturlar.h1': 'ما الجولة التي يجب أن تشارك فيها في كابادوكيا؟<br/><em>مقارنة الجولة الحمراء والخضراء والزرقاء</em>',
+      'rturlar.snippet': 'جولات كابادوكيا الحمراء والخضراء والزرقاء هي جولات يومية مع مرشدين محترفين تغطي أكثر الوديان الأيقونية والمدن تحت الأرض ومداخن الجنيات في المنطقة. كل جولة تستهدف منطقة جغرافية وقوة تجربة مختلفة — الاختيار الصحيح يحدد كيف تقضي وقتك مباشرة.',
+      'rturlar.h2.red': 'الجولة الحمراء: المسار الشمالي الكلاسيكي لكابادوكيا',
+      'rturlar.red.p1': 'الجولة الحمراء هي المسار الذي يفضله معظم الزوار لأول مرة في كابادوكيا. تنطلق من غوريم الساعة 09:30، وتشمل متحف غوريم بالحياة المفتوحة، قلعة أوشيسار، مداخن الجنيات في باشاباغ ووادي ديفرنت. المشهد البانورامي لجبال إرجيس من قمة أوشيسار هو أكثر لقطات الجولة الحمراء تصويرًا.',
+      'rturlar.red.p2': 'المسافة حوالي 65 كيلومترًا، وتستغرق الجولة متوسط 7-8 ساعات. مستوى اللياقة المتوسط كافٍ.',
+      'rturlar.h3.photo': 'أفضل أوقات التصوير الفوتوغرافي',
+      'rturlar.photo.p': 'يمكن التقاط "الساعة الذهبية" بين 07:00-08:30 في وادي التل الأحمر. بما أن هذه الفترة خارج جدول الجولة القياسي، فإن التخطيط للمشي المستقل في الصباح الباكر يضاعف التجربة.',
+      'rturlar.h2.green': 'الجولة الخضراء: رحلة إلى عالم تحت الأرض ووادي إهلارا',
+      'rturlar.green.p1': 'الجولة الخضراء هي المسار الأكثر تحديًا من الناحية البدنية الذي يمتد إلى جنوب غرب كابادوكيا. يشكل المشي لمدة 3-4 ساعات عبر وادي إهلارا، ودير سليم، ومدينة ديرنكوي تحت الأرض العمود الفقري لهذه الجولة. قد تصل مدة المسار الكلية إلى 9-10 ساعات.',
+      'rturlar.green.p2': 'أثناء السير على طول نهر ميلينديز في وادي إهلارا، تُرى كنائس من العصر البيزنطي منحوتة في جدران الوادي. جودة حفظ الجداريات من القرن التاسع تتجاوز العديد من المتاحف المغلقة.',
+      'rturlar.h3.safety': 'الأمان في المدن تحت الأرض',
+      'rturlar.safety.p': 'ديرنكوي تهبط إلى عمق 8 طوابق وتحتوي على ممرات ضيقة. يُنصح الزوار الذين يعانون من رهاب الأماكن المغلقة بإبلاغ المرشد مسبقًا. الأحذية المغلقة والمتينة ضرورية.',
+      'rturlar.h2.blue': 'الجولة الزرقاء: مسار جنوبي هادئ وأصيل وأقل اكتشافًا',
+      'rturlar.blue.p1': 'الجولة الزرقاء تتبع المحور الجنوبي لكابادوكيا وتمثل المسار الأبعد عن الحشود. تعد مدينة موستفاباشا ووادي سوانلي وبحيرة نار أهم محطاتها. تستضيف عددًا أقل بكثير من السياح مقارنة بالجولتين الحمراء والخضراء — هذا ميزة كبيرة من حيث التصوير الجوي والأجواء.',
+      'rturlar.blue.p2': 'كنائس الصخور في وادي سوانلي ليست أقل معماريًا من غوريم المدرجة في اليونسكو، حتى وإن كانت أقل شهرة. قد يكون من الممكن استكشاف الوادي بأكمله بمجموعة صغيرة فقط.',
+      'rturlar.h2.compare': 'مقارنة سريعة بين الجولات الثلاث',
+      'rturlar.h2.transfer': 'خدمة النقل وتوصية الموسم',
+      'rturlar.transfer.p1': 'تبدأ الجولات الثلاث مع النقل من الفندق في الصباح. النقل من غوريم وأفانوس وأورغوب وموستفاباشا هو قياسي. يمكن أيضًا ترتيب نقل متكامل من المطار إلى الفندق وإلى الجولة للقادمين من مطار قيصري أو نيفşehir.',
+      'rturlar.transfer.p2': 'أفضل الفترات هي مايو-يونيو وسبتمبر-أكتوبر. تمتد موسم المناطيد من أبريل إلى نوفمبر. لأولئك الذين يرغبون في دمج الجولة مع المنطاد، يعد مايو وأكتوبر نقطة توازن مثالية: لا ازدحام صيفي ولا غموض الشتاء.',
+      'rturlar.faq1.q': 'ما الجولة التي يجب أن أبدأ بها أولاً؟', 'rturlar.faq1.a': 'إذا كانت هذه زيارتك الأولى، يُنصح بأن تبدأ بالجولة الحمراء. تساعدك على فهم الجغرافيا الأساسية وتوفر سياقًا للجولات الأخرى.',
+      'rturlar.faq2.q': 'هل تُلغى الجولات في الطقس الممطر؟', 'rturlar.faq2.a': 'لا يُعتبر المطر الخفيف سببًا للإلغاء؛ تستمر الجولات. في حالة العواصف الشديدة، يتم إبلاغك صباح الجولة وتُعرض عليك تاريخًا بديلاً.',
+      'rturlar.faq3.q': 'هل الجولة الخضراء شاقة جسديًا؟', 'rturlar.faq3.a': 'مسيرة وادي إهلارا تمتد 3-4 كم على أرض مسطحة. يُنصح الأشخاص الذين يعانون من مشاكل مزمنة في الركبة أو الورك بالتشاور مسبقًا. تتوفر نسخة أقصر للمشاركين فوق 65 عامًا.',
+      'rturlar.faq4.q': 'هل يمكن للأطفال المشاركة في الجولات؟', 'rturlar.faq4.a': 'يمكن للأطفال فوق 8 سنوات الانضمام إلى الجولات الحمراء والزرقاء بسهولة. يُوصى بالعمر 10 سنوات فأكثر للجولة الخضراء؛ ممرات ديرنكوي الضيقة قد تكون مرهقة للأطفال الصغار.',
+      'rturlar.cta.p': 'هل أنت مستعد لاكتشاف وديان كابادوكيا الفريدة مع جولة موجهة؟', 'rturlar.cta.btn': 'استكشف برامج الجولات',
+      'rbalon.label': 'دليل منطاد الهواء الساخن',
+      'rbalon.h1': 'منطاد الهواء الساخن في كابادوكيا:<br/><em>مداخن الجنيات من السماء عند شروق الشمس</em>',
+      'rbalon.snippet': 'جولة منطاد الهواء الساخن في كابادوكيا هي تجربة طيران تستمر عادة 60-90 دقيقة وتبدأ قبل شروق الشمس عبر مشغلين حاصلين على ترخيص SHGM. تصعد المناطيد فوق حديقة غوريم الوطنية وتعرض وادي التل الأحمر، وادي الحمام، وسيلوي مداخن الجنيات في إطار واحد. العامل الأكثر أهمية لتحديد ما إذا كان الرحلة ستُجرى هو سرعة الرياح.',
+      'rbalon.h2.why': 'لماذا يعد منطاد كابادوكيا أفضل وجهة في العالم؟',
+      'rbalon.why.p1': 'تُجرى رحلات مناطيد في المئات من الأماكن حول العالم — لكن كابادوكيا تقف في فئة منفصلة. السبب ليس فقط القوة الجمالية لمداخن الجنيات؛ بل تيارات الهواء الحرارية الفريدة في المنطقة ورياح الصباح الهادئة نسبيًا.',
+      'rbalon.why.p2': 'يتراوح متوسط سرعة الرياح المقاسة في حوض غوريم خلال ساعات الصباح بين 3-12 كم/س. الحد القانوني للرحلة بموجب تنظيمات SHGM هو 25 كم/س. عندما يتجاوز هذا الحد، يجب على المشغلين إلغاء الرحلة — هذا القرار يتخذه الطيار، وليس السائح.',
+      'rbalon.h2.prices': 'أسعار جولات المنطاد في كابادوكيا 2025',
+      'rbalon.h2.safety': 'السلامة: لماذا ترخيص SHGM مهم؟',
+      'rbalon.safety.p1': 'الرحلات التجارية للمناطيد في تركيا تحت إشراف هيئة الطيران المدني. يجب أن يمتلك كل مشغل تجاري ترخيص تشغيل SHGM ساري المفعول، ويجب أن يمتلك الطيارون شهادة إتمام ما لا يقل عن 35 رحلة تجارية. الاستعلام عن حالة ترخيص المشغل قبل الحجز هو حقك وضروري لسلامتك.',
+      'rbalon.safety.p2': 'تخضع المناطيد لفحص فني قبل كل رحلة؛ يتم التحقق من نظام الموقد، وسعة البروبان، وصلات السلة عبر قائمة فحص. في حالة تغير الطقس غير المتوقع، يمكن للطيار تغيير منطقة الهبوط في الوقت الحقيقي.',
+      'rbalon.h2.season': 'أفضل موسم وتقويم سرعة الرياح',
+      'rbalon.h2.pack': 'ما الذي يجب أن تحضره معك',
+      'rbalon.h2.integrate': 'أدمج رحلة المنطاد في جدولك في كابادوكيا',
+      'rbalon.integrate.p1': 'تنتهي جولة المنطاد تقريبًا في الساعة 08:30-09:00. هذا الوقت مثالي لاستخدام بقية اليوم بكفاءة. بعد إكمال الرحلة الصباحية، يمكنك المتابعة مع أحد مسارات الجولة الحمراء أو الخضراء أو الزرقاء. سترى كل جوانب كابادوكيا من الجو والأرض في يوم واحد.',
+      'rbalon.integrate.p2': 'تُقدَّم خدمة النقل مباشرةً من الفندق. يمكن أيضًا ترتيب نقل متكامل من المطار إلى الفندق وإلى الجولة للقادمين من مطار قيصري أو نيفşehir.',
+      'rbalon.faq1.q': 'هل سيُعاد لي المبلغ إذا تم إلغاء رحلة المنطاد؟', 'rbalon.faq1.a': 'في حالة إلغاء الرحلة من قبل المشغل بسبب الطقس، يُعد الاسترداد الكامل أو عرض تاريخ بديل متطلبًا قانونيًا. تُطبق سياسة الإلغاء الخاصة بالمشغل على الإلغاءات التي يقوم بها الزائر.',
+      'rbalon.faq2.q': 'هل هناك حد أدنى للعمر؟', 'rbalon.faq2.a': 'لا تسمح معظم المشغلين بدخول الأطفال الذين تبلغ أعمارهم 6 سنوات وما دون إلى السلة. الموافقة الأبوية إجبارية للأعمار من 6 إلى 12. لا يُنصح بالرحلة للنساء الحوامل.',
+      'rbalon.faq3.q': 'كم عدد الأشخاص الذين سأطير معهم؟', 'rbalon.faq3.a': 'تتسع السلات في الحزم القياسية لـ 16-20 شخصًا. للحصول على تجربة مجموعة صغيرة، يجب اختيار حزم الراحة أو VIP.',
+      'rbalon.faq4.q': 'هل هي مناسبة لمن يخافون من الأماكن العالية؟', 'rbalon.faq4.a': 'السلة بارتفاع نصف جدار مما يحد من رؤية الأرض. يكمل العديد من المشاركين الذين يعانون من رهاب الارتفاع الرحلة بدون مشكلة؛ الدقائق 2-3 الأولى حاسمة — أولئك الذين يجتازون هذا العتبة يكملون باقي الرحلة براحة.',
+      'rbalon.faq5.q': 'هل يمكنني التقاط صور بالطائرة بدون طيار؟', 'rbalon.faq5.a': 'مناطق رحلات المناطيد التجارية هي مجال جوي تحدده SHGM. تطير الطائرات بدون طيار بتصريح منفصل وهي خارج نطاق الجولة القياسية.',
+      'rbalon.cta.p': 'هل أنت مستعد لتجربة شروق الشمس فوق غوريم من السماء؟', 'rbalon.cta.btn': 'اكتشف التجارب',
       'footer.brand': 'في ظل مداخن الجنيات، تحت النجوم، في صوت الريح — بانتظاركم في قلب كابادوكيا.',
-      'footer.col1': 'استكشف', 'footer.col2': 'الخدمات', 'footer.col3': 'اتصال'
+      'footer.col1': 'استكشف', 'footer.col2': 'الخدمات', 'footer.col3': 'اتصال',
+      'footer.about': 'معلومات عنا', 'footer.experiences': 'التجارب', 'footer.rooms': 'الغرف والأجنحة',
+      'footer.gallery': 'المعرض', 'footer.programs': 'برامج الجولات', 'footer.guide': 'دليل الجولات', 'footer.balloon': 'دليل المنطاد',
+      'footer.s1': 'منطاد هواء ساخن', 'footer.s2': 'عشاء خاص', 'footer.s3': 'سبا وحمام تركي', 'footer.s4': 'تنظيم الجولات',
+      'footer.copy': '© 2025 حلم في كابادوكيا. جميع الحقوق محفوظة.',
+      'tbl.th.feature': 'الميزة', 'tbl.th.redtour': 'الجولة الحمراء', 'tbl.th.greentour': 'الجولة الخضراء', 'tbl.th.bluetour': 'الجولة الزرقاء',
+      'tbl.duration': 'المدة', 'tbl.d78h': '7-8 ساعات', 'tbl.d910h': '9-10 ساعات', 'tbl.d89h': '8-9 ساعات',
+      'tbl.difficulty': 'الصعوبة', 'tbl.moderate': 'متوسطة', 'tbl.mod.hard': 'متوسطة-صعبة', 'tbl.easy.mod': 'سهلة-متوسطة',
+      'tbl.crowd': 'الازدحام', 'tbl.high': 'مرتفع', 'tbl.low': 'منخفض',
+      'tbl.highlight': 'التجربة البارزة', 'tbl.exp.red': 'مداخن الجنيات والمنظر البانورامي', 'tbl.exp.green': 'مدينة تحت الأرض والوادي', 'tbl.exp.blue': 'قرية أصيلة والهدوء',
+      'tbl.firsttime': 'للمرة الأولى', 'tbl.ideal': '✓ مثالي', 'tbl.conditional': '△ مشروط',
+      'tbl.th.package': 'الباقة', 'tbl.th.capacity': 'سعة السلة', 'tbl.th.price': 'نطاق السعر', 'tbl.th.includes': 'المتضمن',
+      'tbl.pkg.standard': 'الأساسي', 'tbl.60min': '60 دقيقة', 'tbl.p1620': '16-20 شخصًا', 'tbl.inc.standard': 'نقل، إفطار، شهادة',
+      'tbl.pkg.comfort': 'الراحة', 'tbl.75min': '75 دقيقة', 'tbl.p812': '8-12 شخصًا', 'tbl.inc.comfort': 'نقل، إفطار',
+      'tbl.pkg.vip': 'VIP / خاص', 'tbl.90min': '90 دقيقة', 'tbl.p24': '2-4 أشخاص', 'tbl.inc.vip': 'خاص بالكامل، قابل للتخصيص',
+      'tbl.th.period': 'الفترة', 'tbl.th.wind': 'متوسط سرعة الرياح', 'tbl.th.flightrate': 'نسبة الرحلات', 'tbl.th.notes': 'ملاحظات',
+      'tbl.jan.feb': 'يناير-فبراير', 'tbl.jan.feb.note': 'منظر ثلجي؛ خطر إلغاء مرتفع',
+      'tbl.mar.apr': 'مارس-أبريل', 'tbl.mar.apr.note': 'فترة انتقال الربيع',
+      'tbl.may.jun': 'مايو-يونيو', 'tbl.may.jun.note': 'أكثر فترات الاستقرار',
+      'tbl.jul.aug': 'يوليو-أغسطس', 'tbl.jul.aug.note': 'حار؛ أوقات انطلاق مبكرة',
+      'tbl.sep.oct': 'سبتمبر-أكتوبر', 'tbl.sep.oct.note': 'أفضل أشهر السنة',
+      'tbl.nov.dec': 'نوفمبر-ديسمبر', 'tbl.nov.dec.note': 'ألوان الخريف؛ متقلب',
+      'tbl.th.item': 'العنصر', 'tbl.th.required': 'مطلوب؟',
+      'tbl.shoes': 'حذاء مغلق من الأمام', 'tbl.req': 'مطلوب', 'tbl.shoes.note': 'لا يُسمح بالصنادل',
+      'tbl.layers': 'ملابس متعددة الطبقات', 'tbl.highly.rec': 'موصى به بشدة', 'tbl.layers.note': 'أبرد 4-6°C على ارتفاع 500 م',
+      'tbl.camera': 'هاتف / كاميرا مشحونة', 'tbl.recommended': 'موصى به', 'tbl.camera.note': 'يمكن التصوير طوال الرحلة',
+      'tbl.water': 'ماء', 'tbl.water.note': 'قد تشعر بالعطش خلال رحلة 90 دقيقة',
+      'tbl.sunglasses': 'نظارات شمسية', 'tbl.sunglasses.note': 'ضرورية لمواجهة شروق الشمس',
     }
   };
 
@@ -2674,6 +2769,21 @@
       if (t[key] !== undefined) el.innerHTML = t[key];
     });
 
+    // Update alt attributes on images
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+      const key = el.getAttribute('data-i18n-alt');
+      if (t[key] !== undefined) el.alt = t[key];
+    });
+
+    // Update document title and meta description / og tags
+    if (t['page.title']) document.title = t['page.title'];
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc && t['meta.description']) desc.content = t['meta.description'];
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle && t['meta.ogTitle']) ogTitle.content = t['meta.ogTitle'];
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc && t['meta.ogDescription']) ogDesc.content = t['meta.ogDescription'];
+
     // Update lang toggle labels
     const trLabel = document.getElementById('langLabel-tr');
     const arLabel = document.getElementById('langLabel-ar');
@@ -2682,22 +2792,13 @@
     if (arLabel) arLabel.classList.toggle('lang-active', currentLang === 'ar');
     if (enLabel) enLabel.classList.toggle('lang-active', currentLang === 'en');
 
-    // Swap poster image for Arabic
-    const poster = document.querySelector('.poster-img');
-    if (poster) {
-      poster.src = currentLang === 'ar' ? 'res/arabcaafis.png' : 'res/türkceafis.png';
-      poster.alt = currentLang === 'ar' ? 'أفيش كابادوكيا' : 'Kapadokya Afişi';
-    }
-
     // Direction and alignment
     if (currentLang === 'ar') {
       document.documentElement.lang = 'ar';
       document.documentElement.dir = 'rtl';
-      document.querySelectorAll('.poster-caption').forEach(c => c.style.textAlign = 'right');
     } else {
       document.documentElement.lang = currentLang;
       document.documentElement.dir = 'ltr';
-      document.querySelectorAll('.poster-caption').forEach(c => c.style.textAlign = 'center');
     }
   }
 
